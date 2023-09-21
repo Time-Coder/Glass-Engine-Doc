@@ -1,2 +1,3 @@
-# glass_engine_doc
-document for project glass_engine
+# Glass Engine Doc
+
+Documentation for project https://github.com/Time-Coder/Glass-Engine
