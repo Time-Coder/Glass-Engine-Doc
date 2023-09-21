@@ -3,8 +3,8 @@
 
 **Glass Engine** 是一个相当易用的 Python 3D 实时渲染引擎，完全免费开源。使用 **Glass Engine** 你可以轻松地在你的 Python 界面程序中嵌入可交互的 3D 画面。你可以从以下网址访问到项目代码和 PyPI 索引：
 
-- Github 项目主页：
-- Gitee 项目主页：
+- Github 项目主页：https://github.com/Time-Coder/Glass-Engine
+- Gitee 项目主页：https://gitee.com/time-coder/Glass-Engine
 - PyPI 索引：
 
 .. figure:: index/images/glass_engine_logo411.png
@@ -12,7 +12,6 @@
    :scale: 70%
    
    图 1. Glass Engine Logo
-
 
 一条命令 ``pip install glass_engine`` 即可完成对 **Glass Engine** 的安装，接下来，让我们通过一个简单例子来直观感受一下 **Glass Engine** 的使用过程：
 

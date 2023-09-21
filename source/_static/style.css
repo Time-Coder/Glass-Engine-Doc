@@ -1,3 +1,10 @@
 .wy-nav-content {
     max-width: 1000px !important;
 }
+
+@media (max-width: 480px) {  /* 适用于小屏幕设备，例如手机 */
+       img {
+           max-width: 100%;  /* 图像的最大宽度为屏幕宽度 */
+           height: auto;     /* 高度自动调整以保持纵横比 */
+       }
+   }
