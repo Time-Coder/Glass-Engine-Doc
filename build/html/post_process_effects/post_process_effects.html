@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>后处理效果 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="键鼠交互" href="../manipulators/manipulators.html" />
+    <link rel="prev" title="雾" href="../fog/fog.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">后处理效果</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ssao">SSAO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-bloom">泛光</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-explosure">曝光度调整</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hdr">HDR 色调映射</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lut">LUT 滤镜</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-dof">景深</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">快速近似抗锯齿</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-self-defined-ppe">自定义后处理效果</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">后处理效果</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/post_process_effects/post_process_effects.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="label-ppes">
+<span id="id1"></span><h1>后处理效果<a class="headerlink" href="#label-ppes" title="此标题的永久链接"></a></h1>
+<p>后处理是在渲染结束后对屏幕图像进行图像处理的技术，可以通过低廉的的成本大幅提升渲染品质。<strong>Glass Engine</strong> 内置了多种后处理效果，简称后效。在 <strong>Glass Engine</strong> 中，所有后效应该放入 <code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects</span></code> 字典中方可生效。该字典为有序字典，所有后效按先后顺序执行，其中已有了一些内置的后效，包括：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects[&quot;SSAO&quot;]</span></code>：SSAO 后效；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects[&quot;bloom&quot;]</span></code>：泛光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects[&quot;DOF&quot;]</span></code>：景深；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects[&quot;explosure_adaptor&quot;]</span></code>：曝光调整；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects[&quot;tone_mapper&quot;]</span></code>：色调映射；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.post_process_effects[&quot;FXAA&quot;]</span></code>：快速近似抗锯齿。</p></li>
+</ul>
+<p>这些内置后效可分别通过以下方式快捷访问到，而你自定义的则不能：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.SSAO</span></code>：SSAO 后效；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.bloom</span></code>：泛光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.DOF</span></code>：景深；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.explosure_adaptor</span></code>：曝光调整；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.tone_mapper</span></code>：色调映射；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.FXAA</span></code>：快速近似抗锯齿。</p></li>
+</ul>
+<p>接下来会详细介绍这些内置后效，并讲解如何添加自定义后效。</p>
+<section id="ssao">
+<h2>SSAO<a class="headerlink" href="#ssao" title="此标题的永久链接"></a></h2>
+<p>屏幕空间环境光遮蔽 (Screen-Space Ambient Occlusion, SSAO) 是 <strong>Glass Engine</strong> 内置的后效之一。它通过对墙角、褶皱处进行暗化处理来提升场景立体感。你可以通过 <code class="docutils literal notranslate"><span class="pre">camera.screen.SSAO</span> <span class="pre">=</span> <span class="pre">True</span></code> 来打开 SSAO，以及以下属性来控制 SSAO 的其他参数：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.SSAO.power:float</span></code>：SSAO 强度，用于控制 SSAO 区域的黑暗程度，值越大越暗，默认为 2.2，建议设置为大于 1 的值；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.SSAO.radius:float</span></code>：SSAO 探测半径，单位为米，用于控制 SSAO 暗区范围，值越大范围越大，默认为 0.2，建议设置在 0 到 1 之间；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.SSAO.samples:int</span></code>：SSAO 样本点数量，用于控制 SSAO 品质， 样本点个数越多，品质越高，但渲染效率越低，默认为 64。</p></li>
+</ul>
+<p>图 1 是关闭 SSAO 和开启 SSAO 的对比效果（场景来自于 <a class="reference external" href="../model/model.html">模型加载</a> 一章中加载的帆船内部），注意观察开启 SSAO 后的拐角处已变暗。</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/compare_SSAO.png"><img alt="SSAO 效果对比" src="../_images/compare_SSAO.png" style="width: 717.5px; height: 264.25px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 1. SSAO 关闭开启效果对比</span><a class="headerlink" href="#id8" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="label-bloom">
+<span id="id3"></span><h2>泛光<a class="headerlink" href="#label-bloom" title="此标题的永久链接"></a></h2>
+<p>如果你仔细观察过晚上的路灯的话你会发现，路灯会向周围发出光芒，如图 2 所示：</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/bloom_light.jpg"><img alt="泛光" src="../_images/bloom_light.jpg" style="width: 256.8px; height: 189.60000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 2. 夜间路灯会发出光芒（图片来自网络）</span><a class="headerlink" href="#id9" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>这种光芒效果称之为泛光 (Bloom)，在 <strong>Glass Engine</strong> 要想使物体产生泛光非常简单，只需遵循以下两步即可：</p>
+<ol class="arabic simple">
+<li><p>通过 <code class="docutils literal notranslate"><span class="pre">color</span></code> 或 <code class="docutils literal notranslate"><span class="pre">material.diffuse,</span> <span class="pre">material.emission</span></code> 等方法设置物体颜色值超过 1</p></li>
+<li><p>开启 <code class="docutils literal notranslate"><span class="pre">camera.screen</span></code> 的 <code class="docutils literal notranslate"><span class="pre">bloom</span></code> 属性：<code class="docutils literal notranslate"><span class="pre">camera.screen.bloom</span> <span class="pre">=</span> <span class="pre">True</span></code></p></li>
+</ol>
+<p>你还可以通过以下参数控制泛光强度：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.bloom.strength:float</span></code>：泛光强度，默认值为 0.5，建议设置在 0 到 1 之间</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.bloom.blur_times:int</span></code>：模糊次数，次数越多，泛光范围越大，默认为 6</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.screen.bloom.threshold:float</span></code>：泛光阈值，亮度超过该阈值的像素会产生泛光，默认为 1</p></li>
+</ul>
+<p>通过以下代码可以制作一个简单的泛光效果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="c1"># 设置颜色为极亮的黄色</span>
+<span class="n">sphere</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">bloom</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># 开启泛光</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>能够观察到开启与不开启泛光的效果如图 3 所示：</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/compare_bloom.png"><img alt="泛光对比" src="../_images/compare_bloom.png" style="width: 717.5px; height: 273.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 3. 开启与不开启泛光的对比</span><a class="headerlink" href="#id10" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="label-explosure">
+<span id="id4"></span><h2>曝光度调整<a class="headerlink" href="#label-explosure" title="此标题的永久链接"></a></h2>
+<p>当场景过亮时会产生过曝光，过暗时会产生欠曝光，为了能够人为的或自动的控制曝光度，可开启曝光调整后效，方法为 <code class="docutils literal notranslate"><span class="pre">camera.screen.explosure_adaptor</span> <span class="pre">=</span> <span class="pre">True</span></code>。开启后默认为自动调整曝光，类似于手机照相，通过点击屏幕，以击中的像素附近的亮度做为参考进行曝光调整，也可切换为手动调节曝光，方法为：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.auto_explosure:bool</span></code>：是否自动曝光，默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code>；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.explosure:float</span></code>：曝光度，默认为 1，仅当设置为手动曝光才生效；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.local_explosure:bool</span></code>：是否开启局部曝光适应，默认为关闭，仅当设置为自动曝光才生效。开启局部曝光适应后，在一帧图像里，过亮的区域会减少曝光，过暗的区域会增加曝光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.explosure_adapt_time:float</span></code>：曝光适应所需时间，单位为秒，默认为 2 秒，仅当设置为自动曝光且没有局部曝光适应才生效。</p></li>
+</ul>
+</section>
+<section id="hdr">
+<h2>HDR 色调映射<a class="headerlink" href="#hdr" title="此标题的永久链接"></a></h2>
+<p>当场景中有任何像素值超过 1 的像素时，即处在 HDR 色域范围，会导致过亮处失去细节，一般在多光源情况下会产生该种情况。如果单纯通过曝光调整不能达到很好的色彩效果时，可尝试开启 HDR 色调映射，方法为 <code class="docutils literal notranslate"><span class="pre">camera.screen.tone_mapper</span> <span class="pre">=</span> <span class="pre">True</span></code> 其没有任何用户可操作的参数。图 4 为关闭开启色调映射的对比：</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/compare_tone_mapper.png"><img alt="色调映射对比" src="../_images/compare_tone_mapper.png" style="width: 717.8499999999999px; height: 273.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 4. 开启与不开启色调映射的对比</span><a class="headerlink" href="#id11" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>在上述场景中添加了两个光源，因此如果不开启色调映射，图像将产生过曝，如上图左边所示。开启色调映射之后，过亮处细节也可以得到保留。（场景中模型均下载自 <a class="reference external" href="https://polyhaven.com">https://polyhaven.com</a>）</p>
+</section>
+<section id="lut">
+<h2>LUT 滤镜<a class="headerlink" href="#lut" title="此标题的永久链接"></a></h2>
+<p>你会发现，开启色调映射后，过曝区域虽然消失，但是图像亮度对比度明显降低。解决方法是再添加 LUT (Look up Table, LUT) 调色滤镜。方法为：首先将窗口截图，或通过相机 <a class="reference internal" href="../camera/camera.html#label-take-photo"><span class="std std-ref">照相与录像</span></a> 功能 <code class="docutils literal notranslate"><span class="pre">camera.take_photo(&quot;file_name.png&quot;)</span></code> 捕获图像，然后对所得图片在 Photo Shop 中进行调色，将调色结果导出为 cube 文件，最后使用 <code class="docutils literal notranslate"><span class="pre">LUTEffect</span></code> 将 cube 文件添加为后效即可。例如，我将不满意的截图在 PhotoShop 中进行调色后，得到图 5：</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/with_lut.png"><img alt="../_images/with_lut.png" src="../_images/with_lut.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 5. 经过 PhotoShop 调色后的截图</span><a class="headerlink" href="#id12" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>然后将调色结果导出为 cube 文件（<span class="menuselection">文件 ‣ 导出 ‣ 颜色查找表</span>，在格式处仅勾选 CUBE），例如导出名为 “test.cube”，最后将其设置为屏幕的 LUT 后效：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine.PostProcessEffects</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">post_process_effects</span><span class="p">[</span><span class="s2">&quot;lut&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">LUTEffect</span><span class="p">(</span><span class="s2">&quot;test.cube&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>即可让画面达到相同的调色效果。如果你不想自己调色，可以从 <a class="reference external" href="https://freshluts.com/">https://freshluts.com/</a> 下载大量免费的 cube 文件以供直接使用。创建的 LUT 后效 <code class="docutils literal notranslate"><span class="pre">lut_effect</span> <span class="pre">=</span> <span class="pre">LUTEffect(&quot;test.cube&quot;)</span></code> 含有两个可控属性：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lut_effect.contribute:float</span></code>：贡献度，默认为 1，表示 LUT 作用后的图像与原图的混合比例；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lut_effect.LUT:str</span></code>：LUT 的 cube 文件名称，可运行中途切换，也可为 LUT 图像文件名称；</p></li>
+</ul>
+<p>上面提到，除了使用 LUT 的 cube 文件，还可以是 LUT 图像文件，一般 LUT 图像模样如图 6 所示：</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../_images/lut2.png"><img alt="../_images/lut2.png" src="../_images/lut2.png" style="width: 204.8px; height: 204.8px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 6. LUT 图像</span><a class="headerlink" href="#id13" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="label-dof">
+<span id="id5"></span><h2>景深<a class="headerlink" href="#label-dof" title="此标题的永久链接"></a></h2>
+<p>在现实世界中拍照时，被对焦的物体成像清晰，其他物体成像模糊，这种效果称为景深。如图 7 所示：</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../_images/real_dof.jpg"><img alt="../_images/real_dof.jpg" src="../_images/real_dof.jpg" style="width: 470.4px; height: 315.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 7. 景深效果（图片来自网络）</span><a class="headerlink" href="#id14" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>景深为 <strong>Glass Engine</strong> 的内置后效之一，可通过 <code class="docutils literal notranslate"><span class="pre">camera.screen.DOF</span> <span class="pre">=</span> <span class="pre">True</span></code> 直接开启。开启景深后，再观察场景，能够得到如图 8 所示的显示效果：</p>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../_images/compare_dof.png"><img alt="../_images/compare_dof.png" src="../_images/compare_dof.png" style="width: 712.5999999999999px; height: 251.99999999999997px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 8. 对焦到两个不同杯子上的效果对比（图片来自 <strong>Glass Engine</strong> 渲染结果）</span><a class="headerlink" href="#id15" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>通过点击物体，可直接实现对焦到该物体。你还可以通过以下参数来控制景深效果：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.auto_focus:bool</span></code>：是否自动对焦，默认为 <code class="docutils literal notranslate"><span class="pre">True</span></code>，开启后则接受鼠标点击对焦；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.focus:float</span></code>：焦距，单位为米，默认为 0.09 米，仅当关闭自动对焦生效；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.clear_distance:float</span></code>：清晰距离，单位为米，距离相机该距离的物体最清晰，仅当关闭自动对焦生效；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.aperture:float</span></code>：光圈直径，单位为米，默认为 0.05 米，光圈越大，景深效果越明显；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">camera.lens.focus_change_time:float</span></code>：变焦时间，单位为秒，默认为 2 秒，用于控制自动变焦快慢，仅当开启自动对焦生效。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>快速近似抗锯齿<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
+<p>快速近似抗锯齿 (Fast Approximate Anti-Aliasing, FXAA) 可通过 <code class="docutils literal notranslate"><span class="pre">camera.screen.FXAA</span> <span class="pre">=</span> <span class="pre">Ture/False</span></code> 来实现开启和关闭。使用 <a class="reference internal" href="../renderers/renderers.html#label-forwardrenderer"><span class="std std-ref">前向渲染</span></a> 时，默认 FXAA 已关闭，采用硬件多重采样抗锯齿 (Multi-Samples Anti-Aliasing, MSAA)；使用 <a class="reference internal" href="../renderers/renderers.html#label-deferredrenderer"><span class="std std-ref">延迟着色法</span></a> 时，默认 MSAA 已关闭，FXAA 已开启。</p>
+</section>
+<section id="label-self-defined-ppe">
+<span id="id7"></span><h2>自定义后处理效果<a class="headerlink" href="#label-self-defined-ppe" title="此标题的永久链接"></a></h2>
+<p>如果想编写自定义后效，只需新建一个文件并在其中编写 glsl 函数，然后使用 <code class="docutils literal notranslate"><span class="pre">ShaderEffect</span></code> 将其设置为后效即可。要编写的函数为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vec4</span> <span class="n">getColor</span><span class="p">(</span><span class="n">sampler2D</span> <span class="n">screen_image</span><span class="p">,</span> <span class="n">vec2</span> <span class="n">tex_coord</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在该函数中，<code class="docutils literal notranslate"><span class="pre">screen_image</span></code> 代表当前帧图像，<code class="docutils literal notranslate"><span class="pre">tex_coord</span></code> 代表当前像素纹理坐标，左下为 (0, 0)，右上为 (1, 1)，可通过 <code class="docutils literal notranslate"><span class="pre">texture(screen_image,</span> <span class="pre">tex_coord)</span></code> 获取当前位置像素。在编写过程中，可使用如下函数：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">view_pos_of(vec2</span> <span class="pre">tex_coord)</span></code>：获取某个像素点在相机观察空间的位置坐标；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">world_pos_of(vec2</span> <span class="pre">tex_coord)</span></code>：获取某个像素点在世界空间的位置坐标；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">view_normal_of(vec2</span> <span class="pre">tex_coord)</span></code>：获取某个像素点在相机观察空间的法向量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec3</span> <span class="pre">world_normal_of(vec2</span> <span class="pre">tex_coord)</span></code>：获取某个像素点在世界空间的法向量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">view_pos_to_tex_coord(vec3</span> <span class="pre">view_pos)</span></code>：获取某个相机观察空间位置的纹理坐标；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec2</span> <span class="pre">world_pos_to_tex_coord(vec3</span> <span class="pre">world_pos)</span></code>：获取某个世界空间位置的纹理坐标；</p></li>
+</ul>
+<p>还可访问到以下 uniform 变量：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">iTime</span></code>：从程序启动到现在的时间，单位为秒；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">iTimeDelta</span></code>：两帧的时间间隔，单位为秒；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span> <span class="pre">iFrameRate</span></code>：帧率，单位为 Hz；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">iFrame</span></code>：当前为渲染的累计第几帧；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec4</span> <span class="pre">iDate</span></code>：当前日期 (年, 月, 日, 秒)；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">view_pos_map</span></code>：观察空间位置贴图；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">view_normal_map</span></code>：观察空间法向量贴图；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampler2D</span> <span class="pre">depth_map</span></code>：观察空间深度贴图；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Camera</span> <span class="pre">camera</span></code>：相机。</p></li>
+</ul>
+<p>下面为法向量可视化的一个自定义后效实现方法，首先编写文件 show_normal.glsl，在其中写入如下内容：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vec4</span> <span class="n">getColor</span><span class="p">(</span><span class="n">sampler2D</span> <span class="n">screen_image</span><span class="p">,</span> <span class="n">vec2</span> <span class="n">tex_coord</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">world_normal_of</span><span class="p">(</span><span class="n">tex_coord</span><span class="p">);</span>
+
+    <span class="n">vec4</span> <span class="n">color</span><span class="p">;</span>
+    <span class="n">color</span><span class="o">.</span><span class="n">rgb</span> <span class="o">=</span> <span class="p">(</span><span class="n">normal</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+    <span class="n">color</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">color</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>然后创建后效：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine.PostProcessEffects</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">post_process_effects</span><span class="p">[</span><span class="s2">&quot;show_normal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ShaderEffect</span><span class="p">(</span><span class="s2">&quot;show_normal.glsl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>针对同样的场景，我们可以看到如图 9 所示的渲染结果：</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../_images/show_normal.png"><img alt="../_images/show_normal.png" src="../_images/show_normal.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 9. 自定义后处理效果（用颜色显示法向量）</span><a class="headerlink" href="#id16" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>如果你在自己写的 Shader 中含有 uniform 变量，则可通过 [] 直接给其赋值。例如：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uniform</span> <span class="nb">float</span> <span class="n">contribute</span><span class="p">;</span>
+
+<span class="n">vec4</span> <span class="n">getColor</span><span class="p">(</span><span class="n">sampler2D</span> <span class="n">screen_image</span><span class="p">,</span> <span class="n">vec2</span> <span class="n">tex_coord</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">vec3</span> <span class="n">normal</span> <span class="o">=</span> <span class="n">world_normal_of</span><span class="p">(</span><span class="n">tex_coord</span><span class="p">);</span>
+    <span class="n">vec4</span> <span class="n">color</span> <span class="o">=</span> <span class="n">vec4</span><span class="p">((</span><span class="n">normal</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+    <span class="n">vec4</span> <span class="n">original_color</span> <span class="o">=</span> <span class="n">texture</span><span class="p">(</span><span class="n">screen_image</span><span class="p">,</span> <span class="n">tex_coord</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">mix</span><span class="p">(</span><span class="n">original_color</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">contribute</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在 Python 端，直接使用以下语句：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_effect</span> <span class="o">=</span> <span class="n">ShaderEffect</span><span class="p">(</span><span class="s2">&quot;show_normal.glsl&quot;</span><span class="p">)</span>
+<span class="n">my_effect</span><span class="p">[</span><span class="s2">&quot;contribute&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>即可完成对 uniform 变量 <code class="docutils literal notranslate"><span class="pre">contribute</span></code> 的赋值。如果 uniform 变量是结构体或数组，只要 Python 端定义有相同的类结构，使用其实例对 uniform 变量进行赋值即可。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../fog/fog.html" class="btn btn-neutral float-left" title="雾" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../manipulators/manipulators.html" class="btn btn-neutral float-right" title="键鼠交互" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

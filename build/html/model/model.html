@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>模型 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="颜色与渲染提示" href="../color_renderhint/color_renderhint.html" />
+    <link rel="prev" title="基本几何体" href="../geometries/geometries.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">模型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id3">后处理参数</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">模型共享</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">模型</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/model/model.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="label-model">
+<span id="id1"></span><h1>模型<a class="headerlink" href="#label-model" title="此标题的永久链接"></a></h1>
+<p>得益于 <a class="reference external" href="https://assimp-docs.readthedocs.io/en/latest/about/introduction.html#dependencies">assimp</a>，<strong>Glass Engine</strong> 支持以下格式的 3D 模型加载：</p>
+<ul class="simple">
+<li><p>3D Manufacturing Format (.3mf)</p></li>
+<li><p>Collada (.dae, .xml)</p></li>
+<li><p>Blender (.blend)</p></li>
+<li><p>Biovision BVH (.bvh)</p></li>
+<li><p>3D Studio Max 3DS (.3ds)</p></li>
+<li><p>3D Studio Max ASE (.ase)</p></li>
+<li><p>glTF, glTF2.0 (.glTF)</p></li>
+<li><p>FBX-Format, as ASCII and binary (.fbx)</p></li>
+<li><p>Stanford Polygon Library (.ply)</p></li>
+<li><p>AutoCAD DXF (.dxf)</p></li>
+<li><p>IFC-STEP (.ifc)</p></li>
+<li><p>IQM-Format (.iqm)</p></li>
+<li><p>Neutral File Format (.nff)</p></li>
+<li><p>Sense8 WorldToolkit (.nff)</p></li>
+<li><p>Valve Model (.smd, .vta)</p></li>
+<li><p>Quake I (.mdl)</p></li>
+<li><p>Quake II (.md2)</p></li>
+<li><p>Quake III (.md3)</p></li>
+<li><p>Quake 3 BSP (.pk3)</p></li>
+<li><p>RtCW (.mdc)</p></li>
+<li><p>Doom 3 (.md5mesh, .md5anim, .md5camera)</p></li>
+<li><p>DirectX X (.x)</p></li>
+<li><p>Quick3D (.q3o, .q3s)</p></li>
+<li><p>Raw Triangles (.raw)</p></li>
+<li><p>AC3D (.ac, .ac3d)</p></li>
+<li><p>Stereolithography (.stl)</p></li>
+<li><p>Autodesk DXF (.dxf)</p></li>
+<li><p>Irrlicht Mesh (.irrmesh, .xml)</p></li>
+<li><p>Irrlicht Scene (.irr, .xml)</p></li>
+<li><p>Object File Format (.off)</p></li>
+<li><p>Wavefront Object (.obj)</p></li>
+<li><p>Terragen Terrain (.ter)</p></li>
+<li><p>3D GameStudio Model (.mdl)</p></li>
+<li><p>3D GameStudio Terrain (.hmp)</p></li>
+<li><p>Ogre (.mesh.xml, .skeleton.xml, .material)</p></li>
+<li><p>OpenGEX-Fomat (.ogex)</p></li>
+<li><p>Milkshape 3D (.ms3d)</p></li>
+<li><p>LightWave Model (.lwo)</p></li>
+<li><p>LightWave Scene (.lws)</p></li>
+<li><p>Modo Model (.lxo)</p></li>
+<li><p>CharacterStudio Motion (.csm)</p></li>
+<li><p>Stanford Ply (.ply)</p></li>
+<li><p>TrueSpace (.cob, .scn)</p></li>
+<li><p>XGL-3D-Format (.xgl)</p></li>
+</ul>
+<p>在 <strong>Glass Engine</strong> 中加载 3D 模型十分简单，只需使用 <code class="docutils literal notranslate"><span class="pre">Model(file_name)</span></code> 创建对象即可。你可以从下列网站下载到大量免费的 3D 模型：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://polyhaven.com/models">https://polyhaven.com/models</a></p></li>
+<li><p><a class="reference external" href="https://free3d.com/">https://free3d.com/</a></p></li>
+</ul>
+<p>例如，我下载了一个 <a class="reference external" href="https://polyhaven.com/a/ship_pinnace">帆船</a> 的模型，然后用下述代码将其加载到 <strong>Glass Engine</strong> 中显示：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="s2">&quot;path/to/ship_pinnace_4k.gltf&quot;</span><span class="p">)</span> <span class="c1"># 指向文件而不是文件夹</span>
+<span class="n">model</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">model</span><span class="p">[</span><span class="s2">&quot;root&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>运行这段代码，你将得到图 1 所示结果。</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/ship.png"><img alt="帆船" src="../_images/ship.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 1. 加载并显示一个帆船模型</span><a class="headerlink" href="#id5" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>由于网上下载的 3D 模型建模时使用的坐标系轴指向与 <strong>Glass Engine</strong> 中可能有所不同，而且其顶点坐标单位可能也有所不同，因此我们加载上来之后需要进行适当的缩放和旋转。注意到，这里我们没有直接对 <code class="docutils literal notranslate"><span class="pre">model</span></code> 进行缩放和旋转，而是对其下的名为 “root” 的子节点进行缩放旋转，是为了在之后对 <code class="docutils literal notranslate"><span class="pre">model</span></code> 本身的空间变换不受初始对齐校正的影响。</p>
+<p>每个模型加载上来后，都会有一个 “root” 子节点，在 <strong>Glass Engine</strong> 的节点系统中，我们可以通过 <code class="docutils literal notranslate"><span class="pre">[]</span></code> 的方式访问到某个场景节点的子节点，如果模型姿态和尺寸不合适，建议通过模型的 “root” 子节点进行调整。你可以使用 <code class="docutils literal notranslate"><span class="pre">print(model)</span></code> 来显示 <code class="docutils literal notranslate"><span class="pre">model</span></code> 对象的所有子节点构成的节点树，针对这个帆船，打印结果为：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">ship_pinnace_4k</span><span class="o">.</span><span class="n">gltf</span>
+  <span class="n">root</span>
+    <span class="n">ship_pinnace_aft</span>
+      <span class="n">Plane</span><span class="mf">.041</span>
+    <span class="n">ship_pinnace_rigging</span>
+      <span class="n">Cylinder</span><span class="mf">.042</span>
+    <span class="n">ship_pinnace_details</span>
+      <span class="n">Plane</span><span class="mf">.046</span>
+    <span class="n">ship_pinnace_hull</span>
+      <span class="n">Plane</span><span class="mf">.498</span>
+    <span class="n">ship_pinnace_deck</span>
+      <span class="n">Plane</span><span class="mf">.057</span>
+    <span class="n">ship_pinnace_interior</span>
+      <span class="n">Plane</span><span class="mf">.043</span>
+    <span class="n">ship_pinnace_sails</span>
+      <span class="n">Plane</span><span class="mf">.002</span>
+</pre></div>
+</div>
+<section id="id3">
+<h2>后处理参数<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
+<p>你还可以通过一些参数来对模型加载进行更精细的控制，例如可以让模型加载完成时做一些后处理操作，让这些操作名称通过 <code class="docutils literal notranslate"><span class="pre">Flag</span></code> 形式传给 <code class="docutils literal notranslate"><span class="pre">Model</span></code> 的 <code class="docutils literal notranslate"><span class="pre">flags</span></code> 参数即可。下面是所有支持的后处理操作，在使用时带上 <code class="docutils literal notranslate"><span class="pre">Model.PostProcessSteps.</span></code> 即可，可通过位运算符 <code class="docutils literal notranslate"><span class="pre">~,</span> <span class="pre">|,</span> <span class="pre">&amp;</span></code> 对这些 <code class="docutils literal notranslate"><span class="pre">Flag</span></code> 进行组合。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CalcTangentSpace</span></code>: 生成切线和福切线，将用在法向量贴图和凹凸贴图上，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JoinIdenticalVertices</span></code>: 合并相同顶点，可减少顶点数，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Triangulate</span></code>: 将非三角形的面转化为三角形，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GenNormals</span></code>: 如果模型没有法向量，则生成法向量，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GenSmoothNormals</span></code>: 如果模型没有法向量，则生成平滑的法向量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SplitLargeMeshes</span></code>: 将包含较多三角形数量的网格切分为多个子网格，防止超过硬件限制，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PreTransformVertices</span></code>: 生成单个网格，无节点树状结构；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LimitBoneWeights</span></code>: 在骨骼动画中，将同时影响单个顶点的骨骼数限制到 4；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ValidateDataStructure</span></code>: 验证导入的模型数据结构，如有错误则会抛出异常，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ImproveCacheLocality</span></code>: 对三角形重新排序以提高缓存命中率；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RemoveRedundantMaterials</span></code>: 删除未引用的材质；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FixInfacingNormals</span></code>: 翻转朝内的法向量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PopulateArmatureData</span></code>: 生成骨骼动画中的骨架数据；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SortByPType</span></code>: 拆分具有多种基元类型的网格，使得每一个子网格仅具有单一的基元类型，默认已传入；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FindDegenerates</span></code>: 将退化基元转化为正确的线或点；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FindInvalidData</span></code>: 删除或修复无效数据，例如零法向量和错误的纹理坐标；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GenUVCoords</span></code>: 将非 UV 贴图纹理坐标转化为正确的 UV 贴图纹理坐标；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TransformUVCoords</span></code>: 将纹理坐标变换信息直接应用到纹理坐标上；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FindInstances</span></code>: 将完全相同的网格合并为一个网格；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OptimizeMeshes</span></code>: 减少网格数量，进而减少绘制调用；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OptimizeGraph</span></code>: 优化节点层次结构；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlipUVs</span></code>: 将纹理坐标 y 轴翻转（变为 1 - y）；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FlipWindingOrder</span></code>: 将三角形的顶点连接顺序反序；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SplitByBoneCount</span></code>: 将含有多个骨骼的网格划分为多个网格；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Debone</span></code>: 删除一些影响较小的网格；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GlobalScale</span></code>: 依据模型定义的单位进行全局缩放；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EmbedTextures</span></code>: 将纹理改为嵌入式纹理，而不依赖于外部文件；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ForceGenNormals</span></code>: 强制重新生成法向量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DropNormals</span></code>: 删除所有法向量；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GenBoundingBoxes</span></code>: 生成包围盒，默认已传入；</p></li>
+</ul>
+<p>为防止覆盖默认参数，可通过设置 <code class="docutils literal notranslate"><span class="pre">Model</span></code> 的 <code class="docutils literal notranslate"><span class="pre">extra_flags</span></code> 参数对默认传入的 <code class="docutils literal notranslate"><span class="pre">flags</span></code> 进行补充，通过设置 <code class="docutils literal notranslate"><span class="pre">exclude_flags</span></code> 参数对默认 <code class="docutils literal notranslate"><span class="pre">flags</span></code> 进行剔除。例如，想要在默认 <code class="docutils literal notranslate"><span class="pre">flags</span></code> 的基础上强制重新生成法向量并生成平滑的法向量，则可以调用：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Model</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">extra_flags</span><span class="o">=</span><span class="p">(</span><span class="n">Model</span><span class="o">.</span><span class="n">PostProcessSteps</span><span class="o">.</span><span class="n">ForceGenNormals</span> <span class="o">|</span> <span class="n">Model</span><span class="o">.</span><span class="n">PostProcessSteps</span><span class="o">.</span><span class="n">GenSmoothNormals</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>模型共享<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
+<p>默认情况下，创建出来的模型是共享的，再次使用相同文件路径和相同 flags 创建的模型则会直接使用上一次加载的模型的根节点，并在渲染时使用实例化渲染。然而，共享会导致的一个问题就是修改其中一个模型的任意参数会导致与其共享的所有模型均改变。如果你想取消共享，则在创建模型时传入 <code class="docutils literal notranslate"><span class="pre">shared=False</span></code> 参数即可。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../geometries/geometries.html" class="btn btn-neutral float-left" title="基本几何体" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../color_renderhint/color_renderhint.html" class="btn btn-neutral float-right" title="颜色与渲染提示" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

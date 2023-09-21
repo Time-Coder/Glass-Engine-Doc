@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>开始 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="场景图" href="../scene_graph/scene_graph.html" />
+    <link rel="prev" title="介绍" href="../introduce/introduce.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">开始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">基本工作流</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">简单例子</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">键鼠交互</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">简化操作</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">开始</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting_start/getting_start.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>开始<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>在目录页，我们已经通过一个简单的例子感受到了 <strong>Glass Engine</strong> 简洁的魅力，在这一节，我们将通过另一个稍微丰富的例子来助你上手 <strong>Glass Engine</strong> 开发。</p>
+<section id="id2">
+<h2>基本工作流<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<p>使用 <strong>Glass Engine</strong> 进行 3D 渲染的流程非常简单，如图 1 所示。</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/flow.png"><img alt="最简流程" src="../_images/flow.png" style="width: 504.75px; height: 44.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 1. 使用 <strong>Glass Engine</strong> 的基本工作流</span><a class="headerlink" href="#id11" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>这个工作流是非常符合人类直觉的。为什么这么说？想象一下，做 3D 渲染，无非就是显示人眼看到的物理世界对吧？那我们首先要有这个物理世界吧，所以我们需要先创建一个空场景。然而，空场景中什么也没有，显然，下一步应该添加一些有趣的物体。在真实的物理世界当中，只有物体没有光源是不是会漆黑一片什么也看不见，对吧？在 <strong>Glass Engine</strong> 中同样如此。因此下一步是添加光源。到此，场景就基本创建完毕了。但是，只有场景没有观察者场景创建的再丰富也是无意义的，因此我们至少往场景中添加一个观察值，在 <strong>Glass Engine</strong> 中，观察者就是相机。我们要显示的东西，就是相机观察到的东西。到此，<strong>Glass Engine</strong> 的基本工作流就结束了，如你所见，该流程是相当直观的。接下来我们将通过一个例子来具体了解该工作流如何实施。</p>
+</section>
+<section id="id3">
+<h2>简单例子<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
+<p>在 Python 中，首先，你应该导入 <strong>Glass Engine</strong> 相关的库，为方便起见，我们将一次性导入 <strong>Glass Engine</strong> 的所有内容：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Lights</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>如你所见，我们还导入了子模块 <code class="docutils literal notranslate"><span class="pre">Geometries</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Lights</span></code> 中的所有内容，<code class="docutils literal notranslate"><span class="pre">Geometries</span></code> 中包含了常见的基本几何体，以供 <strong>添加物体</strong> 步骤使用；<code class="docutils literal notranslate"><span class="pre">Lights</span></code> 中包含了常见的光源，以供 <strong>添加光源</strong> 步骤使用。在 <a class="reference external" href="../geometries/geometries.html">基本几何体</a> 和 <a class="reference external" href="../lights/lights.html">光源</a> 章节我们将更加细致的讲解它们的用法，此处我们直接拿来用。</p>
+<p>接下来是工作流的第一步，<strong>创建空场景</strong>。场景由 <code class="docutils literal notranslate"><span class="pre">Scene</span></code> 类定义，你只需用 <code class="docutils literal notranslate"><span class="pre">Scene</span></code> 创建对象即可：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <span class="n">Scene</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>接下来是工作流的第二步，往场景中 <strong>添加物体</strong>。<code class="docutils literal notranslate"><span class="pre">Geometries</span></code> 子模块中包含了大量基本几何体，我们在此仅使用球体 <code class="docutils literal notranslate"><span class="pre">Sphere</span></code>，使用 <code class="docutils literal notranslate"><span class="pre">Sphere</span></code> 类创建对象 <code class="docutils literal notranslate"><span class="pre">sphere</span></code>，并使用 <code class="docutils literal notranslate"><span class="pre">scene.add</span></code> 方法将对象添加到场景中：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>为了好看，我们可以再往场景中添加一个地板：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span> <span class="o">=</span> <span class="n">Floor</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">floor</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>根据工作流程我们知道，下面应该 <strong>添加光源</strong> 了。在此，我们往场景中添加一个平行光源 <code class="docutils literal notranslate"><span class="pre">DirLight</span></code>：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">light</span> <span class="o">=</span> <span class="n">DirLight</span><span class="p">()</span>
+<span class="n">light</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span>
+<span class="n">light</span><span class="o">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">light</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意看，我们创建平行光源以后，还设置了它的俯仰角 <code class="docutils literal notranslate"><span class="pre">pitch</span></code> 和偏航角 <code class="docutils literal notranslate"><span class="pre">yaw</span></code> 。由于默认情况下 <code class="docutils literal notranslate"><span class="pre">DirLight</span></code> 是照向正前方的，为了让光从天上射下来，我们应该设置其向下俯 45 度，这正是 <code class="docutils literal notranslate"><span class="pre">pitch</span></code> 属性干的事。而 <code class="docutils literal notranslate"><span class="pre">yaw</span></code> 则设置了光方向左偏右偏的角度，这里则是设置光的方向左偏 45 度。对于 <code class="docutils literal notranslate"><span class="pre">yaw,</span> <span class="pre">pitch,</span> <span class="pre">roll</span></code> 更细致的讲解请参见 <a class="reference external" href="../transform/transform.html">空间变换</a>。</p>
+<p>然后，我们应该 <strong>创建相机</strong>，并将相机添加到场景中：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.7</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">15</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意看，我们创建相机后，进而设置了它的位置坐标，<strong>Glass Engine</strong> 中的坐标系是 x 轴朝右，y 轴朝前，z 轴朝上。因此，代码中设置的该位置表示高 1.7 米的位置，并向后退 5 米。对 <code class="docutils literal notranslate"><span class="pre">pitch</span></code> 的设置则表示向下俯视 15 度。在 <a class="reference external" href="../transform/transform.html">空间变换</a> 一章我们将更详细的讲解坐标系统、位置、姿态等概念。</p>
+<p>最后，应该将相机看到的内容 <strong>显示</strong> 出来。我们知道，在当今的物理世界中，相机往往就是手机或数码相机，而它们都有一个显示屏用于显示拍摄到的东西。类似的，在 <strong>Glass Engine</strong> 中，<code class="docutils literal notranslate"><span class="pre">Camera</span></code> 对象含有一个 <code class="docutils literal notranslate"><span class="pre">screen</span></code> 属性，表示相机的显示屏，以后的描述则称之为相机屏幕。在程序中，<code class="docutils literal notranslate"><span class="pre">Camera.screen</span></code> 本质上是一个 GUI 控件，由于 <strong>Glass Engine</strong> 目前仅支持 PyQt 窗口系统，因此目前 <code class="docutils literal notranslate"><span class="pre">Camera.screen</span></code> 就是一个 <code class="docutils literal notranslate"><span class="pre">QWidget</span></code>，你可以将其布局到界面的任意位置。然而最简单的方式则是直接将其显示出来：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>这样就完成了 <strong>Glass Engine</strong> 进行基本渲染的全部工作流。完整的代码如下：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Lights</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># 1. 创建空场景</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">Scene</span><span class="p">()</span>
+
+<span class="c1"># 2. 添加物体</span>
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
+
+<span class="n">floor</span> <span class="o">=</span> <span class="n">Floor</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">floor</span><span class="p">)</span>
+
+<span class="c1"># 3. 添加光源</span>
+<span class="n">light</span> <span class="o">=</span> <span class="n">DirLight</span><span class="p">()</span>
+<span class="n">light</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span>
+<span class="n">light</span><span class="o">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">light</span><span class="p">)</span>
+
+<span class="c1"># 4. 添加相机</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">()</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.7</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">15</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+
+<span class="c1"># 5. 显示相机屏幕内容</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>运行它，将得到图 2 所示结果：</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/simple_scene.png"><img alt="简单场景" src="../_images/simple_scene.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 2. 一个简单场景</span><a class="headerlink" href="#id12" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>由于没有设置球体的位置，这个球则是一半在地板之下的。你可以自己尝试将球的位置设置到地板之上。</p>
+</section>
+<section id="id8">
+<h2>键鼠交互<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
+<p>和大部分游戏一样，你可以通过 <kbd class="kbd docutils literal notranslate">W</kbd> <kbd class="kbd docutils literal notranslate">A</kbd> <kbd class="kbd docutils literal notranslate">S</kbd> <kbd class="kbd docutils literal notranslate">D</kbd> <kbd class="kbd docutils literal notranslate">E</kbd> <kbd class="kbd docutils literal notranslate">C</kbd> 在场景中进行漫游，并通过鼠标控制视角。具体地，</p>
+<ul class="simple">
+<li><p><kbd class="kbd docutils literal notranslate">A</kbd>：相机向左移动，<kbd class="kbd docutils literal notranslate">D</kbd>：相机向右移动；</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">W</kbd>：相机向前移动，<kbd class="kbd docutils literal notranslate">S</kbd>：相机向后移动；</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">E</kbd>：相机向上移动，<kbd class="kbd docutils literal notranslate">C</kbd>：相机向下移动；</p></li>
+<li><p>鼠标右键拖拽：改变相机视角；</p></li>
+<li><p>鼠标左键拖拽：在垂直与观察方向的平面内平移相机；</p></li>
+<li><p>鼠标滚轮推动：向前推则放大视口，向后拉则缩小视口；</p></li>
+<li><p>鼠标左侧前进键：提高键盘移动速度；</p></li>
+<li><p>鼠标左侧后退键：降低键盘移动速度；</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">R</kbd>：在实体模式、网格模式、点模式这三种显示模式下切换；</p></li>
+<li><p><kbd class="kbd docutils literal notranslate">F</kbd>：打印帧率和绘制调用次数。</p></li>
+</ul>
+<p>如果你不满意这种键盘鼠标交互方式，<a class="reference external" href="../manipulators/manipulators.html">键鼠交互</a> 则会教你如何切换不同的键鼠交互方式以及如何自定义交互模式</p>
+</section>
+<section id="id10">
+<h2>简化操作<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
+<p>从上面的代码中可以看出，无论你要渲染什么，有一些步骤是必然重复的，例如创建空场景、创建相机；还有一些步骤是渲染简单场景基本都会有的，例如添加地板、添加一个有较好方向的平行光、设置一个较好的相机位置。为了简化用户工作量，<strong>Glass Engine</strong> 将这些公共操作封装成了函数 <code class="docutils literal notranslate"><span class="pre">SceneRoam</span></code>，使用方法为：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">dir_light</span><span class="p">,</span> <span class="n">floor</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">SceneRoam</span></code> 可以给你创建一个基本场景：包含了相机、光源、地板，并合理的设置好了相机位置朝向、光方向。<code class="docutils literal notranslate"><span class="pre">SceneRoam</span></code> 简化了大部分工作量，因此，在以后一些简单的例子中，都将使用 <code class="docutils literal notranslate"><span class="pre">SceneRoam</span></code> 来创建基本场景。</p>
+<p>如果你只需要显示一个模型，并希望仅仅围绕这个模型进行详细的查看的话，可以使用另一个简化操作的函数 <code class="docutils literal notranslate"><span class="pre">ModelView</span></code>，他将不添加地板，同时设置键盘鼠标交互模式为仅仅围绕物体旋转的模型预览模式，左键拖动旋转，右键拖动平移。例如这个例子：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">dir_light</span> <span class="o">=</span> <span class="n">ModelView</span><span class="p">()</span>
+
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>它将遵循的键鼠交互模式与场景漫游模式稍有不同，鼠标左键拖动是围绕物体旋转，右键拖动是平移相机。</p>
+<p>本章带你入门后，下面的章节将更加全面的讲解一些基本概念。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../introduce/introduce.html" class="btn btn-neutral float-left" title="介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../scene_graph/scene_graph.html" class="btn btn-neutral float-right" title="场景图" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

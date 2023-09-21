@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>光源 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="相机" href="../camera/camera.html" />
+    <link rel="prev" title="内置材质" href="../material/internal_materials/internal_materials.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material.html">材质</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">光源</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#label-dirlight">平行光</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-pointlight">点光源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-spotlight">聚光</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">头灯</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">光源</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/lights/lights.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="label-lights">
+<span id="id1"></span><h1>光源<a class="headerlink" href="#label-lights" title="此标题的永久链接"></a></h1>
+<p><strong>Glass Engine</strong> 支持三种光源：平行光 (<code class="docutils literal notranslate"><span class="pre">DirLight</span></code>)、点光源 (<code class="docutils literal notranslate"><span class="pre">PointLight</span></code>) 和聚光 (<code class="docutils literal notranslate"><span class="pre">SpotLight</span></code>)。这三种光源都定义在 <code class="docutils literal notranslate"><span class="pre">glass_engine.Lights</span></code> 子模块中，可直接导入使用。<code class="docutils literal notranslate"><span class="pre">DirLight,</span> <span class="pre">PointLight,</span> <span class="pre">SpotLight</span></code> 均为 <code class="docutils literal notranslate"><span class="pre">SceneNode</span></code> 的间接子类，因此可设置一切 <code class="docutils literal notranslate"><span class="pre">SceneNode</span></code> 支持的空间变换。这三种光源有一些共同的参数，分别为：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color:glm.vec3</span></code>: 光源颜色，默认为白色（<code class="docutils literal notranslate"><span class="pre">glm.vec3(1,</span> <span class="pre">1,</span> <span class="pre">1)</span></code>）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intensity:float</span></code>：光源亮度，默认为 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generate_shadows:bool</span></code>：光源是否产生阴影，默认为 <code class="docutils literal notranslate"><span class="pre">Ture</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rim_power:float</span></code>：光源的边缘光强度，默认为 0.3</p></li>
+</ul>
+<p>这三种光源还有一些特有的参数，下面分别讲解。在以下讲解中，我们将在一个含有大量彩球的场景中测试各种光源的效果，该场景内容如下。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Lights</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">light</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">light</span><span class="p">)</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+        <span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+        <span class="n">sphere</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(),</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
+        <span class="n">sphere</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">3</span>
+        <span class="n">sphere</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">3</span>
+        <span class="n">sphere</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.25</span>
+        <span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>其运行结果如图 1 所示：</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/no_lights.png"><img alt="无光源场景" src="../_images/no_lights.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 1. 无光源场景</span><a class="headerlink" href="#id6" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>可以看到，由于没有光源，场景非常昏暗，几乎看不见物体。下面通过往场景中添加不同的光源以查看它们各自的效果。</p>
+<section id="label-dirlight">
+<span id="id2"></span><h2>平行光<a class="headerlink" href="#label-dirlight" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可以通过 <code class="docutils literal notranslate"><span class="pre">DirLight</span></code> 类创建平行光源对象并添加到场景中去。平行光中的每条光线是相互平行的，并且能够照亮全场，如图 2 所示。</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/dir_light.png"><img alt="平行光示意图" src="../_images/dir_light.png" style="width: 360.5px; height: 225.39999999999998px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 2. 平行光示意图</span><a class="headerlink" href="#id7" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>除了所有光源都共有的参数外，它没有任何特有参数。通过以下代码在场景中加入一个平行光源：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dir_light</span> <span class="o">=</span> <span class="n">DirLight</span><span class="p">()</span>
+<span class="n">dir_light</span><span class="o">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">dir_light</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dir_light</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>将其添加到上面的场景中，可以得到如图 3 所示的场景效果：</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/dir_light_effect.png"><img alt="平行光场景" src="../_images/dir_light_effect.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 3. 加入平行光的场景</span><a class="headerlink" href="#id8" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="label-pointlight">
+<span id="id3"></span><h2>点光源<a class="headerlink" href="#label-pointlight" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可以通过 <code class="docutils literal notranslate"><span class="pre">PointLight</span></code> 类创建点光源对象并添加到场景中去。点光源处于场景中的某一位置，它会朝着所有方向发光，并且光的强度会随着距离的增大而衰减，如图 4 所示。</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/point_light.png"><img alt="点光源示意图" src="../_images/point_light.png" style="width: 413.7px; height: 225.39999999999998px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 4. 点光源示意图</span><a class="headerlink" href="#id9" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>点光源有一些特有的参数用于控制衰减，包括：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coverage:float</span></code>: 光照覆盖范围，单位为米，默认为 11 米</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">K1:float</span></code>: 一次衰减系数，默认为 0.045。<code class="docutils literal notranslate"><span class="pre">K1</span></code> 越大，衰减越快，与 <code class="docutils literal notranslate"><span class="pre">coverage</span></code> 直接相关并自动联动。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">K2:float</span></code>: 二次衰减系数，默认为 0.0075。<code class="docutils literal notranslate"><span class="pre">K2</span></code> 越大，衰减越快，与 <code class="docutils literal notranslate"><span class="pre">coverage</span></code> 直接相关并自动联动。</p></li>
+</ul>
+<p>其中衰减系数 <span class="math notranslate nohighlight">\(F_{att}\)</span> 与 <span class="math notranslate nohighlight">\(K_1, K_2\)</span> 的关系为：</p>
+<div class="math notranslate nohighlight">
+\[F_{att} = \dfrac{1}{1 + K_1\,d + K_2\,d^2}\]</div>
+<p>如果感觉通过控制 <span class="math notranslate nohighlight">\(K_1, K_2\)</span> 来控制衰减不直观的话则可以直接使用 <code class="docutils literal notranslate"><span class="pre">coverage</span></code> 属性。</p>
+<p>通过以下代码在场景中加入一个点光源：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_light</span> <span class="o">=</span> <span class="n">PointLight</span><span class="p">()</span>
+<span class="n">point_light</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">point_light</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>我们在世界坐标原点正上方加入了一个点光源，可以得到如图 5 所示的场景效果：</p>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="../_images/point_light_effect.png"><img alt="点光源场景" src="../_images/point_light_effect.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 5. 加入点光源的场景</span><a class="headerlink" href="#id10" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>如果将镜头拉远，观察有光照的场景区域，可以看到，场景只有一部分被照亮，离场景中心越远，光照强度越弱，这就是点光源的特点。如图 6 所示。</p>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/point_light_effect_far.png"><img alt="远处观察点光源场景" src="../_images/point_light_effect_far.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 6. 远处观察的点光源场景</span><a class="headerlink" href="#id11" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="label-spotlight">
+<span id="id4"></span><h2>聚光<a class="headerlink" href="#label-spotlight" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可以通过 <code class="docutils literal notranslate"><span class="pre">SpotLight</span></code> 类创建聚光对象并添加到场景中去。聚光是位于场景中某个位置的光源，它只朝一个特定方向而不是所有方向照射光线。这样的结果就是只有在聚光方向的特定半径内的物体才会被照亮，其它的物体都会保持黑暗。例如舞台聚光灯和手电筒。</p>
+<p>聚光类 <code class="docutils literal notranslate"><span class="pre">SpotLight</span></code> 直接继承自 <code class="docutils literal notranslate"><span class="pre">PointLight</span></code>，除了具有衰减控制属性 <code class="docutils literal notranslate"><span class="pre">coverage,</span> <span class="pre">K1,</span> <span class="pre">K2</span></code> 之外，它还具有以下特有参数：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">span_angle</span></code>: 聚光的光锥张角，单位为度，默认为 30 度</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">softness</span></code>: 边缘渐变区角度，单位为度，默认为 10 度</p></li>
+</ul>
+<p>这两个参数如图 7 所示：</p>
+<figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/spot_light.png"><img alt="聚光示意图" src="../_images/spot_light.png" style="width: 280.8px; height: 295.2px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 7. 聚光示意图</span><a class="headerlink" href="#id12" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>通过以下代码在场景中加入一个聚光：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spot_light</span> <span class="o">=</span> <span class="n">SpotLight</span><span class="p">()</span>
+<span class="n">spot_light</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">spot_light</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">spot_light</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span>
+<span class="n">spot_light</span><span class="o">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">spot_light</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>可以得到如图 8 所示的场景效果，从图中可以看出，只有聚光光锥范围内的场景被照亮。</p>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../_images/spot_light_effect.png"><img alt="添加了聚光的场景" src="../_images/spot_light_effect.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 8. 添加了聚光的场景</span><a class="headerlink" href="#id13" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<section id="id5">
+<h3>头灯<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
+<p>可以将一个聚光绑定到相机上，使其和相机一起移动，并始终照向相机观察方向，制造头灯效果，具体方法为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">head_light</span> <span class="o">=</span> <span class="n">SpotLight</span><span class="p">()</span>
+<span class="n">head_light</span><span class="o">.</span><span class="n">generate_shadows</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">head_light</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意，将聚光挂载到相机上之后，所有物体产生的阴影都会被自身挡住，所以理论上是观察不到阴影的。因此，为了节省性能，将 <code class="docutils literal notranslate"><span class="pre">head_light</span></code> 的 <code class="docutils literal notranslate"><span class="pre">generate_shadows</span></code> 属性设为 <code class="docutils literal notranslate"><span class="pre">False</span></code>。</p>
+<p>随后你可以看到，只有相机正前方的一个圆形区域内被照亮，如图 9 所示：</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../_images/head_light_effect.png"><img alt="添加了头灯的场景" src="../_images/head_light_effect.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 9. 添加了头灯的场景</span><a class="headerlink" href="#id14" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../material/internal_materials/internal_materials.html" class="btn btn-neutral float-left" title="内置材质" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../camera/camera.html" class="btn btn-neutral float-right" title="相机" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

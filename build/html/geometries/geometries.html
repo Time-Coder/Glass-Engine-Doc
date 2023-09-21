@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>基本几何体 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="模型" href="../model/model.html" />
+    <link rel="prev" title="背景" href="../background/background.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">基本几何体</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">基本几何体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">例子：常见几何体绘制</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">直角坐标函数曲面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">例子：一个多峰函数可视化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">柱坐标函数曲面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">例子：泽尼克多项式可视化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">球坐标函数曲面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">例子：球谐函数可视化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">旋转体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">拉伸体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">几何体组合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-self-geo">自定义几何体</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">基本几何体</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/geometries/geometries.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="label-geometries">
+<span id="id1"></span><h1>基本几何体<a class="headerlink" href="#label-geometries" title="此标题的永久链接"></a></h1>
+<section id="id2">
+<h2>基本几何体<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<p><strong>Glass Engine</strong> 内置 40 多种基本几何体，均定义在 <code class="docutils literal notranslate"><span class="pre">glass_engine.Geometries</span></code> 模块中，这些几何体均继承自 <code class="docutils literal notranslate"><span class="pre">Mesh</span></code> 类，而 <code class="docutils literal notranslate"><span class="pre">Mesh</span></code> 类直接继承自 <code class="docutils literal notranslate"><span class="pre">SceneNode</span></code> 类，所以，它们可以像任何场景节点一样做任意的 <a class="reference internal" href="../transform/transform.html#label-transform"><span class="std std-ref">空间变换</span></a>。下列表格列出了 <strong>Glass Engine</strong> 内置的所有基本几何体的预览信息。表中出现的所有英文名均为 <code class="docutils literal notranslate"><span class="pre">glass_engine.Geometries</span></code> 中定义的类名，大多数可直接无参数构造使用。</p>
+<table class="docutils align-center" id="id14">
+<caption><span class="caption-text">基本几何体预览表</span><a class="headerlink" href="#id14" title="此表格的永久链接"></a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>点线面</p></th>
+<th class="head"><p>多面体</p></th>
+<th class="head"><p>曲面体</p></th>
+<th class="head"><p>特殊几何体</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><figure class="align-center" id="id15">
+<img alt="../_images/Point.png" src="../_images/Point.png" />
+<figcaption>
+<p><span class="caption-text">点 Point</span><a class="headerlink" href="#id15" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../_images/Box.png"><img alt="../_images/Box.png" src="../_images/Box.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">长方体 Box</span><a class="headerlink" href="#id16" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id17">
+<a class="reference internal image-reference" href="../_images/Sphere.png"><img alt="../_images/Sphere.png" src="../_images/Sphere.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">球体 <span class="raw-html"><br /></span> Sphere, Icosphere</span><a class="headerlink" href="#id17" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id18">
+<a class="reference internal image-reference" href="../_images/FSurf.png"><img alt="../_images/FSurf.png" src="../_images/FSurf.png" style="width: 110.4px; height: 108.60000000000001px;" /></a>
+<figcaption>
+<p><span class="caption-text">直角坐标函数曲面 <span class="raw-html"><br /></span> FSurf</span><a class="headerlink" href="#id18" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><figure class="align-center" id="id19">
+<a class="reference internal image-reference" href="../_images/Points.png"><img alt="../_images/Points.png" src="../_images/Points.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">多点 Points</span><a class="headerlink" href="#id19" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../_images/Prism.png"><img alt="../_images/Prism.png" src="../_images/Prism.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">棱柱 Prism</span><a class="headerlink" href="#id20" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id21">
+<a class="reference internal image-reference" href="../_images/Cylinder.png"><img alt="../_images/Cylinder.png" src="../_images/Cylinder.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆柱 Cylinder</span><a class="headerlink" href="#id21" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id22">
+<a class="reference internal image-reference" href="../_images/CylindricalFSurf.png"><img alt="../_images/CylindricalFSurf.png" src="../_images/CylindricalFSurf.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">柱坐标函数曲面 <span class="raw-html"><br /></span> CylindricalFSurf</span><a class="headerlink" href="#id22" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><figure class="align-center" id="id23">
+<a class="reference internal image-reference" href="../_images/Polyline.png"><img alt="../_images/Polyline.png" src="../_images/Polyline.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">线 Polyline</span><a class="headerlink" href="#id23" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id24">
+<a class="reference internal image-reference" href="../_images/Pyramid.png"><img alt="../_images/Pyramid.png" src="../_images/Pyramid.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">棱锥 Pyramid</span><a class="headerlink" href="#id24" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id25">
+<a class="reference internal image-reference" href="../_images/Cone.png"><img alt="../_images/Cone.png" src="../_images/Cone.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆锥 Cone</span><a class="headerlink" href="#id25" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id26">
+<a class="reference internal image-reference" href="../_images/SphericalFSurf.png"><img alt="../_images/SphericalFSurf.png" src="../_images/SphericalFSurf.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">球坐标函数曲面 <span class="raw-html"><br /></span> SphericalFSurf</span><a class="headerlink" href="#id26" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><figure class="align-center" id="id27">
+<a class="reference internal image-reference" href="../_images/RectangleFace.png"><img alt="../_images/RectangleFace.png" src="../_images/RectangleFace.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">矩形面 <span class="raw-html"><br /></span> RectangleFace</span><a class="headerlink" href="#id27" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id28">
+<a class="reference internal image-reference" href="../_images/PyramidTrustum.png"><img alt="../_images/PyramidTrustum.png" src="../_images/PyramidTrustum.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">棱台 <span class="raw-html"><br /></span> PyramidTrustum</span><a class="headerlink" href="#id28" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id29">
+<a class="reference internal image-reference" href="../_images/ConeTrustum.png"><img alt="../_images/ConeTrustum.png" src="../_images/ConeTrustum.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆台 <span class="raw-html"><br /></span> ConeTrustum</span><a class="headerlink" href="#id29" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id30">
+<a class="reference internal image-reference" href="../_images/_CoordSys.png"><img alt="../_images/_CoordSys.png" src="../_images/_CoordSys.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">坐标系 CoordSys</span><a class="headerlink" href="#id30" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><figure class="align-center" id="id31">
+<a class="reference internal image-reference" href="../_images/RPolygonFace.png"><img alt="../_images/RPolygonFace.png" src="../_images/RPolygonFace.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">正多边形面 <span class="raw-html"><br /></span> RPolygonFace</span><a class="headerlink" href="#id31" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id32">
+<a class="reference internal image-reference" href="../_images/PrismSide.png"><img alt="../_images/PrismSide.png" src="../_images/PrismSide.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">棱柱侧面 <span class="raw-html"><br /></span> PrismSide</span><a class="headerlink" href="#id32" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id33">
+<a class="reference internal image-reference" href="../_images/CylinderSide.png"><img alt="../_images/CylinderSide.png" src="../_images/CylinderSide.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆柱侧面 <span class="raw-html"><br /></span> CylinderSide</span><a class="headerlink" href="#id33" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id34">
+<a class="reference internal image-reference" href="../_images/Floor.png"><img alt="../_images/Floor.png" src="../_images/Floor.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">地板 Floor</span><a class="headerlink" href="#id34" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><figure class="align-center" id="id35">
+<a class="reference internal image-reference" href="../_images/HollowRPolygonFace.png"><img alt="../_images/HollowRPolygonFace.png" src="../_images/HollowRPolygonFace.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">空心正多边形面 <span class="raw-html"><br /></span>
+HollowRPolygonFace</span><a class="headerlink" href="#id35" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id36">
+<a class="reference internal image-reference" href="../_images/PyramidSide.png"><img alt="../_images/PyramidSide.png" src="../_images/PyramidSide.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">棱锥侧面 <span class="raw-html"><br /></span> PyramidSide</span><a class="headerlink" href="#id36" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id37">
+<a class="reference internal image-reference" href="../_images/ConeSide.png"><img alt="../_images/ConeSide.png" src="../_images/ConeSide.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆锥侧面 <span class="raw-html"><br /></span> ConeSide</span><a class="headerlink" href="#id37" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id38">
+<a class="reference internal image-reference" href="../_images/Rotator.png"><img alt="../_images/Rotator.png" src="../_images/Rotator.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">旋转体 Rotator</span><a class="headerlink" href="#id38" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><figure class="align-center" id="id39">
+<a class="reference internal image-reference" href="../_images/CircleFace.png"><img alt="../_images/CircleFace.png" src="../_images/CircleFace.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆面 CircleFace</span><a class="headerlink" href="#id39" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id40">
+<a class="reference internal image-reference" href="../_images/PyramidTrustumSide.png"><img alt="../_images/PyramidTrustumSide.png" src="../_images/PyramidTrustumSide.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">棱台侧面 <span class="raw-html"><br /></span> PyramidTrustumSide</span><a class="headerlink" href="#id40" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id41">
+<a class="reference internal image-reference" href="../_images/ConeTrustumSide.png"><img alt="../_images/ConeTrustumSide.png" src="../_images/ConeTrustumSide.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆台侧面 <span class="raw-html"><br /></span> ConeTrustumSide</span><a class="headerlink" href="#id41" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id42">
+<a class="reference internal image-reference" href="../_images/Extruder.png"><img alt="../_images/Extruder.png" src="../_images/Extruder.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">拉伸体 Extruder</span><a class="headerlink" href="#id42" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><figure class="align-center" id="id43">
+<a class="reference internal image-reference" href="../_images/TorusFace.png"><img alt="../_images/TorusFace.png" src="../_images/TorusFace.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">圆环面 TorusFace</span><a class="headerlink" href="#id43" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id44">
+<a class="reference internal image-reference" href="../_images/Tetrahedron.png"><img alt="../_images/Tetrahedron.png" src="../_images/Tetrahedron.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">正四面体 <span class="raw-html"><br /></span> Tetrahedron</span><a class="headerlink" href="#id44" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id45">
+<a class="reference internal image-reference" href="../_images/SphericalCap.png"><img alt="../_images/SphericalCap.png" src="../_images/SphericalCap.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">球冠 SphericalCap</span><a class="headerlink" href="#id45" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><figure class="align-center" id="id46">
+<a class="reference internal image-reference" href="../_images/EllipseFace.png"><img alt="../_images/EllipseFace.png" src="../_images/EllipseFace.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">椭圆面 EllipseFace</span><a class="headerlink" href="#id46" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id47">
+<a class="reference internal image-reference" href="../_images/Hexahedron.png"><img alt="../_images/Hexahedron.png" src="../_images/Hexahedron.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">正六面体 <span class="raw-html"><br /></span> Hexahedron</span><a class="headerlink" href="#id47" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id48">
+<a class="reference internal image-reference" href="../_images/SphericalCapTop.png"><img alt="../_images/SphericalCapTop.png" src="../_images/SphericalCapTop.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">球冠顶面 <span class="raw-html"><br /></span> SphericalCapTop</span><a class="headerlink" href="#id48" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><figure class="align-center" id="id49">
+<a class="reference internal image-reference" href="../_images/Octahedron.png"><img alt="../_images/Octahedron.png" src="../_images/Octahedron.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">正八面体 <span class="raw-html"><br /></span> Octahedron</span><a class="headerlink" href="#id49" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id50">
+<a class="reference internal image-reference" href="../_images/Torus.png"><img alt="../_images/Torus.png" src="../_images/Torus.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">球环 Torus</span><a class="headerlink" href="#id50" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><figure class="align-center" id="id51">
+<a class="reference internal image-reference" href="../_images/Dodecahedron.png"><img alt="../_images/Dodecahedron.png" src="../_images/Dodecahedron.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">正十二面体 <span class="raw-html"><br /></span> Dodecahedron</span><a class="headerlink" href="#id51" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td><figure class="align-center" id="id52">
+<a class="reference internal image-reference" href="../_images/TrefoilKnot.png"><img alt="../_images/TrefoilKnot.png" src="../_images/TrefoilKnot.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">三叶扭结 TrefoilKnot</span><a class="headerlink" href="#id52" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><figure class="align-center" id="id53">
+<a class="reference internal image-reference" href="../_images/Icosahedron.png"><img alt="../_images/Icosahedron.png" src="../_images/Icosahedron.png" style="width: 93.75px; height: 93.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">正二十面体 <span class="raw-html"><br /></span> Icosahedron</span><a class="headerlink" href="#id53" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="id3">
+<h3>例子：常见几何体绘制<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
+<p>我们可以通过如下代码在场景中添加几个常见的基本几何体：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">light</span><span class="p">,</span> <span class="n">floor</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+
+<span class="n">geoms</span> <span class="o">=</span> \
+<span class="p">[</span>
+    <span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>    <span class="p">,</span> <span class="n">Cone</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>        <span class="p">,</span> <span class="n">Cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">Box</span><span class="p">(</span><span class="n">Lx</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>           <span class="p">,</span> <span class="n">Prism</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>       <span class="p">,</span> <span class="n">Pyramid</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">Octahedron</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">Dodecahedron</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">Icosahedron</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geoms</span><span class="p">)):</span>
+    <span class="n">geoms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">geoms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">geoms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">-=</span> <span class="n">geoms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">z_min</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">geoms</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>运行以上代码将得到图 1 所示结果：</p>
+<figure class="align-center" id="id54">
+<a class="reference internal image-reference" href="../_images/geometries.png"><img alt="几何体" src="../_images/geometries.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 1. 添加了一些基本几何体的场景</span><a class="headerlink" href="#id54" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>在上述代码中，添加的 9 个几何体分别为：球体(<code class="docutils literal notranslate"><span class="pre">Sphere</span></code>)、圆锥(<code class="docutils literal notranslate"><span class="pre">Cone</span></code>)、圆柱(<code class="docutils literal notranslate"><span class="pre">Cylinder</span></code>)、长方体(<code class="docutils literal notranslate"><span class="pre">Box</span></code>)、棱柱(<code class="docutils literal notranslate"><span class="pre">Prism</span></code>)、棱锥(<code class="docutils literal notranslate"><span class="pre">Pyramid</span></code>)、正八面体(<code class="docutils literal notranslate"><span class="pre">Octahedron</span></code>)、正十二面体(<code class="docutils literal notranslate"><span class="pre">Dodecahedron</span></code>)、正二十面体(<code class="docutils literal notranslate"><span class="pre">Icosahedron</span></code>)。</p>
+<p>每一个几何体都有一些细节参数，例如你可以分别设置长方体(<code class="docutils literal notranslate"><span class="pre">Box</span></code>)每条边的长度。每一个几何体的参数可以通过 API 手册[to-do] 查看。</p>
+</section>
+</section>
+<section id="id4">
+<h2>直角坐标函数曲面<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可使用类 <code class="docutils literal notranslate"><span class="pre">FSurf</span></code> 来绘制直角坐标系下的函数曲面。我们知道，在直角坐标系下，一个二元函数 <span class="math notranslate nohighlight">\(z = f(x, y)\)</span> 可以表示一个曲面。在 <strong>Glass Engine</strong> 中，只需给出函数 <span class="math notranslate nohighlight">\(z = f(x, y)\)</span> 的定义并传入 <code class="docutils literal notranslate"><span class="pre">FSurf(func,</span> <span class="pre">x_range,</span> <span class="pre">y_range)</span></code> 的 <code class="docutils literal notranslate"><span class="pre">func</span></code> 参数即可。同时，还可以通过指定 <code class="docutils literal notranslate"><span class="pre">x_range=[start,</span> <span class="pre">stop],</span> <span class="pre">y_range=[start,</span> <span class="pre">top]</span></code> 给出 <span class="math notranslate nohighlight">\(x, y\)</span> 的取值范围。<code class="docutils literal notranslate"><span class="pre">x_range,</span> <span class="pre">y_range</span></code> 的默认值为 <code class="docutils literal notranslate"><span class="pre">[-3,</span> <span class="pre">3]</span></code>。事实上，<code class="docutils literal notranslate"><span class="pre">FSurf</span></code> 还含有大量其他参数，请参见[to-do]，在此不一一介绍。</p>
+<section id="id5">
+<h3>例子：一个多峰函数可视化<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
+<p>我们知道，在 MATLAB 中一个常用的绘图测试函数为 <code class="docutils literal notranslate"><span class="pre">peaks</span></code>，其定义如下：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        z &amp; = f(x, y) \\
+          &amp; = (1-x)^2\,\mathrm{e}^{-x^2 - (y+1)^2} - \frac{10}{3}\left(\frac{x}{5} - x^3 - y^5\right)\,\mathrm{e}^{-x^2 - y^2} - \frac{1}{9}\,\mathrm{e}^{-(x+1)^2 - y^2}
+\end{aligned}\end{split}\]</div>
+<p>为了绘制它，我们只需定义出 <code class="docutils literal notranslate"><span class="pre">peaks</span></code> 函数：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">peaks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> \
+           <span class="o">-</span> <span class="mi">10</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">5</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> \
+           <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="mi">9</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>然后将其传给 <code class="docutils literal notranslate"><span class="pre">FSurf</span></code> 类即可：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+
+<span class="n">peaks_surf</span> <span class="o">=</span> <span class="n">FSurf</span><span class="p">(</span><span class="n">peaks</span><span class="p">)</span>
+<span class="n">peaks_surf</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">peaks_surf</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>上述代码在场景中添加了 peaks 函数曲面，运行它，你将得到如图 2 所示效果：</p>
+<figure class="align-center" id="id55">
+<a class="reference internal image-reference" href="../_images/peaks_vs.png"><img alt="../_images/peaks_vs.png" src="../_images/peaks_vs.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 2. peaks 函数曲面</span><a class="headerlink" href="#id55" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id6">
+<h2>柱坐标函数曲面<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可使用类 <code class="docutils literal notranslate"><span class="pre">CylindricalFSurf</span></code> 来绘制柱坐标函数曲面。我们知道，在柱坐标系下的二元函数，仍能表示一个曲面。在柱坐标系下，定位一个点所用的坐标为 <span class="math notranslate nohighlight">\((r, \theta, z)\)</span>，其中：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(r\)</span>: 为极径在 <span class="math notranslate nohighlight">\(xy\)</span> 平面上投影的长度；</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span>: 为极径在 <span class="math notranslate nohighlight">\(xy\)</span> 平面上的投影与 <span class="math notranslate nohighlight">\(x\)</span> 轴的夹角（从 <span class="math notranslate nohighlight">\(x\)</span> 轴在投影顺时针为正，逆时针为负）；</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span>: 为定位点到 <span class="math notranslate nohighlight">\(xy\)</span> 平面的有向距离（在 <span class="math notranslate nohighlight">\(xy\)</span> 平面上方为正，下方为负）。</p></li>
+</ul>
+<p>如图 3 所示：</p>
+<figure class="align-center" id="id56">
+<a class="reference internal image-reference" href="../_images/cylindrical_func.png"><img alt="../_images/cylindrical_func.png" src="../_images/cylindrical_func.png" style="width: 232.5px; height: 221.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 3. 柱坐标系下的坐标含义</span><a class="headerlink" href="#id56" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>图中：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(OP\)</span> 为极径；</p></li>
+<li><p><span class="math notranslate nohighlight">\(OQ\)</span> 为 <span class="math notranslate nohighlight">\(OP\)</span> 在 <span class="math notranslate nohighlight">\(xy\)</span> 平面上的投影；</p></li>
+<li><p><span class="math notranslate nohighlight">\(r = |OQ|\)</span>；</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> 为 <span class="math notranslate nohighlight">\(x\)</span> 轴转到 <span class="math notranslate nohighlight">\(OQ\)</span> 的角；</p></li>
+<li><p><span class="math notranslate nohighlight">\(z\)</span> 为 <span class="math notranslate nohighlight">\(QP\)</span> 的有向长度。</p></li>
+</ul>
+<p>而柱坐标函数则表示为 <span class="math notranslate nohighlight">\(z = h(r, \theta)\)</span>。绘制柱坐标函数曲面只需给出函数 <span class="math notranslate nohighlight">\(z = h(r, \theta)\)</span> 的定义 <code class="docutils literal notranslate"><span class="pre">func</span></code>，并传入 <code class="docutils literal notranslate"><span class="pre">CylindricalFSurf(func,</span> <span class="pre">r_range,</span> <span class="pre">theta_range)</span></code> 即可。还可通过 <code class="docutils literal notranslate"><span class="pre">r_range=[start,</span> <span class="pre">stop],</span> <span class="pre">theta_range=[start,</span> <span class="pre">stop]</span></code> 参数更改 <span class="math notranslate nohighlight">\(r\)</span> 和 <span class="math notranslate nohighlight">\(\theta\)</span> 的取值范围。事实上，<code class="docutils literal notranslate"><span class="pre">CylindricalFSurf</span></code> 还含有大量其他参数，请参见[to-do]，在此不一一介绍。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>定义函数 <code class="docutils literal notranslate"><span class="pre">func(r,</span> <span class="pre">theta)</span></code> 时的 <code class="docutils literal notranslate"><span class="pre">theta</span></code> 参数需要以弧度为单位。同样地，<code class="docutils literal notranslate"><span class="pre">CylindricalFSurf</span></code> 参数中的 <code class="docutils literal notranslate"><span class="pre">theta_range</span></code> 也需要以弧度为单位。</p>
+</div>
+<section id="id7">
+<h3>例子：泽尼克多项式可视化<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
+<p>我们知道，泽尼克多项式在光学领域中具有重要应用。泽尼克多项式是定义在单位圆上的柱坐标函数空间的一组正交基，任何定义在单位圆上的柱坐标函数都可表示为泽尼克多项式级数的形式，所以，我们选择绘制这一典型的柱坐标基础函数来了解类 <code class="docutils literal notranslate"><span class="pre">CylindricalFSurf</span></code> 的使用。泽尼克多项式的柱坐标表示形式 <span class="math notranslate nohighlight">\(Z_n^m(r, \theta)\)</span> 为：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}Z_n^m(r, \theta) =
+\left\{
+\begin{aligned}
+&amp; C_n^m(r)\cos(m\theta) , &amp; 0 \leqslant m \leqslant n \\
+&amp; C_n^m(r)\sin(m\theta) , &amp; -n \leqslant m &lt; 0
+\end{aligned}
+\right.\end{split}\]</div>
+<p>其中，</p>
+<div class="math notranslate nohighlight">
+\[C_n^m(r) = \sum_{k=0}^{\lfloor\frac{n-m}{2}\rfloor}(-1)^k\dfrac{(n-k)!}{k!\left(\lfloor\frac{n+m}{2}\rfloor-k\right)!\left(\lfloor\frac{n-m}{2}\rfloor-k\right)!}r^{n-2k}\]</div>
+<p>在 <code class="docutils literal notranslate"><span class="pre">glass_engine.algorithm</span></code> 中已经定义了泽尼克多项式取值函数，为 <code class="docutils literal notranslate"><span class="pre">Zernike_eval(n,</span> <span class="pre">m,</span> <span class="pre">r,</span> <span class="pre">theta)</span></code>，我们可以直接调用 <code class="docutils literal notranslate"><span class="pre">CylindricalFSurf</span></code> 进行绘制，接下来我们将不同的 <span class="math notranslate nohighlight">\(n, m\)</span> 所代表的泽尼克多项式绘制到场景中：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.algorithm</span> <span class="kn">import</span> <span class="n">Zernike_eval</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">glass_engine</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">dir_light</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">(</span><span class="n">add_floor</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">15</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">dir_light</span><span class="o">.</span><span class="n">generate_shadows</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">Zernike_surf</span> <span class="o">=</span> <span class="n">CylindricalFSurf</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">Zernike_eval</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">),</span> <span class="n">r_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">Zernike_surf</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">Zernike_surf</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="mi">90</span>
+        <span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Zernike_surf</span><span class="p">)</span>
+
+<span class="n">module_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">glass_engine</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">skydome</span> <span class="o">=</span> <span class="n">module_folder</span> <span class="o">+</span> <span class="s2">&quot;/Demos/assets/skydomes/puresky.exr&quot;</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>上述代码在场景中添加了 <span class="math notranslate nohighlight">\(n \leqslant 5\)</span> 的所有泽尼克多项式的图像，运行它，你将得到如图 4 所示结果。</p>
+<figure class="align-center" id="id57">
+<a class="reference internal image-reference" href="../_images/zernike_vs.png"><img alt="../_images/zernike_vs.png" src="../_images/zernike_vs.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 4. 泽尼克多项式可视化结果</span><a class="headerlink" href="#id57" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id8">
+<h2>球坐标函数曲面<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可使用类 <code class="docutils literal notranslate"><span class="pre">SphericalFSurf</span></code> 来绘制球坐标函数曲面。我们知道，在球坐标系下的二元函数，仍能表示一个曲面。在球坐标系下，定位一个点所用的坐标为 <span class="math notranslate nohighlight">\((lon, lat, \rho)\)</span> 用球坐标函数表示曲面时，其中：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(lon\)</span>: 为经度，极径在 <span class="math notranslate nohighlight">\(xy\)</span> 平面上的投影与 <span class="math notranslate nohighlight">\(x\)</span> 轴的夹角（从 <span class="math notranslate nohighlight">\(x\)</span> 轴到投影逆时针为正，顺时针为负）</p></li>
+<li><p><span class="math notranslate nohighlight">\(lat\)</span>: 为纬度，极径与 <span class="math notranslate nohighlight">\(xy\)</span> 平面的夹角（从 <span class="math notranslate nohighlight">\(xy\)</span> 平面到极径向上为正，向下为负）</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho\)</span>: 为极径长度</p></li>
+</ul>
+<p>如图 5 所示：</p>
+<figure class="align-center" id="id58">
+<a class="reference internal image-reference" href="../_images/spherical_func.png"><img alt="../_images/spherical_func.png" src="../_images/spherical_func.png" style="width: 231.25px; height: 220.75px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 5. 球坐标系下的坐标含义</span><a class="headerlink" href="#id58" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>图中：</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(OP\)</span> 为极径；</p></li>
+<li><p><span class="math notranslate nohighlight">\(OQ\)</span> 为 <span class="math notranslate nohighlight">\(OP\)</span> 在 <span class="math notranslate nohighlight">\(xy\)</span> 平面上的投影；</p></li>
+<li><p><span class="math notranslate nohighlight">\(lon\)</span> 为 <span class="math notranslate nohighlight">\(OQ\)</span> 与 <span class="math notranslate nohighlight">\(x\)</span> 轴的夹角；</p></li>
+<li><p><span class="math notranslate nohighlight">\(lat\)</span> 为 <span class="math notranslate nohighlight">\(OP\)</span> 与 <span class="math notranslate nohighlight">\(OQ\)</span> 的夹角；</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho = |OP|\)</span>。</p></li>
+</ul>
+<p>而球坐标函数则表示为 <span class="math notranslate nohighlight">\(\rho = f(lon, lat)\)</span>。绘制球坐标函数曲面只需给出函数 <span class="math notranslate nohighlight">\(\rho = f(lon, lat)\)</span> 的定义，并传入 <code class="docutils literal notranslate"><span class="pre">SphericalFSurf(func,</span> <span class="pre">lon_range,</span> <span class="pre">lat_range)</span></code> 的 <code class="docutils literal notranslate"><span class="pre">func</span></code> 参数即可。还可通过 <code class="docutils literal notranslate"><span class="pre">lon_range=[start,</span> <span class="pre">span],</span> <span class="pre">lat_range=[start,</span> <span class="pre">span]</span></code> 参数更改 <span class="math notranslate nohighlight">\(lon\)</span> 和 <span class="math notranslate nohighlight">\(lat\)</span> 的取值范围。事实上，<code class="docutils literal notranslate"><span class="pre">SphericalFSurf</span></code> 还含有大量其他参数，请参见[to-do]，在此不一一介绍。</p>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>定义函数 <code class="docutils literal notranslate"><span class="pre">func(lon,</span> <span class="pre">lat)</span></code> 时的 <code class="docutils literal notranslate"><span class="pre">lon,</span> <span class="pre">lat</span></code> 参数需要以弧度为单位。同样地，<code class="docutils literal notranslate"><span class="pre">SphericalFSurf</span></code> 参数中的 <code class="docutils literal notranslate"><span class="pre">lon_range,</span> <span class="pre">lat_range</span></code> 也需要以弧度为单位。</p>
+</div>
+<section id="id9">
+<h3>例子：球谐函数可视化<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
+<p>我们知道，球谐函数是一种经典的球坐标函数，在量子力学领域和计算机图形学中的基于图像的光照 (Image Based Lighting, IBL) 中被广泛应用。球谐函数是球坐标函数空间的一组正交基，任何球坐标函数都可表示为球谐函数级数展开的形式，所以，我们选择绘制球坐标函数空间最基础的函数作为例子来了解类 <code class="docutils literal notranslate"><span class="pre">SphericalFSurf</span></code> 的使用。球谐函数 <span class="math notranslate nohighlight">\(Y_{l,m}(\theta, \varphi)\)</span> 定义如下：</p>
+<div class="math notranslate nohighlight">
+\[Y_{l,m}(\theta, \varphi) = A_{l,m}\,P_l^m (\cos\theta)\,\mathrm{e}^{\mathrm{i}m\varphi}~~~(l \geqslant 0, -l \leqslant m \leqslant l)\]</div>
+<p>其中，</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+        A_{l,m} &amp; = (-1)^m\sqrt{\dfrac{2l+1}{4\pi}\dfrac{(l + m)!}{(l - m)!}}\\
+        P_l^m (x) &amp; =
+        \left\{
+        \begin{aligned}
+                &amp; (1 - x^2)^{\frac{m}{2}}\sum_{k=0}^{\lfloor\frac{l - m}{2}\rfloor}(-1)^k\dfrac{(2(l - k))!}{2^l k! (l-k)! (l - 2k - m)!}x^{l-2k-m} &amp; , m \geqslant 0 \\
+                &amp; (-1)^{m}\dfrac{(l+m)!}{(l-m)!}P_l^{-m} (x) &amp; , m &lt; 0
+        \end{aligned}
+        \right.
+\end{aligned}\end{split}\]</div>
+<p>其中 <span class="math notranslate nohighlight">\(\varphi\)</span> 表示经度，等同于 <span class="math notranslate nohighlight">\(lon\)</span> 参数，<span class="math notranslate nohighlight">\(\theta\)</span> 表示极径与 <span class="math notranslate nohighlight">\(z\)</span> 轴夹角，等效于 <span class="math notranslate nohighlight">\(\frac{\pi}{2}-lat\)</span>。注意到，<span class="math notranslate nohighlight">\(Y_{l,m}(\theta, \varphi)\)</span> 为一个复数，在绘制其所表示的曲面时，通常绘制下面这个实函数：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\rho(\theta, \varphi) =
+\left\{
+\begin{aligned}
+        &amp; \sqrt{2} \left|\mathrm{real}\left(Y_{l,m}(\theta, \varphi)\right)\right| &amp; ,~~m &gt; 0\\
+        &amp; \sqrt{2} \left|\mathrm{imag}\left(Y_{l,m}(\theta, \varphi)\right)\right| &amp; ,~~m &lt; 0\\
+        &amp; \left|\mathrm{real}\left(Y_{l,m}(\theta, \varphi)\right)\right| &amp; ,~~m = 0
+\end{aligned}
+\right.\end{split}\]</div>
+<p>在 <strong>Glass Engine</strong> 中，已经给出了 <span class="math notranslate nohighlight">\(Y_{l,m}(\theta, \varphi)\)</span> 的定义，即 <code class="docutils literal notranslate"><span class="pre">glass_engine.algorithm</span></code> 中的函数 <code class="docutils literal notranslate"><span class="pre">spherical_harmonics_eval(l,</span> <span class="pre">m,</span> <span class="pre">theta,</span> <span class="pre">phi)</span></code>，其将返回一个复数，下面我们只需定义出 <span class="math notranslate nohighlight">\(\rho(lon, lat)\)</span> 即可：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">glass_engine.algorithm</span> <span class="kn">import</span> <span class="n">spherical_harmonics_eval</span>
+
+<span class="k">def</span> <span class="nf">SH_func</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">lat</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">lon</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">spherical_harmonics_eval</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>接下来我们将给出不同的 <span class="math notranslate nohighlight">\(l, m\)</span> 的组合，并将对应的球谐函数曲面全部绘制到场景中：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">glass_engine</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">dir_light</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">(</span><span class="n">add_floor</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">dir_light</span><span class="o">.</span><span class="n">generate_shadows</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">SH_surf</span> <span class="o">=</span> <span class="n">SphericalFSurf</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">SH_func</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">m</span><span class="p">))</span>
+        <span class="n">SH_surf</span><span class="o">.</span><span class="n">yaw</span> <span class="o">=</span> <span class="o">-</span><span class="mi">90</span>
+        <span class="n">SH_surf</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="o">/</span><span class="mf">1.5</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">SH_surf</span><span class="p">)</span>
+
+<span class="n">module_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">glass_engine</span><span class="o">.</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">skydome</span> <span class="o">=</span> <span class="n">module_folder</span> <span class="o">+</span> <span class="s2">&quot;/Demos/assets/skydomes/puresky.exr&quot;</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>上述代码在场景中添加了 <span class="math notranslate nohighlight">\(l \leqslant 4\)</span> 的所有球谐函数的图像，运行它，你将得到如图 6 所示结果。</p>
+<figure class="align-center" id="id59">
+<a class="reference internal image-reference" href="../_images/sh_vs.png"><img alt="../_images/sh_vs.png" src="../_images/sh_vs.png" style="width: 400.0px; height: 229.20000000000002px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 6. 球谐函数可视化结果</span><a class="headerlink" href="#id59" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id10">
+<h2>旋转体<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可使用 <code class="docutils literal notranslate"><span class="pre">Rotator</span></code> 来创建旋转体。只需给出旋转截面的定义和旋转轴，即可创建旋转体。具体方法如下：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义截面点集</span>
+<span class="n">section</span> <span class="o">=</span> <span class="p">[</span><span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">),</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">axis_start</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 定义旋转轴起点</span>
+<span class="n">axis_end</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 定义旋转轴终点</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Rotator</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">axis_start</span><span class="p">,</span> <span class="n">axis_end</span><span class="p">)</span> <span class="c1"># 创建旋转体</span>
+</pre></div>
+</div>
+<p>将上面创建的旋转体绘制到图中即可得到如图 7 所示结果：</p>
+<figure class="align-center" id="id60">
+<a class="reference internal image-reference" href="../_images/Rotator_ex.png"><img alt="../_images/Rotator_ex.png" src="../_images/Rotator_ex.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 7. 测试的旋转体</span><a class="headerlink" href="#id60" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id11">
+<h2>拉伸体<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h2>
+<p>在 <strong>Glass Engine</strong> 中，可以通过 <code class="docutils literal notranslate"><span class="pre">Extruder</span></code> 来创建拉伸体，拉伸体即为一个截面延某个路径拉伸所形成的几何体。只需给出截面点集和路径点集即可轻松地创建拉伸体。具体方法为：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 定义一个正方形截面</span>
+<span class="n">section</span> <span class="o">=</span> \
+<span class="p">[</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># 定义一个任意路径</span>
+<span class="n">path</span> <span class="o">=</span> \
+<span class="p">[</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+        <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Extruder</span><span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">join_type</span><span class="o">=</span><span class="n">Extruder</span><span class="o">.</span><span class="n">JoinStyle</span><span class="o">.</span><span class="n">MiterJoin</span><span class="p">)</span>
+<span class="c1"># model = Extruder(section, path, join_type=Extruder.JoinStyle.RoundJoin)</span>
+<span class="c1"># model = Extruder(section, path, join_type=Extruder.JoinStyle.BevelJoin)</span>
+</pre></div>
+</div>
+<p>可以看到，在上述代码中不仅设置了截面 <code class="docutils literal notranslate"><span class="pre">section</span></code> 和路径 <code class="docutils literal notranslate"><span class="pre">path</span></code> 参数，还设置了 <code class="docutils literal notranslate"><span class="pre">join_type</span></code> 参数。<code class="docutils literal notranslate"><span class="pre">join_type</span></code> 参数含义为连接处的连接类型，有三个枚举值可选，分别为 <code class="docutils literal notranslate"><span class="pre">MiterJoin,</span> <span class="pre">RoundJoin,</span> <span class="pre">BevelJoin</span></code>。这三种连接方式分别绘制在图中即为图 8 所示：</p>
+<figure class="align-center" id="id61">
+<a class="reference internal image-reference" href="../_images/Extruder_AllJoin.png"><img alt="../_images/Extruder_AllJoin.png" src="../_images/Extruder_AllJoin.png" style="width: 660.0px; height: 216.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 8. join_type 依次为 MiterJoin、RoundJoin、BevelJoin</span><a class="headerlink" href="#id61" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id12">
+<h2>几何体组合<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h2>
+<p>你可以通过组合来构建更加复杂的几何体。方法为往某个几何体上挂载子几何体，或者多个几何体挂载到一个抽象的场景节点上以实现几何体的组合。例如，我们可以将两个球体和一个圆柱组合为一个胶囊：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+
+<span class="n">capsule</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1"># 创建一个圆柱作为主体</span>
+
+<span class="n">top_sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span> <span class="c1"># 顶部球盖</span>
+<span class="n">top_sphere</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.5</span> <span class="c1"># 设置球盖相对于父节点的位置</span>
+<span class="n">capsule</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">top_sphere</span><span class="p">)</span> <span class="c1"># 球盖添加为胶囊的子节点</span>
+
+<span class="n">bottom_sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">()</span> <span class="c1"># 底部球盖</span>
+<span class="n">capsule</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">bottom_sphere</span><span class="p">)</span> <span class="c1"># 球盖添加为胶囊的子节点</span>
+
+<span class="n">capsule</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># 将胶囊作为一个整体设置位置</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">capsule</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>你将得到一个站立的胶囊，如图 9 所示。</p>
+<figure class="align-center" id="id62">
+<a class="reference internal image-reference" href="../_images/capsule.png"><img alt="../_images/capsule.png" src="../_images/capsule.png" style="width: 400.0px; height: 288.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 9. 一个圆柱和两个球体组合成的胶囊</span><a class="headerlink" href="#id62" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="label-self-geo">
+<span id="id13"></span><h2>自定义几何体<a class="headerlink" href="#label-self-geo" title="此标题的永久链接"></a></h2>
+<p>有时可能我们需要更复杂的几何体，这是可以采用自定义几何体的方式。值得注意的是，我们应首先考虑拉伸体、旋转体、函数曲面、几何体组合能否满足我们的需求，你最后的选择才是自定义几何体。</p>
+<p>自定义几何体需要自定义一个类，继承自 <code class="docutils literal notranslate"><span class="pre">glass_engine.Mesh</span></code>，并重写其 <code class="docutils literal notranslate"><span class="pre">build</span></code> 方法。在 <strong>Glass Engine</strong> 中，所有可渲染物体均以三角网格构成，曲面也是如此，只不过曲面的三角网更密。所以我们自定义几何体就是自定义三角网。思考一下，要实现三角网的定义首先应该定义所有 <strong>顶点</strong>，定义完所有顶点后，我们需要定义哪三个点连接组成一个三角形。这个连接顺序称为 <strong>索引</strong>。总的来说，实现几何体的自定义只需要完成 <strong>顶点</strong> 和 <strong>索引</strong> 的定义即可。</p>
+<p>具体方法为：自定义一个类并继承自 <code class="docutils literal notranslate"><span class="pre">glass_engine.Mesh</span></code>，并重写其 <code class="docutils literal notranslate"><span class="pre">build</span></code> 方法。在 <code class="docutils literal notranslate"><span class="pre">build</span></code> 方法中为 <code class="docutils literal notranslate"><span class="pre">self.vertices</span></code> 和 <code class="docutils literal notranslate"><span class="pre">self.indices</span></code> 属性添加内容，即可完成几何体的自定义。例如，我们来定义一个五角星 <code class="docutils literal notranslate"><span class="pre">Star</span></code>：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass_engine.Geometries</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">glass</span> <span class="kn">import</span> <span class="n">Vertex</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">class</span> <span class="nc">Star</span><span class="p">(</span><span class="n">Mesh</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">thickness</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">0.4</span><span class="p">):</span>
+        <span class="n">Mesh</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__radius</span> <span class="o">=</span> <span class="n">radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__thickness</span> <span class="o">=</span> <span class="n">thickness</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_building</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__radius</span> <span class="c1"># 长轴半径</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 短轴半径</span>
+        <span class="n">theta_shift</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span>
+
+        <span class="c1"># 上中心凸起点</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Vertex</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__thickness</span><span class="o">/</span><span class="mi">2</span><span class="p">)))</span>
+        <span class="c1"># 索引为 0</span>
+
+        <span class="c1"># 下中心凸起点</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Vertex</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">__thickness</span><span class="o">/</span><span class="mi">2</span><span class="p">)))</span>
+        <span class="c1"># 索引为 1</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="c1"># 凸出角顶点</span>
+            <span class="n">theta_outter</span> <span class="o">=</span> <span class="n">i</span><span class="o">/</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span>
+            <span class="n">pos_outter</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">()</span>
+            <span class="n">pos_outter</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">R</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_outter</span><span class="p">)</span>
+            <span class="n">pos_outter</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span>  <span class="n">R</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_outter</span><span class="p">)</span>
+            <span class="n">pos_outter</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span>  <span class="mi">0</span>
+
+            <span class="n">vertex_outter</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">pos_outter</span><span class="p">)</span>
+            <span class="n">index_outter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span>
+            <span class="n">index_outter_next</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">index_outter_next</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vertex_outter</span><span class="p">)</span>
+
+            <span class="c1"># 内凹角顶点</span>
+            <span class="n">theta_inner</span> <span class="o">=</span> <span class="n">theta_outter</span> <span class="o">+</span> <span class="n">theta_shift</span>
+            <span class="n">pos_inner</span> <span class="o">=</span> <span class="n">glm</span><span class="o">.</span><span class="n">vec3</span><span class="p">()</span>
+            <span class="n">pos_inner</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_inner</span><span class="p">)</span>
+            <span class="n">pos_inner</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span>  <span class="n">r</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_inner</span><span class="p">)</span>
+            <span class="n">pos_inner</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span>  <span class="mi">0</span>
+
+            <span class="n">index_inner</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">vertex_inner</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="n">pos_inner</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vertex_inner</span><span class="p">)</span>
+
+            <span class="c1"># 上表面覆盖的两个三角形</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="n">uvec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_outter</span><span class="p">,</span> <span class="n">index_inner</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="n">uvec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_inner</span><span class="p">,</span> <span class="n">index_outter_next</span><span class="p">))</span>
+
+            <span class="c1"># 下表面覆盖的两个三角形</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="n">uvec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_outter</span><span class="p">,</span> <span class="n">index_inner</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glm</span><span class="o">.</span><span class="n">uvec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">index_inner</span><span class="p">,</span> <span class="n">index_outter_next</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>在上述代码中，我们首先定义了一个类 <code class="docutils literal notranslate"><span class="pre">Start</span></code> 继承自 <code class="docutils literal notranslate"><span class="pre">Mesh</span></code>，并在其 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 方法中调用父类的 <code class="docutils literal notranslate"><span class="pre">__init__</span></code>，并将五角星的几何参数赋值给成员变量。注意，在 <code class="docutils literal notranslate"><span class="pre">__init__</span></code> 方法结束时，需要调用 <code class="docutils literal notranslate"><span class="pre">self.start_building()</span></code> 已完成几何体的构建，请不要直接调用 <code class="docutils literal notranslate"><span class="pre">self.build()</span></code>，因为在 <code class="docutils literal notranslate"><span class="pre">build</span></code> 之后 <strong>Glass Engine</strong> 还会添加一些额外信息，例如自动计算法向量等。</p>
+<p>在 <code class="docutils literal notranslate"><span class="pre">build</span></code> 方法中，我们计算了顶点位置并通过 <code class="docutils literal notranslate"><span class="pre">Vertex</span></code> 创建顶点，随后将顶点添加到 <code class="docutils literal notranslate"><span class="pre">self.vertices</span></code> 中。你可以将 <code class="docutils literal notranslate"><span class="pre">self.vertices</span></code> 完全当做 <code class="docutils literal notranslate"><span class="pre">list</span></code> 使用，只不过其中只能容纳 <code class="docutils literal notranslate"><span class="pre">Vertex</span></code> 类型变量。</p>
+<p>最后计算了三角形连接顺序，三角形连接顺序用三个整数表示，整数的含义为 <code class="docutils literal notranslate"><span class="pre">self.vertices</span></code> 中的第几个顶点，三个整数含义为这三个顶点将连接成一个三角形面。三个整数组合放入 <code class="docutils literal notranslate"><span class="pre">glm.uvec3</span></code> 的构造参数中作为一个三角形，并将这个三角形添加到 <code class="docutils literal notranslate"><span class="pre">self.indices</span></code> 中。你可以将 <code class="docutils literal notranslate"><span class="pre">self.indices</span></code> 完全当做 <code class="docutils literal notranslate"><span class="pre">list</span></code> 使用，只不过其中只能容纳 <code class="docutils literal notranslate"><span class="pre">glm.uvec3</span></code> 类型变量。</p>
+<p>这样，我们就完成了五角星几何体 <code class="docutils literal notranslate"><span class="pre">Start</span></code> 的自定义，下面，让我们来显示它吧：</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">light</span><span class="p">,</span> <span class="n">floor</span> <span class="o">=</span> <span class="n">SceneRoam</span><span class="p">()</span>
+
+<span class="n">star</span> <span class="o">=</span> <span class="n">Star</span><span class="p">()</span>
+<span class="n">star</span><span class="o">.</span><span class="n">pitch</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">star</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">star</span><span class="p">)</span>
+
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>这段代码你应该很熟悉了，首先使用 <code class="docutils literal notranslate"><span class="pre">SceneRoam</span></code> 创建基础场景，然后用我们刚定义的 <code class="docutils literal notranslate"><span class="pre">Start</span></code> 创建对象、设置位置，并添加到场景中，最后将相机屏幕显示出来。运行上述代码，你将看到图 10 所示结果。</p>
+<figure class="align-center" id="id63">
+<a class="reference internal image-reference" href="../_images/star.png"><img alt="../_images/star.png" src="../_images/star.png" style="width: 500.0px; height: 360.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">图 10. 自定义的五角星几何体</span><a class="headerlink" href="#id63" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+<p>如果你需要更复杂的几何体以至于自定义几何体会非常麻烦，那么你可以从 3D 建模软件中创建并保存为文件，或者从网上下载 3D 模型文件，然后使用 <strong>Glass Engine</strong> 加载。下一章我们将讲解 3D 模型的加载。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../background/background.html" class="btn btn-neutral float-left" title="背景" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../model/model.html" class="btn btn-neutral float-right" title="模型" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

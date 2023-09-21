@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>渲染器 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="动画" href="../animation/animation.html" />
+    <link rel="prev" title="键鼠交互" href="../manipulators/manipulators.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material.html">材质</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">渲染器</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#label-forwardrenderer">前向渲染</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-deferredrenderer">延迟着色法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">自定义渲染器</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">渲染器</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/renderers/renderers.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>渲染器<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>渲染器是 <strong>Glass Engine</strong> 完成渲染的核心模块，<strong>Glass Engine</strong> 内置两种渲染管线的渲染器，分别为</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ForwardRenderer</span></code>: 使用前向渲染管线的渲染器</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DeferredRenderer</span></code>: 使用延迟着色法管线的渲染器</p></li>
+</ul>
+<p>这两种渲染器均定义在 <code class="docutils literal notranslate"><span class="pre">glass_engine.Renderers</span></code> 子模块中，可直接导入使用。<strong>Glass Engine</strong> 默认采用 <code class="docutils literal notranslate"><span class="pre">ForwardRenderer</span></code> 渲染器，你可以通过给 <code class="docutils literal notranslate"><span class="pre">camera.screen</span></code> 的 <code class="docutils literal notranslate"><span class="pre">renderer</span></code> 属性赋值来更改使用的渲染器。例如，你可以通过如下代码将渲染器修改为延迟着色渲染器：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glass_engine.Renderers</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">screen</span><span class="o">.</span><span class="n">renderer</span> <span class="o">=</span> <span class="n">DeferredRenderer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>另外，你还可以定义自己的渲染器在其中编写自己的渲染逻辑，只需继承自 <code class="docutils literal notranslate"><span class="pre">Renderer</span></code> 类并重写其中 <code class="docutils literal notranslate"><span class="pre">render</span></code> 方法即可。</p>
+<section id="label-forwardrenderer">
+<span id="id2"></span><h2>前向渲染<a class="headerlink" href="#label-forwardrenderer" title="此标题的永久链接"></a></h2>
+<p><strong>Glass Engine</strong> 默认采用前向渲染的渲染器，该渲染管线能够利用多重采样抗锯齿 (Multi-Sampling Anti-Aliasing, MSAA) 得到比较平滑的物体边缘。MSAA 默认已开启，你可通过设置 <code class="docutils literal notranslate"><span class="pre">camera.screen.samples</span></code> 属性设置多重采样数，默认为 4，将其设置为不大于 1 的数则为关闭多重采样抗锯齿。</p>
+<p>其缺点为场景中光源较多时，帧率会大幅降低，你可以将其替换为延迟着色法渲染器以提高渲染效率。（前提是多光源都关闭阴影，否则延迟着色法也没法补救。）</p>
+</section>
+<section id="label-deferredrenderer">
+<span id="id3"></span><h2>延迟着色法<a class="headerlink" href="#label-deferredrenderer" title="此标题的永久链接"></a></h2>
+<p>当你通过 <code class="docutils literal notranslate"><span class="pre">camera.screen.renderer</span> <span class="pre">=</span> <span class="pre">DeferredRenderer()</span></code> 将渲染器切换为 <code class="docutils literal notranslate"><span class="pre">DeferredRenderer</span></code> 之后，其将采用延迟着色法进行渲染。延迟着色法能够很好地提高多光源渲染效率，但有两个较大的缺陷：</p>
+<ul class="simple">
+<li><p>MSAA 抗锯齿有一点效果但十分不明显，默认已关闭。默认采用快速近似抗锯齿 (Fast Approximate Anti-Aliasing, FXAA) 策略，但效果没有前向渲染的 MSAA 好；</p></li>
+<li><p>使用 Toon 着色模型时，材质的 <code class="docutils literal notranslate"><span class="pre">Toon_diffuse_softness</span></code> 和 <code class="docutils literal notranslate"><span class="pre">Toon_specular_softness</span></code> 参数无法生效。原因在于渲染目标个数存在硬件上限，最多八个，每个渲染目标最多四个分量，已经尽可能的将材质参数压缩到这八个渲染目标中，上面提到的两个实在无法存储，只能选择抛弃。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>自定义渲染器<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h2>
+<p>如果你想实现自己的渲染管线，需要编写自定义渲染器继承自 <code class="docutils literal notranslate"><span class="pre">Renderer</span></code>，并重写其中的 <code class="docutils literal notranslate"><span class="pre">render</span></code> 方法，这对普通用户来说难度较大，在此处不再展开讲解。真的希望重写 <code class="docutils literal notranslate"><span class="pre">render</span></code> 方法的用户，可以参考 <code class="docutils literal notranslate"><span class="pre">ForwardRenderer.py</span></code> 和 <code class="docutils literal notranslate"><span class="pre">DeferredRenderer.py</span></code> 的源码。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../manipulators/manipulators.html" class="btn btn-neutral float-left" title="键鼠交互" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../animation/animation.html" class="btn btn-neutral float-right" title="动画" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

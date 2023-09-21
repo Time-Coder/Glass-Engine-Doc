@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>材质 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="公共属性" href="common_props/common_props.html" />
+    <link rel="prev" title="颜色与渲染提示" href="../color_renderhint/color_renderhint.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">材质</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="common_props/common_props.html">公共属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shading_models/shading_models.html">着色模型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internal_materials/internal_materials.html">内置材质</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">材质</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/material/material.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>材质<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p>材质对象作为网格 <code class="docutils literal notranslate"><span class="pre">Mesh</span></code> 对象的一个属性存在，可以改变网格的视觉效果。任何 <code class="docutils literal notranslate"><span class="pre">Mesh</span></code> 都可通过 <code class="docutils literal notranslate"><span class="pre">material</span></code> 属性获取到自身的材质。本章主要讲解如何通过材质来改变 <code class="docutils literal notranslate"><span class="pre">Mesh</span></code> 的视觉效果。</p>
+<p>材质对象含有一个 <code class="docutils literal notranslate"><span class="pre">shading_model</span></code> 属性表示材质的着色模型。着色模型决定了材质反射入射光的方式，进而直接决定了物体的外观。<strong>Glass Engine</strong> 具有多种着色模型可供选择，包括：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Flat</span></code>：平面光照模型，光照颜色逐面渲染，没有高光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Gouraud</span></code>：Gouraud 光照模型，光照颜色逐顶点渲染并在面内插值；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Phong</span></code>：Phong 光照模型，光照颜色逐像素渲染，计算高光时参考视线与反射向量夹角的余弦值；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.PhongBlinn</span></code>：Phong-Blinn 光照模型，光照颜色逐像素渲染，计算高光时参考半程向量与表面法线夹角的余弦值；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Toon</span></code>：卡通模式渲染，基于 Phong 模型，但任何颜色不再渐变而是突变，能够产生卡通效果；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.OrenNayar</span></code>：Oren-Nayar 光照模型[<a class="reference external" href="https://doi.org/10.1145/192161.192213">1</a>]，是一种比 Lambert 漫反射模型更物理的漫反射模型，不计算高光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Minnaert</span></code>：Minnaert 光照模型[<a class="reference external" href="https://www.researchgate.net/publication/247923568_The_Lambertian_Assumption_and_Landsat_Data">2</a>]，光照颜色逐像素渲染，没有高光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Unlit</span></code>：不受光照影响，物体直接表现为自发光颜色或漫反射颜色；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.Fresnel</span></code>：Fresnel 着色模型，仅在边缘处产生渐变光；</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Material.ShadingModel.PBR</span></code>：基于物理的渲染模型，采用金属度/粗糙度工作流。</p></li>
+</ul>
+<p>依据着色模型的不同，可供设置的材质属性也不同，这些属性包括：</p>
+<table class="docutils align-center" id="id4">
+<caption><span class="caption-text">材质属性</span><a class="headerlink" href="#id4" title="此表格的永久链接"></a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>材质属性</p></th>
+<th class="head"><figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../_images/Unlit.png"><img alt="../_images/Unlit.png" src="../_images/Unlit.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Unlit</span><a class="headerlink" href="#id5" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../_images/Flat.png"><img alt="../_images/Flat.png" src="../_images/Flat.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Flat</span><a class="headerlink" href="#id6" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../_images/Gouraud.png"><img alt="../_images/Gouraud.png" src="../_images/Gouraud.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Gouraud</span><a class="headerlink" href="#id7" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../_images/Phong.png"><img alt="../_images/Phong.png" src="../_images/Phong.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Phong</span><a class="headerlink" href="#id8" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="../_images/PhongBlinn.png"><img alt="../_images/PhongBlinn.png" src="../_images/PhongBlinn.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Phong-Blinn</span><a class="headerlink" href="#id9" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ambient : glm.vec3 <span class="raw-html"><br /></span> 环境光颜色</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>diffuse : glm.vec3 <span class="raw-html"><br /></span> 漫反射颜色</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>specular : glm.vec3 <span class="raw-html"><br /></span> 高光颜色</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>shininess : float <span class="raw-html"><br /></span> 闪耀度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>glossiness : float <span class="raw-html"><br /></span> 光泽度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>shininess_strength : float <span class="raw-html"><br /></span> 高光强度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>emission : glm.vec3 <span class="raw-html"><br /></span> 自发光颜色</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>rim_power : float <span class="raw-html"><br /></span> 边缘光强度</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>base_color : glm.vec3 <span class="raw-html"><br /></span> 基础颜色</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>metallic : float <span class="raw-html"><br /></span> 金属度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>roughness : float <span class="raw-html"><br /></span> 粗糙度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>diffuse_bands : int <span class="raw-html"><br /></span> 漫反射条带数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>specular_bands : int <span class="raw-html"><br /></span> 高光条带数</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>diffuse_softness : float <span class="raw-html"><br /></span> 漫反射过度软度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>specular_softness : float <span class="raw-html"><br /></span> 高光过度软度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>reflection : glm.vec4 <span class="raw-html"><br /></span> 环境映射层颜色</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>refractive_index : float <span class="raw-html"><br /></span> 折射率</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>env_mix_diffuse : bool <span class="raw-html"><br /></span> 环境映射与漫反射颜色是否混合</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>dynamic_env_mapping : bool <span class="raw-html"><br /></span> 是否开启动态环境映射</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>auto_update_env_map : bool <span class="raw-html"><br /></span> 自动更新环境映射贴图</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>opacity : float <span class="raw-html"><br /></span> 材质不透明度</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>height_scale : float <span class="raw-html"><br /></span> 凹凸夸张系数</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>fog : bool <span class="raw-html"><br /></span> 是否受雾影响</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>recv_shadows : bool <span class="raw-html"><br /></span> 是否接收阴影</p></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>cast_shadows : bool <span class="raw-html"><br /></span> 是否投射阴影</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id10">
+<caption><span class="caption-text">材质属性（续）</span><a class="headerlink" href="#id10" title="此表格的永久链接"></a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>材质属性</p></th>
+<th class="head"><figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="../_images/OrenNayar.png"><img alt="../_images/OrenNayar.png" src="../_images/OrenNayar.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Oren-Nayar</span><a class="headerlink" href="#id11" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="../_images/Minnaert.png"><img alt="../_images/Minnaert.png" src="../_images/Minnaert.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Minnaert</span><a class="headerlink" href="#id12" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="../_images/Toon.png"><img alt="../_images/Toon.png" src="../_images/Toon.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Toon</span><a class="headerlink" href="#id13" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../_images/Fresnel.png"><img alt="../_images/Fresnel.png" src="../_images/Fresnel.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">Fresnel</span><a class="headerlink" href="#id14" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+<th class="head"><figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="../_images/PBR.png"><img alt="../_images/PBR.png" src="../_images/PBR.png" style="width: 88.0px; height: 88.0px;" /></a>
+<figcaption>
+<p><span class="caption-text">PBR</span><a class="headerlink" href="#id15" title="此图像的永久链接"></a></p>
+</figcaption>
+</figure>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ambient : glm.vec3 <span class="raw-html"><br /></span> 环境光颜色</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>diffuse : glm.vec3 <span class="raw-html"><br /></span> 漫反射颜色</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>specular : glm.vec3 <span class="raw-html"><br /></span> 高光颜色</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>shininess : float <span class="raw-html"><br /></span> 闪耀度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>glossiness : float <span class="raw-html"><br /></span> 光泽度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>shininess_strength : float <span class="raw-html"><br /></span> 高光强度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>emission : glm.vec3 <span class="raw-html"><br /></span> 自发光颜色</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>rim_power : float <span class="raw-html"><br /></span> 边缘光强度</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>base_color : glm.vec3 <span class="raw-html"><br /></span> 基础颜色</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>metallic : float <span class="raw-html"><br /></span> 金属度</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>roughness : float <span class="raw-html"><br /></span> 粗糙度</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>diffuse_bands : int <span class="raw-html"><br /></span> 漫反射条带数</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>specular_bands : int <span class="raw-html"><br /></span> 高光条带数</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>diffuse_softness : float <span class="raw-html"><br /></span> 漫反射过度软度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>specular_softness : float <span class="raw-html"><br /></span> 高光过度软度</p></td>
+<td></td>
+<td></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>reflection : glm.vec4 <span class="raw-html"><br /></span> 环境映射层颜色</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>refractive_index : float <span class="raw-html"><br /></span> 折射率</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>env_mix_diffuse : bool <span class="raw-html"><br /></span> 环境映射与漫反射颜色是否混合</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>dynamic_env_mapping : bool <span class="raw-html"><br /></span> 是否开启动态环境映射</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>auto_update_env_map : bool <span class="raw-html"><br /></span> 自动更新环境映射贴图</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>opacity : float <span class="raw-html"><br /></span> 材质不透明度</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>height_scale : float <span class="raw-html"><br /></span> 凹凸夸张系数</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>fog : bool <span class="raw-html"><br /></span> 是否受雾影响</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>recv_shadows : bool <span class="raw-html"><br /></span> 是否接收阴影</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+<tr class="row-even"><td><p>cast_shadows : bool <span class="raw-html"><br /></span> 是否投射阴影</p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+<td><p><span class="raw-html">&check;</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>下面我们从以下角度展开详细描述：</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common_props/common_props.html">公共属性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shading_models/shading_models.html">着色模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internal_materials/internal_materials.html">内置材质</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../color_renderhint/color_renderhint.html" class="btn btn-neutral float-left" title="颜色与渲染提示" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="common_props/common_props.html" class="btn btn-neutral float-right" title="公共属性" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

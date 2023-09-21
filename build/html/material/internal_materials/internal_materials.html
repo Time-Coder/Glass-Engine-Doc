@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>内置材质 &mdash; Glass Engine 0.0.1 文档</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/glass_engine_logo32.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="搜索" href="../../search.html" />
+    <link rel="next" title="光源" href="../../lights/lights.html" />
+    <link rel="prev" title="着色模型" href="../shading_models/shading_models.html" />
+    <link href="../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Glass Engine
+              <img src="../../_static/glass_engine_logo64.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" aria-label="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <p class="caption" role="heading"><span class="caption-text">目录:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduce/introduce.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_start/getting_start.html">开始</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../scene_graph/scene_graph.html">场景图</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../transform/transform.html">空间变换</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../background/background.html">背景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../geometries/geometries.html">基本几何体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../model/model.html">模型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../color_renderhint/color_renderhint.html">颜色与渲染提示</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../material.html">材质</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../common_props/common_props.html">公共属性</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shading_models/shading_models.html">着色模型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">内置材质</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../lights/lights.html">光源</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../camera/camera.html">相机</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../fog/fog.html">雾</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../post_process_effects/post_process_effects.html">后处理效果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../manipulators/manipulators.html">键鼠交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../renderers/renderers.html">渲染器</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/animation.html">动画</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Glass Engine</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../material.html">材质</a></li>
+      <li class="breadcrumb-item active">内置材质</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/material/internal_materials/internal_materials.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>内置材质<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h1>
+<p><strong>Glass Engine</strong> 内置了一些材质可供使用，这些材质参数来自网站 <a class="reference external" href="http://devernay.free.fr/cours/opengl/materials.html">devernay.free.fr</a>，这些材质仅针对传统着色模型，PBR 则不适用。这些内置材质在不同着色模型下的视觉效果见下面两表。我们可轻松的设置材质为某个内置材质，例如下面代码将某个球体的材质设置为翡翠：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">set_as</span><span class="p">(</span><span class="n">Material</span><span class="o">.</span><span class="n">Type</span><span class="o">.</span><span class="n">Emerald</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>下表所列的所有内置材质的英文名称均可通过加上前缀 <code class="docutils literal notranslate"><span class="pre">Material.Type.</span></code> 访问到。</p>
+<table class="docutils align-center" id="id2">
+<caption><span class="caption-text">内置材质</span><a class="headerlink" href="#id2" title="此表格的永久链接"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>内置材质名称</p></th>
+<th class="head"><p>Flat</p></th>
+<th class="head"><p>Gouraud</p></th>
+<th class="head"><p>Phong</p></th>
+<th class="head"><p>Phong-Blinn</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Emerald 翡翠</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_Flat.png"><img alt="../../_images/Emerald_Flat.png" src="../../_images/Emerald_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_Gouraud.png"><img alt="../../_images/Emerald_Gouraud.png" src="../../_images/Emerald_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_Phong.png"><img alt="../../_images/Emerald_Phong.png" src="../../_images/Emerald_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_PhongBlinn.png"><img alt="../../_images/Emerald_PhongBlinn.png" src="../../_images/Emerald_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Jade 玉</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_Flat.png"><img alt="../../_images/Jade_Flat.png" src="../../_images/Jade_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_Gouraud.png"><img alt="../../_images/Jade_Gouraud.png" src="../../_images/Jade_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_Phong.png"><img alt="../../_images/Jade_Phong.png" src="../../_images/Jade_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_PhongBlinn.png"><img alt="../../_images/Jade_PhongBlinn.png" src="../../_images/Jade_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Obsidian 黑曜石</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_Flat.png"><img alt="../../_images/Obsidian_Flat.png" src="../../_images/Obsidian_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_Gouraud.png"><img alt="../../_images/Obsidian_Gouraud.png" src="../../_images/Obsidian_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_Phong.png"><img alt="../../_images/Obsidian_Phong.png" src="../../_images/Obsidian_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_PhongBlinn.png"><img alt="../../_images/Obsidian_PhongBlinn.png" src="../../_images/Obsidian_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Pearl 珍珠</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_Flat.png"><img alt="../../_images/Pearl_Flat.png" src="../../_images/Pearl_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_Gouraud.png"><img alt="../../_images/Pearl_Gouraud.png" src="../../_images/Pearl_Gouraud.png" style="width: 88.5px; height: 88.5px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_Phong.png"><img alt="../../_images/Pearl_Phong.png" src="../../_images/Pearl_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_PhongBlinn.png"><img alt="../../_images/Pearl_PhongBlinn.png" src="../../_images/Pearl_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Ruby 红宝石</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_Flat.png"><img alt="../../_images/Ruby_Flat.png" src="../../_images/Ruby_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_Gouraud.png"><img alt="../../_images/Ruby_Gouraud.png" src="../../_images/Ruby_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_Phong.png"><img alt="../../_images/Ruby_Phong.png" src="../../_images/Ruby_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_PhongBlinn.png"><img alt="../../_images/Ruby_PhongBlinn.png" src="../../_images/Ruby_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Turquoise 绿松石</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_Flat.png"><img alt="../../_images/Turquoise_Flat.png" src="../../_images/Turquoise_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_Gouraud.png"><img alt="../../_images/Turquoise_Gouraud.png" src="../../_images/Turquoise_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_Phong.png"><img alt="../../_images/Turquoise_Phong.png" src="../../_images/Turquoise_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_PhongBlinn.png"><img alt="../../_images/Turquoise_PhongBlinn.png" src="../../_images/Turquoise_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Brass 黄铜</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_Flat.png"><img alt="../../_images/Brass_Flat.png" src="../../_images/Brass_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_Gouraud.png"><img alt="../../_images/Brass_Gouraud.png" src="../../_images/Brass_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_Phong.png"><img alt="../../_images/Brass_Phong.png" src="../../_images/Brass_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_PhongBlinn.png"><img alt="../../_images/Brass_PhongBlinn.png" src="../../_images/Brass_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bronze 青铜</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_Flat.png"><img alt="../../_images/Bronze_Flat.png" src="../../_images/Bronze_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_Gouraud.png"><img alt="../../_images/Bronze_Gouraud.png" src="../../_images/Bronze_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_Phong.png"><img alt="../../_images/Bronze_Phong.png" src="../../_images/Bronze_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_PhongBlinn.png"><img alt="../../_images/Bronze_PhongBlinn.png" src="../../_images/Bronze_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Chrome 铬合金</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_Flat.png"><img alt="../../_images/Chrome_Flat.png" src="../../_images/Chrome_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_Gouraud.png"><img alt="../../_images/Chrome_Gouraud.png" src="../../_images/Chrome_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_Phong.png"><img alt="../../_images/Chrome_Phong.png" src="../../_images/Chrome_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_PhongBlinn.png"><img alt="../../_images/Chrome_PhongBlinn.png" src="../../_images/Chrome_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Copper 铜</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_Flat.png"><img alt="../../_images/Copper_Flat.png" src="../../_images/Copper_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_Gouraud.png"><img alt="../../_images/Copper_Gouraud.png" src="../../_images/Copper_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_Phong.png"><img alt="../../_images/Copper_Phong.png" src="../../_images/Copper_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_PhongBlinn.png"><img alt="../../_images/Copper_PhongBlinn.png" src="../../_images/Copper_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Gold 金</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_Flat.png"><img alt="../../_images/Gold_Flat.png" src="../../_images/Gold_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_Gouraud.png"><img alt="../../_images/Gold_Gouraud.png" src="../../_images/Gold_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_Phong.png"><img alt="../../_images/Gold_Phong.png" src="../../_images/Gold_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_PhongBlinn.png"><img alt="../../_images/Gold_PhongBlinn.png" src="../../_images/Gold_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Silver 银</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_Flat.png"><img alt="../../_images/Silver_Flat.png" src="../../_images/Silver_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_Gouraud.png"><img alt="../../_images/Silver_Gouraud.png" src="../../_images/Silver_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_Phong.png"><img alt="../../_images/Silver_Phong.png" src="../../_images/Silver_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_PhongBlinn.png"><img alt="../../_images/Silver_PhongBlinn.png" src="../../_images/Silver_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlackPlastic 黑色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_Flat.png"><img alt="../../_images/BlackPlastic_Flat.png" src="../../_images/BlackPlastic_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_Gouraud.png"><img alt="../../_images/BlackPlastic_Gouraud.png" src="../../_images/BlackPlastic_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_Phong.png"><img alt="../../_images/BlackPlastic_Phong.png" src="../../_images/BlackPlastic_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_PhongBlinn.png"><img alt="../../_images/BlackPlastic_PhongBlinn.png" src="../../_images/BlackPlastic_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CyanPlastic 青色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_Flat.png"><img alt="../../_images/CyanPlastic_Flat.png" src="../../_images/CyanPlastic_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_Gouraud.png"><img alt="../../_images/CyanPlastic_Gouraud.png" src="../../_images/CyanPlastic_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_Phong.png"><img alt="../../_images/CyanPlastic_Phong.png" src="../../_images/CyanPlastic_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_PhongBlinn.png"><img alt="../../_images/CyanPlastic_PhongBlinn.png" src="../../_images/CyanPlastic_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>GreenPlastic 绿色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_Flat.png"><img alt="../../_images/GreenPlastic_Flat.png" src="../../_images/GreenPlastic_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_Gouraud.png"><img alt="../../_images/GreenPlastic_Gouraud.png" src="../../_images/GreenPlastic_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_Phong.png"><img alt="../../_images/GreenPlastic_Phong.png" src="../../_images/GreenPlastic_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_PhongBlinn.png"><img alt="../../_images/GreenPlastic_PhongBlinn.png" src="../../_images/GreenPlastic_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RedPlastic 红色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_Flat.png"><img alt="../../_images/RedPlastic_Flat.png" src="../../_images/RedPlastic_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_Gouraud.png"><img alt="../../_images/RedPlastic_Gouraud.png" src="../../_images/RedPlastic_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_Phong.png"><img alt="../../_images/RedPlastic_Phong.png" src="../../_images/RedPlastic_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_PhongBlinn.png"><img alt="../../_images/RedPlastic_PhongBlinn.png" src="../../_images/RedPlastic_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>WhitePlastic 白色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_Flat.png"><img alt="../../_images/WhitePlastic_Flat.png" src="../../_images/WhitePlastic_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_Gouraud.png"><img alt="../../_images/WhitePlastic_Gouraud.png" src="../../_images/WhitePlastic_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_Phong.png"><img alt="../../_images/WhitePlastic_Phong.png" src="../../_images/WhitePlastic_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_PhongBlinn.png"><img alt="../../_images/WhitePlastic_PhongBlinn.png" src="../../_images/WhitePlastic_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>YellowPlastic 黄色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_Flat.png"><img alt="../../_images/YellowPlastic_Flat.png" src="../../_images/YellowPlastic_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_Gouraud.png"><img alt="../../_images/YellowPlastic_Gouraud.png" src="../../_images/YellowPlastic_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_Phong.png"><img alt="../../_images/YellowPlastic_Phong.png" src="../../_images/YellowPlastic_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_PhongBlinn.png"><img alt="../../_images/YellowPlastic_PhongBlinn.png" src="../../_images/YellowPlastic_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlackRubber 黑色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_Flat.png"><img alt="../../_images/BlackRubber_Flat.png" src="../../_images/BlackRubber_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_Gouraud.png"><img alt="../../_images/BlackRubber_Gouraud.png" src="../../_images/BlackRubber_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_Phong.png"><img alt="../../_images/BlackRubber_Phong.png" src="../../_images/BlackRubber_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_PhongBlinn.png"><img alt="../../_images/BlackRubber_PhongBlinn.png" src="../../_images/BlackRubber_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CyanRubber 青色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_Flat.png"><img alt="../../_images/CyanRubber_Flat.png" src="../../_images/CyanRubber_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_Gouraud.png"><img alt="../../_images/CyanRubber_Gouraud.png" src="../../_images/CyanRubber_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_Phong.png"><img alt="../../_images/CyanRubber_Phong.png" src="../../_images/CyanRubber_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_PhongBlinn.png"><img alt="../../_images/CyanRubber_PhongBlinn.png" src="../../_images/CyanRubber_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>GreenRubber 绿色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_Flat.png"><img alt="../../_images/GreenRubber_Flat.png" src="../../_images/GreenRubber_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_Gouraud.png"><img alt="../../_images/GreenRubber_Gouraud.png" src="../../_images/GreenRubber_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_Phong.png"><img alt="../../_images/GreenRubber_Phong.png" src="../../_images/GreenRubber_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_PhongBlinn.png"><img alt="../../_images/GreenRubber_PhongBlinn.png" src="../../_images/GreenRubber_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RedRubber 红色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_Flat.png"><img alt="../../_images/RedRubber_Flat.png" src="../../_images/RedRubber_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_Gouraud.png"><img alt="../../_images/RedRubber_Gouraud.png" src="../../_images/RedRubber_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_Phong.png"><img alt="../../_images/RedRubber_Phong.png" src="../../_images/RedRubber_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_PhongBlinn.png"><img alt="../../_images/RedRubber_PhongBlinn.png" src="../../_images/RedRubber_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>WhiteRubber 白色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_Flat.png"><img alt="../../_images/WhiteRubber_Flat.png" src="../../_images/WhiteRubber_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_Gouraud.png"><img alt="../../_images/WhiteRubber_Gouraud.png" src="../../_images/WhiteRubber_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_Phong.png"><img alt="../../_images/WhiteRubber_Phong.png" src="../../_images/WhiteRubber_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_PhongBlinn.png"><img alt="../../_images/WhiteRubber_PhongBlinn.png" src="../../_images/WhiteRubber_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>YellowRubber 黄色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_Flat.png"><img alt="../../_images/YellowRubber_Flat.png" src="../../_images/YellowRubber_Flat.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_Gouraud.png"><img alt="../../_images/YellowRubber_Gouraud.png" src="../../_images/YellowRubber_Gouraud.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_Phong.png"><img alt="../../_images/YellowRubber_Phong.png" src="../../_images/YellowRubber_Phong.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_PhongBlinn.png"><img alt="../../_images/YellowRubber_PhongBlinn.png" src="../../_images/YellowRubber_PhongBlinn.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id3">
+<caption><span class="caption-text">内置材质（续）</span><a class="headerlink" href="#id3" title="此表格的永久链接"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>内置材质名称</p></th>
+<th class="head"><p>Oren-Nayar</p></th>
+<th class="head"><p>Minnaert</p></th>
+<th class="head"><p>Toon</p></th>
+<th class="head"><p>Fresnel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Emerald 翡翠</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_OrenNayar.png"><img alt="../../_images/Emerald_OrenNayar.png" src="../../_images/Emerald_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_Minnaert.png"><img alt="../../_images/Emerald_Minnaert.png" src="../../_images/Emerald_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_Toon.png"><img alt="../../_images/Emerald_Toon.png" src="../../_images/Emerald_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Emerald_Fresnel.png"><img alt="../../_images/Emerald_Fresnel.png" src="../../_images/Emerald_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Jade 玉</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_OrenNayar.png"><img alt="../../_images/Jade_OrenNayar.png" src="../../_images/Jade_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_Minnaert.png"><img alt="../../_images/Jade_Minnaert.png" src="../../_images/Jade_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_Toon.png"><img alt="../../_images/Jade_Toon.png" src="../../_images/Jade_Toon.png" style="width: 87.75px; height: 87.25px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Jade_Fresnel.png"><img alt="../../_images/Jade_Fresnel.png" src="../../_images/Jade_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Obsidian 黑曜石</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_OrenNayar.png"><img alt="../../_images/Obsidian_OrenNayar.png" src="../../_images/Obsidian_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_Minnaert.png"><img alt="../../_images/Obsidian_Minnaert.png" src="../../_images/Obsidian_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_Toon.png"><img alt="../../_images/Obsidian_Toon.png" src="../../_images/Obsidian_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Obsidian_Fresnel.png"><img alt="../../_images/Obsidian_Fresnel.png" src="../../_images/Obsidian_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Pearl 珍珠</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_OrenNayar.png"><img alt="../../_images/Pearl_OrenNayar.png" src="../../_images/Pearl_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_Minnaert.png"><img alt="../../_images/Pearl_Minnaert.png" src="../../_images/Pearl_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_Toon.png"><img alt="../../_images/Pearl_Toon.png" src="../../_images/Pearl_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Pearl_Fresnel.png"><img alt="../../_images/Pearl_Fresnel.png" src="../../_images/Pearl_Fresnel.png" style="width: 88.5px; height: 88.5px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Ruby 红宝石</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_OrenNayar.png"><img alt="../../_images/Ruby_OrenNayar.png" src="../../_images/Ruby_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_Minnaert.png"><img alt="../../_images/Ruby_Minnaert.png" src="../../_images/Ruby_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_Toon.png"><img alt="../../_images/Ruby_Toon.png" src="../../_images/Ruby_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Ruby_Fresnel.png"><img alt="../../_images/Ruby_Fresnel.png" src="../../_images/Ruby_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Turquoise 绿松石</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_OrenNayar.png"><img alt="../../_images/Turquoise_OrenNayar.png" src="../../_images/Turquoise_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_Minnaert.png"><img alt="../../_images/Turquoise_Minnaert.png" src="../../_images/Turquoise_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_Toon.png"><img alt="../../_images/Turquoise_Toon.png" src="../../_images/Turquoise_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Turquoise_Fresnel.png"><img alt="../../_images/Turquoise_Fresnel.png" src="../../_images/Turquoise_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Brass 黄铜</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_OrenNayar.png"><img alt="../../_images/Brass_OrenNayar.png" src="../../_images/Brass_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_Minnaert.png"><img alt="../../_images/Brass_Minnaert.png" src="../../_images/Brass_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_Toon.png"><img alt="../../_images/Brass_Toon.png" src="../../_images/Brass_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Brass_Fresnel.png"><img alt="../../_images/Brass_Fresnel.png" src="../../_images/Brass_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bronze 青铜</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_OrenNayar.png"><img alt="../../_images/Bronze_OrenNayar.png" src="../../_images/Bronze_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_Minnaert.png"><img alt="../../_images/Bronze_Minnaert.png" src="../../_images/Bronze_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_Toon.png"><img alt="../../_images/Bronze_Toon.png" src="../../_images/Bronze_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Bronze_Fresnel.png"><img alt="../../_images/Bronze_Fresnel.png" src="../../_images/Bronze_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Chrome 铬合金</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_OrenNayar.png"><img alt="../../_images/Chrome_OrenNayar.png" src="../../_images/Chrome_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_Minnaert.png"><img alt="../../_images/Chrome_Minnaert.png" src="../../_images/Chrome_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_Toon.png"><img alt="../../_images/Chrome_Toon.png" src="../../_images/Chrome_Toon.png" style="width: 87.75px; height: 87.5px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Chrome_Fresnel.png"><img alt="../../_images/Chrome_Fresnel.png" src="../../_images/Chrome_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Copper 铜</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_OrenNayar.png"><img alt="../../_images/Copper_OrenNayar.png" src="../../_images/Copper_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_Minnaert.png"><img alt="../../_images/Copper_Minnaert.png" src="../../_images/Copper_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_Toon.png"><img alt="../../_images/Copper_Toon.png" src="../../_images/Copper_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Copper_Fresnel.png"><img alt="../../_images/Copper_Fresnel.png" src="../../_images/Copper_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>Gold 金</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_OrenNayar.png"><img alt="../../_images/Gold_OrenNayar.png" src="../../_images/Gold_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_Minnaert.png"><img alt="../../_images/Gold_Minnaert.png" src="../../_images/Gold_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_Toon.png"><img alt="../../_images/Gold_Toon.png" src="../../_images/Gold_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Gold_Fresnel.png"><img alt="../../_images/Gold_Fresnel.png" src="../../_images/Gold_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Silver 银</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_OrenNayar.png"><img alt="../../_images/Silver_OrenNayar.png" src="../../_images/Silver_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_Minnaert.png"><img alt="../../_images/Silver_Minnaert.png" src="../../_images/Silver_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_Toon.png"><img alt="../../_images/Silver_Toon.png" src="../../_images/Silver_Toon.png" style="width: 87.75px; height: 87.25px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/Silver_Fresnel.png"><img alt="../../_images/Silver_Fresnel.png" src="../../_images/Silver_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlackPlastic 黑色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_OrenNayar.png"><img alt="../../_images/BlackPlastic_OrenNayar.png" src="../../_images/BlackPlastic_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_Minnaert.png"><img alt="../../_images/BlackPlastic_Minnaert.png" src="../../_images/BlackPlastic_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_Toon.png"><img alt="../../_images/BlackPlastic_Toon.png" src="../../_images/BlackPlastic_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackPlastic_Fresnel.png"><img alt="../../_images/BlackPlastic_Fresnel.png" src="../../_images/BlackPlastic_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CyanPlastic 青色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_OrenNayar.png"><img alt="../../_images/CyanPlastic_OrenNayar.png" src="../../_images/CyanPlastic_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_Minnaert.png"><img alt="../../_images/CyanPlastic_Minnaert.png" src="../../_images/CyanPlastic_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_Toon.png"><img alt="../../_images/CyanPlastic_Toon.png" src="../../_images/CyanPlastic_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanPlastic_Fresnel.png"><img alt="../../_images/CyanPlastic_Fresnel.png" src="../../_images/CyanPlastic_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>GreenPlastic 绿色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_OrenNayar.png"><img alt="../../_images/GreenPlastic_OrenNayar.png" src="../../_images/GreenPlastic_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_Minnaert.png"><img alt="../../_images/GreenPlastic_Minnaert.png" src="../../_images/GreenPlastic_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_Toon.png"><img alt="../../_images/GreenPlastic_Toon.png" src="../../_images/GreenPlastic_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenPlastic_Fresnel.png"><img alt="../../_images/GreenPlastic_Fresnel.png" src="../../_images/GreenPlastic_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RedPlastic 红色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_OrenNayar.png"><img alt="../../_images/RedPlastic_OrenNayar.png" src="../../_images/RedPlastic_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_Minnaert.png"><img alt="../../_images/RedPlastic_Minnaert.png" src="../../_images/RedPlastic_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_Toon.png"><img alt="../../_images/RedPlastic_Toon.png" src="../../_images/RedPlastic_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedPlastic_Fresnel.png"><img alt="../../_images/RedPlastic_Fresnel.png" src="../../_images/RedPlastic_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>WhitePlastic 白色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_OrenNayar.png"><img alt="../../_images/WhitePlastic_OrenNayar.png" src="../../_images/WhitePlastic_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_Minnaert.png"><img alt="../../_images/WhitePlastic_Minnaert.png" src="../../_images/WhitePlastic_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_Toon.png"><img alt="../../_images/WhitePlastic_Toon.png" src="../../_images/WhitePlastic_Toon.png" style="width: 87.75px; height: 87.5px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhitePlastic_Fresnel.png"><img alt="../../_images/WhitePlastic_Fresnel.png" src="../../_images/WhitePlastic_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>YellowPlastic 黄色塑料</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_OrenNayar.png"><img alt="../../_images/YellowPlastic_OrenNayar.png" src="../../_images/YellowPlastic_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_Minnaert.png"><img alt="../../_images/YellowPlastic_Minnaert.png" src="../../_images/YellowPlastic_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_Toon.png"><img alt="../../_images/YellowPlastic_Toon.png" src="../../_images/YellowPlastic_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowPlastic_Fresnel.png"><img alt="../../_images/YellowPlastic_Fresnel.png" src="../../_images/YellowPlastic_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlackRubber 黑色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_OrenNayar.png"><img alt="../../_images/BlackRubber_OrenNayar.png" src="../../_images/BlackRubber_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_Minnaert.png"><img alt="../../_images/BlackRubber_Minnaert.png" src="../../_images/BlackRubber_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_Toon.png"><img alt="../../_images/BlackRubber_Toon.png" src="../../_images/BlackRubber_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/BlackRubber_Fresnel.png"><img alt="../../_images/BlackRubber_Fresnel.png" src="../../_images/BlackRubber_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CyanRubber 青色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_OrenNayar.png"><img alt="../../_images/CyanRubber_OrenNayar.png" src="../../_images/CyanRubber_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_Minnaert.png"><img alt="../../_images/CyanRubber_Minnaert.png" src="../../_images/CyanRubber_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_Toon.png"><img alt="../../_images/CyanRubber_Toon.png" src="../../_images/CyanRubber_Toon.png" style="width: 88.75px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/CyanRubber_Fresnel.png"><img alt="../../_images/CyanRubber_Fresnel.png" src="../../_images/CyanRubber_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>GreenRubber 绿色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_OrenNayar.png"><img alt="../../_images/GreenRubber_OrenNayar.png" src="../../_images/GreenRubber_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_Minnaert.png"><img alt="../../_images/GreenRubber_Minnaert.png" src="../../_images/GreenRubber_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_Toon.png"><img alt="../../_images/GreenRubber_Toon.png" src="../../_images/GreenRubber_Toon.png" style="width: 88.75px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/GreenRubber_Fresnel.png"><img alt="../../_images/GreenRubber_Fresnel.png" src="../../_images/GreenRubber_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RedRubber 红色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_OrenNayar.png"><img alt="../../_images/RedRubber_OrenNayar.png" src="../../_images/RedRubber_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_Minnaert.png"><img alt="../../_images/RedRubber_Minnaert.png" src="../../_images/RedRubber_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_Toon.png"><img alt="../../_images/RedRubber_Toon.png" src="../../_images/RedRubber_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/RedRubber_Fresnel.png"><img alt="../../_images/RedRubber_Fresnel.png" src="../../_images/RedRubber_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-even"><td><p>WhiteRubber 白色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_OrenNayar.png"><img alt="../../_images/WhiteRubber_OrenNayar.png" src="../../_images/WhiteRubber_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_Minnaert.png"><img alt="../../_images/WhiteRubber_Minnaert.png" src="../../_images/WhiteRubber_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_Toon.png"><img alt="../../_images/WhiteRubber_Toon.png" src="../../_images/WhiteRubber_Toon.png" style="width: 87.75px; height: 87.5px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/WhiteRubber_Fresnel.png"><img alt="../../_images/WhiteRubber_Fresnel.png" src="../../_images/WhiteRubber_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>YellowRubber 黄色橡胶</p></td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_OrenNayar.png"><img alt="../../_images/YellowRubber_OrenNayar.png" src="../../_images/YellowRubber_OrenNayar.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_Minnaert.png"><img alt="../../_images/YellowRubber_Minnaert.png" src="../../_images/YellowRubber_Minnaert.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_Toon.png"><img alt="../../_images/YellowRubber_Toon.png" src="../../_images/YellowRubber_Toon.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+<td><figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/YellowRubber_Fresnel.png"><img alt="../../_images/YellowRubber_Fresnel.png" src="../../_images/YellowRubber_Fresnel.png" style="width: 89.0px; height: 89.0px;" /></a>
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="../shading_models/shading_models.html" class="btn btn-neutral float-left" title="着色模型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="../../lights/lights.html" class="btn btn-neutral float-right" title="光源" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, 王炳辉.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
