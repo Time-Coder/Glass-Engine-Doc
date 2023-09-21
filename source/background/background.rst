@@ -23,7 +23,7 @@
 .. figure:: images/red_background.png
    :alt: 红色背景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 1. 设置背景为红色
 
@@ -37,7 +37,7 @@
 .. figure:: images/cubemaps_skybox.png
    :alt: 天空盒示意
    :align: center
-   :scale: 70%
+   :width: 500px
 
    图 2. 天空盒示意图
 
@@ -73,7 +73,7 @@
 .. figure:: images/skybox_view.png
    :alt: skybox_view.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 3. 添加了天空盒的场景
 
@@ -98,7 +98,7 @@
 .. figure:: images/skydome.png
    :alt: skydome.png
    :align: center
-   :scale: 40%
+   :width: 600px
 
    图 4. 一张优质的天空穹顶图片
 
@@ -118,7 +118,7 @@
 .. figure:: images/skydome_view.png
    :alt: skydome_view.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 5. 添加了天空穹顶的场景
 

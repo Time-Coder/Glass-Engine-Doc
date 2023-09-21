@@ -46,7 +46,7 @@
 
 .. figure:: images/earth.gif
    :align: center
-   :scale: 50%
+   :width: 500px
 
    图 1. 地月系动画效果
 
@@ -61,7 +61,7 @@ Shadertoy 动态纹理
 
 .. figure:: images/shadertoy.png
    :align: center
-   :scale: 40%
+   :width: 700px
 
    图 2. 打开 Shadertoy 复制代码
    
@@ -90,7 +90,7 @@ Shadertoy 动态纹理
 
 .. figure:: images/box.gif
    :align: center
-   :scale: 50%
+   :width: 500px
 
    图 3. 将 Shadertoy 动态纹理设置为 Box 的自发光贴图
 

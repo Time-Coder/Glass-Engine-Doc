@@ -20,7 +20,7 @@
 
 .. figure:: images/basic_demo.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 1. 基准效果
 
@@ -39,7 +39,7 @@
 
 .. figure:: images/purple.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 2. 设置颜色为紫色
 
@@ -53,7 +53,7 @@
 
 .. figure:: images/purple_alpha.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 3. 设置颜色为半透明的紫色
 
@@ -68,7 +68,7 @@
 
 .. figure:: images/purple_bloom.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 4. 设置颜色值大于 1 并开启泛光
 
@@ -112,6 +112,6 @@
 
 .. figure:: images/compare_polygon_mode.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 5. 填充模式、线框模式和点模式渲染

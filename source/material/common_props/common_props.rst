@@ -12,7 +12,7 @@
 
 .. figure:: images/div.png
    :align: center
-   :scale: 70%
+   :width: 350px
 
    图 1. 环境光、漫反射、镜面高光部分
 
@@ -39,7 +39,7 @@
 镜面高光部分的光点大小由 shininess 控制，图 2 反映了 shininess 对光点大小的影响：
 
 .. figure:: images/shininess_compare.png
-    :scale: 27%
+    :width: 800px
     :align: center
 
     图 2. shininess 对光点大小的影响
@@ -76,7 +76,7 @@
 
 .. figure:: images/emission_red.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 3. 设置自发光为强红色的效果
 
@@ -91,14 +91,14 @@
 
 .. figure:: images/rim_power0.3.png
     :align: center
-    :scale: 40%
+    :width: 150px
 
     图 4. 背光侧观察物体时的边缘光效果
 
 可通过材质的 rim_power 属性调整边缘光强度，其默认值为 0.2，值越大，边缘光越强，如图 5 所示。
 
 .. figure:: images/rim_power_compare.png
-    :scale: 25%
+    :width: 800px
     :align: center
 
     图 5. rim_power 对边缘光强度的影响
@@ -127,7 +127,7 @@
 
 .. figure:: images/reflection.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 6. 反射效果开启
 
@@ -144,7 +144,7 @@
 
 .. figure:: images/reflection_no_mix.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 7. 关闭 env_mix_diffuse 后的反射效果
 
@@ -190,7 +190,7 @@
 
 .. figure:: images/dynamic_compare.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 8. 左边的球没有开启动态环境映射，右边的开启了
 
@@ -254,7 +254,7 @@
 
 .. figure:: images/glass_ball.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 9. 设置折射率为 1.52
 
@@ -283,7 +283,7 @@
 
 .. figure:: images/green.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 10. 本体颜色完全透明时，opacity 等价于表面不透明度
 
@@ -320,7 +320,7 @@
 
 .. figure:: images/compare_fog.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 11. 左边球不受雾影响，右边球受雾影响
 
@@ -355,7 +355,7 @@
 
 .. figure:: images/compare_cast_shadows.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 12. 左边球关闭投射阴影，右边球开启投射阴影
 
@@ -396,7 +396,7 @@
 
 .. figure:: images/compare_recv_shadows.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 13. 左上方的球关闭接收阴影，右下方的球开启接收阴影
 
@@ -409,7 +409,7 @@
 
 .. figure:: images/height_scale_compare.png
     :align: center
-    :scale: 40%
+    :width: 600px
 
     图 14. 不同 height_scale 对比效果图
 
@@ -460,6 +460,6 @@
 
 .. figure:: images/box_stone.png
     :align: center
-    :scale: 40%
+    :width: 400px
 
     图 15. 应用多种纹理贴图的立方体

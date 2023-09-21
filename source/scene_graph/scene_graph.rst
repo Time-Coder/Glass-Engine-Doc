@@ -11,7 +11,7 @@
 .. figure:: images/scene_graph.png
    :alt: 场景图
    :align: center
-   :scale: 30%
+   :width: 250px
 
    图 1. 房子、桌椅、杯子、茶壶所构成的场景图
 
@@ -22,7 +22,7 @@
 .. figure:: images/scene_graph2.png
    :alt: 场景图2
    :align: center
-   :scale: 30%
+   :width: 250px
 
    图 2. 多父节点的场景图
 
@@ -86,7 +86,7 @@
 .. figure:: images/cone_cylinder.png
    :alt: 圆锥圆柱
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 3. 圆锥圆柱所构成的场景
 
@@ -95,7 +95,7 @@
 .. figure:: images/scene_graph3.png
    :alt: 圆锥圆柱场景图
    :align: center
-   :scale: 30%
+   :width: 400px
 
    图 4. 圆锥圆柱所构成的场景图
 
@@ -108,8 +108,8 @@
 
 .. figure:: images/scenenode_class_graph.png
    :alt: 场景节点类图
-   :scale: 30%
    :align: center
+   :width: 700px
 
    图 5. 场景节点继承关系图
 

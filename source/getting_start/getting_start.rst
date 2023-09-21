@@ -11,7 +11,7 @@
 .. figure:: images/flow.png
    :alt: 最简流程
    :align: center
-   :scale: 25%
+   :width: 500px
 
    图 1. 使用 **Glass Engine** 的基本工作流
 
@@ -120,7 +120,7 @@
 .. figure:: images/simple_scene.png
    :alt: 简单场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 2. 一个简单场景
 

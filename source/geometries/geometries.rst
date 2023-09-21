@@ -259,7 +259,7 @@
 .. figure:: images/geometries.png
    :alt: 几何体
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 1. 添加了一些基本几何体的场景
 
@@ -313,7 +313,7 @@
 
 .. figure:: images/peaks_vs.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 2. peaks 函数曲面
 
@@ -330,7 +330,7 @@
 
 .. figure:: images/cylindrical_func.png
 	:align: center
-	:scale: 25%
+	:width: 250px
 
 	图 3. 柱坐标系下的坐标含义
 
@@ -400,7 +400,7 @@
 
 .. figure:: images/zernike_vs.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 4. 泽尼克多项式可视化结果
 
@@ -417,7 +417,7 @@
 
 .. figure:: images/spherical_func.png
 	:align: center
-	:scale: 25%
+	:width: 250px
 
 	图 5. 球坐标系下的坐标含义
 
@@ -518,7 +518,7 @@
 
 .. figure:: images/sh_vs.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 6. 球谐函数可视化结果
 
@@ -539,7 +539,7 @@
 
 .. figure:: images/Rotator_ex.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 7. 测试的旋转体
 
@@ -578,7 +578,7 @@
 
 .. figure:: images/Extruder_AllJoin.png
 	:align: center
-	:scale: 30%
+	:width: 700px
 
 	图 8. join_type 依次为 MiterJoin、RoundJoin、BevelJoin
 
@@ -612,7 +612,7 @@
 
 .. figure:: images/capsule.png
 	:align: center
-	:scale: 40%
+	:width: 400px
 
 	图 9. 一个圆柱和两个球体组合成的胶囊
 
@@ -712,7 +712,7 @@
 
 .. figure:: images/star.png
 	:align: center
-	:scale: 50%
+	:width: 400px
 
 	图 10. 自定义的五角星几何体
 

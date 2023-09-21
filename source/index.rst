@@ -9,7 +9,7 @@
 
 .. figure:: index/images/glass_engine_logo411.png
    :align: center
-   :scale: 70%
+   :width: 250px
    
    图 1. Glass Engine Logo
 
@@ -39,7 +39,7 @@
 .. figure:: index/images/start.png
    :alt: 简单场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 2. 第一个简单场景
 

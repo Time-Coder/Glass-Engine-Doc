@@ -37,7 +37,7 @@ SSAO
 .. figure:: images/compare_SSAO.png
    :alt: SSAO 效果对比
    :align: center
-   :scale: 35%
+   :width: 700px
 
    图 1. SSAO 关闭开启效果对比
 
@@ -51,7 +51,7 @@ SSAO
 .. figure:: images/bloom_light.jpg
    :alt: 泛光
    :align: center
-   :scale: 40%
+   :width: 300px
 
    图 2. 夜间路灯会发出光芒（图片来自网络）
 
@@ -87,7 +87,7 @@ SSAO
 .. figure:: images/compare_bloom.png
    :alt: 泛光对比
    :align: center
-   :scale: 35%
+   :width: 700px
 
    图 3. 开启与不开启泛光的对比
 
@@ -113,7 +113,7 @@ HDR 色调映射
 .. figure:: images/compare_tone_mapper.png
    :alt: 色调映射对比
    :align: center
-   :scale: 35%
+   :width: 700px
 
    图 4. 开启与不开启色调映射的对比
 
@@ -126,7 +126,7 @@ LUT 滤镜
 
 .. figure:: images/with_lut.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 5. 经过 PhotoShop 调色后的截图
 
@@ -146,7 +146,7 @@ LUT 滤镜
 
 .. figure:: images/lut2.png
    :align: center
-   :scale: 40%
+   :width: 200px
 
    图 6. LUT 图像
 
@@ -159,7 +159,7 @@ LUT 滤镜
 
 .. figure:: images/real_dof.jpg
    :align: center
-   :scale: 70%
+   :width: 450px
 
    图 7. 景深效果（图片来自网络）
 
@@ -167,7 +167,7 @@ LUT 滤镜
 
 .. figure:: images/compare_dof.png
    :align: center
-   :scale: 35%
+   :width: 700px
 
    图 8. 对焦到两个不同杯子上的效果对比（图片来自 **Glass Engine** 渲染结果）
 
@@ -244,7 +244,7 @@ LUT 滤镜
 
 .. figure:: images/show_normal.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 9. 自定义后处理效果（用颜色显示法向量）
 

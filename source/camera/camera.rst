@@ -158,7 +158,7 @@
 
 .. figure:: images/4cameras.png
    :align: center
-   :scale: 40%
+   :width: 500px
 
    图 1. 多相机多视口观察场景
 

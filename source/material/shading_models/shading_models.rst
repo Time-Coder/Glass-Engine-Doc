@@ -21,7 +21,7 @@ Unlit 着色模型渲染效果如图 1 所示：
 
 .. figure:: images/Unlit.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 1. Unlit 着色模型效果
 
@@ -54,7 +54,7 @@ Flat 着色模型渲染效果如图 2 所示：
 
 .. figure:: images/Flat.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 2. Flat 着色模型效果
 
@@ -98,7 +98,7 @@ Gouraud 着色模型渲染效果如图 3 所示：
 
 .. figure:: images/Gouraud.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 3. Gouraud 着色模型效果
 
@@ -149,7 +149,7 @@ Phong 着色模型效果如图 4 所示：
 
 .. figure:: images/Phong.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 4. Phong 着色模型效果
 
@@ -188,7 +188,7 @@ Phong 着色模型效果如图 4 所示：
 
 .. figure:: images/Phong_floor.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 5. Phong 着色模型的地板
 
@@ -239,7 +239,7 @@ Phong-Blinn 着色模型效果如图 6 所示：
 
 .. figure:: images/PhongBlinn.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 6. Phong-Blinn 着色模型效果
 
@@ -247,7 +247,7 @@ Phong-Blinn 着色模型效果如图 6 所示：
 
 .. figure:: images/PhongBlinn_floor.png
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 7. Phong-Blinn 着色模型的地板
 
@@ -300,7 +300,7 @@ Oren-Nayar 着色模型效果如图 8 所示：
 
 .. figure:: images/OrenNayar.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 8. Oren-Nayar 着色模型效果
 
@@ -326,7 +326,7 @@ Oren-Nayar 着色模型所支持的材质属性包括：
 
 .. figure:: images/or_roughness_compare.png
    :align: center
-   :scale: 25%
+   :width: 750px
 
    图 9. 不同粗糙度下 Oren-Nayar 模型渲染效果
 
@@ -354,7 +354,7 @@ Minnaert 着色模型渲染效果如图 10 所示：
 
 .. figure:: images/Minnaert.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 10. Minnaert 着色模型效果
 
@@ -380,7 +380,7 @@ Minnaert 着色模型所支持的材质属性包括：
 
 .. figure:: images/mi_roughness_compare.png
    :align: center
-   :scale: 25%
+   :width: 750px
 
    图 11. 不同粗糙度下 Minnaert 模型渲染效果
 
@@ -408,7 +408,7 @@ Toon 着色模型效果如图 12 所示：
 
 .. figure:: images/Toon.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 12. Toon 着色模型效果
 
@@ -448,7 +448,7 @@ Toon 着色模型所支持的材质属性包括：
 
 .. figure:: images/Toon_diffuse_bands_compare.png
    :align: center
-   :scale: 27%
+   :width: 600px
 
    图 13. 漫反射条带数对 Toon 着色效果的影响
 
@@ -456,7 +456,7 @@ Toon 着色模型所支持的材质属性包括：
 
 .. figure:: images/Toon_specular_bands_compare.png
    :align: center
-   :scale: 27%
+   :width: 600px
 
    图 14. 镜面高光条带数对 Toon 着色效果的影响
 
@@ -464,7 +464,7 @@ Toon 着色模型所支持的材质属性包括：
 
 .. figure:: images/Toon_diffuse_softness_compare.png
    :align: center
-   :scale: 27%
+   :width: 750px
 
    图 15. 漫反射条带过度软度对 Toon 着色效果的影响
 
@@ -496,7 +496,7 @@ Fresnel 着色模型效果如图 16 所示：
 
 .. figure:: images/Fresnel.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 16. Fresnel 着色模型效果
 
@@ -521,7 +521,7 @@ Fresnel 着色模型所支持的材质属性包括：
 
 .. figure:: images/rim_power_compare.png
    :align: center
-   :scale: 27%
+   :width: 800px
 
    图 17. 不同 rim_power 对 Fresnel 着色模型渲染效果的影响
 
@@ -548,7 +548,7 @@ PBR 着色模型效果如图 18 所示：
 
 .. figure:: images/PBR.png
    :align: center
-   :scale: 50%
+   :width: 150px
 
    图 18. PBR 着色模型效果
 
@@ -580,7 +580,7 @@ PBR 着色模型支持的材质属性包括：
 
 .. figure:: images/metallic_roughness_compare_final.png
    :align: center
-   :scale: 70%
+   :width: 650px
 
    图 19. 金属度和粗糙度对 PRB 渲染效果的影响
 

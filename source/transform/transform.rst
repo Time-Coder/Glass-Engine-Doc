@@ -11,7 +11,7 @@
 .. figure:: images/coordsys.png
    :alt: 坐标系
    :align: center
-   :scale: 40%
+   :width: 200px
 
    图 1. 场景节点的坐标系轴朝向
 
@@ -23,7 +23,7 @@
 .. figure:: images/coordsys2.png
    :alt: 相对坐标
    :align: center
-   :scale: 50%
+   :width: 350px
 
    图 2. node2 是 node1 的子节点，node2 的位置坐标则是相对于 node1 代表的坐标系而言的
 
@@ -35,7 +35,7 @@
 .. figure:: images/coordsys3.png
    :alt: 相对坐标
    :align: center
-   :scale: 50%
+   :width: 350px
 
    图 3. node2 相对于 node1 有姿态上的变换
 
@@ -48,7 +48,7 @@
 .. figure:: images/yaw_pitch_roll1.png
    :alt: 姿态角
    :align: center
-   :scale: 50%
+   :width: 400px
 
    图 5. node2 相对于 node1 的姿态角
 
@@ -72,7 +72,7 @@
 	.. figure:: images/righthand.png
 	   :alt: 右手螺旋
 	   :align: center
-	   :scale: 90%
+	   :width: 200px
 
 	   图 6. 右手螺旋法则指出旋转正方向
 
@@ -105,8 +105,8 @@
 
 .. figure:: images/demo_transform.png
    :alt: 空间变换示例
-   :scale: 50%
    :align: center
+   :width: 650px
 
    图 7. 空间变换示例
 

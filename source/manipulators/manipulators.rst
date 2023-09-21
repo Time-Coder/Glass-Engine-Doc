@@ -65,7 +65,7 @@
 
 .. figure:: images/azimuth_elevation_distance.png
     :align: center
-    :scale: 30%
+    :width: 300px
 
     图 1. distance, azimuth, elevation 的含义
 

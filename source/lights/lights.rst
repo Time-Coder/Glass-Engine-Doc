@@ -40,7 +40,7 @@
 .. figure:: images/no_lights.png
    :alt: 无光源场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 1. 无光源场景
 
@@ -56,7 +56,7 @@
 .. figure:: images/dir_light.png
    :alt: 平行光示意图
    :align: center
-   :scale: 70%
+   :width: 350px
 
    图 2. 平行光示意图
 
@@ -74,7 +74,7 @@
 .. figure:: images/dir_light_effect.png
    :alt: 平行光场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 3. 加入平行光的场景
 
@@ -88,7 +88,7 @@
 .. figure:: images/point_light.png
    :alt: 点光源示意图
    :align: center
-   :scale: 70%
+   :width: 350px
 
    图 4. 点光源示意图
 
@@ -118,7 +118,7 @@
 .. figure:: images/point_light_effect.png
    :alt: 点光源场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 5. 加入点光源的场景
 
@@ -127,7 +127,7 @@
 .. figure:: images/point_light_effect_far.png
    :alt: 远处观察点光源场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 6. 远处观察的点光源场景
 
@@ -148,7 +148,7 @@
 .. figure:: images/spot_light.png
    :alt: 聚光示意图
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 7. 聚光示意图
 
@@ -168,7 +168,7 @@
 .. figure:: images/spot_light_effect.png
    :alt: 添加了聚光的场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 8. 添加了聚光的场景
 
@@ -190,6 +190,6 @@
 .. figure:: images/head_light_effect.png
    :alt: 添加了头灯的场景
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 9. 添加了头灯的场景

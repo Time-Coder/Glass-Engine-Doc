@@ -77,7 +77,7 @@
 .. figure:: images/ship.png
    :alt: 帆船
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 1. 加载并显示一个帆船模型
 

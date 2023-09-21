@@ -8,7 +8,7 @@
 .. figure:: images/RC.jpg
    :alt: 现实照片
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 1. 景物越远越朦胧（图片来自网络）
 
@@ -51,7 +51,7 @@
 .. figure:: images/fog.png
    :alt: 雾场景
    :align: center
-   :scale: 35%
+   :width: 750px
 
    图 2. 不同雾模式的场景
 
@@ -99,7 +99,7 @@
 .. figure:: images/not_fog.png
    :alt: 不受雾影响
    :align: center
-   :scale: 40%
+   :width: 400px
 
    图 3. 中间一个球不受雾影响
 
