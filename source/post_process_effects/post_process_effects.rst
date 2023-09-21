@@ -193,7 +193,7 @@ LUT 滤镜
 
 ::
 
-    vec4 getColor(sampler2D screen_image, vec2 tex_coord)
+    vec4 post_process(sampler2D screen_image, vec2 tex_coord)
     {
         ...
     }
@@ -223,7 +223,7 @@ LUT 滤镜
 
 ::
 
-    vec4 getColor(sampler2D screen_image, vec2 tex_coord)
+    vec4 post_process(sampler2D screen_image, vec2 tex_coord)
     {
         vec3 normal = world_normal_of(tex_coord);
 
@@ -254,7 +254,7 @@ LUT 滤镜
 
     uniform float contribute;
 
-    vec4 getColor(sampler2D screen_image, vec2 tex_coord)
+    vec4 post_process(sampler2D screen_image, vec2 tex_coord)
     {
         vec3 normal = world_normal_of(tex_coord);
         vec4 color = vec4((normal + 1.0)/2.0, 1.0);

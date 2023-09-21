@@ -22,34 +22,33 @@
     :format: html
 
 .. list-table:: 材质属性
-   :widths: 20 20 20 20 20 20
    :align: center
    :header-rows: 1
 
    * - 材质属性
      - .. figure:: images/Unlit.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Unlit
      - .. figure:: images/Flat.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Flat
      - .. figure:: images/Gouraud.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Gouraud
      - .. figure:: images/Phong.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Phong
      - .. figure:: images/PhongBlinn.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Phong-Blinn
    * - ambient : glm.vec3 :raw-html:`<br />` 环境光颜色
@@ -204,34 +203,33 @@
      - :raw-html:`&check;`
 
 .. list-table:: 材质属性（续）
-   :widths: 20 20 20 20 20 20
    :align: center
    :header-rows: 1
 
    * - 材质属性
      - .. figure:: images/OrenNayar.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Oren-Nayar
      - .. figure:: images/Minnaert.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Minnaert
      - .. figure:: images/Toon.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Toon
      - .. figure:: images/Fresnel.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   Fresnel
      - .. figure:: images/PBR.png
 		   :align: center
-		   :scale: 25%
+		   :width: 80px
 
 		   PBR
    * - ambient : glm.vec3 :raw-html:`<br />` 环境光颜色

@@ -12,7 +12,6 @@
     :format: html
 
 .. list-table:: 基本几何体预览表
-   :widths: 15 15 15 15
    :align: center
    :header-rows: 1
 
@@ -22,204 +21,205 @@
      - 特殊几何体
    * - .. figure:: images/Point.png
 			:align: center
+			:width: 100px
 
 			点 Point
      - .. figure:: images/Box.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			长方体 Box
      - .. figure:: images/Sphere.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			球体 :raw-html:`<br />` Sphere, Icosphere
      - .. figure:: images/FSurf.png
 			:align: center
-			:scale: 20%
+			:width: 100px
 
 			直角坐标函数曲面 :raw-html:`<br />` FSurf
    * - .. figure:: images/Points.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			多点 Points
      - .. figure:: images/Prism.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			棱柱 Prism
      - .. figure:: images/Cylinder.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆柱 Cylinder
      - .. figure:: images/CylindricalFSurf.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			柱坐标函数曲面 :raw-html:`<br />` CylindricalFSurf
    * - .. figure:: images/Polyline.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			线 Polyline
      - .. figure:: images/Pyramid.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			棱锥 Pyramid
      - .. figure:: images/Cone.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆锥 Cone
      - .. figure:: images/SphericalFSurf.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			球坐标函数曲面 :raw-html:`<br />` SphericalFSurf
    * - .. figure:: images/RectangleFace.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			矩形面 :raw-html:`<br />` RectangleFace
      - .. figure:: images/PyramidTrustum.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			棱台 :raw-html:`<br />` PyramidTrustum
      - .. figure:: images/ConeTrustum.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆台 :raw-html:`<br />` ConeTrustum
      - .. figure:: images/_CoordSys.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			坐标系 CoordSys
    * - .. figure:: images/RPolygonFace.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			正多边形面 :raw-html:`<br />` RPolygonFace
      - .. figure:: images/PrismSide.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			棱柱侧面 :raw-html:`<br />` PrismSide
      - .. figure:: images/CylinderSide.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆柱侧面 :raw-html:`<br />` CylinderSide
      - .. figure:: images/Floor.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			地板 Floor
    * - .. figure:: images/HollowRPolygonFace.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			空心正多边形面 :raw-html:`<br />` 
 			HollowRPolygonFace
      - .. figure:: images/PyramidSide.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			棱锥侧面 :raw-html:`<br />` PyramidSide
      - .. figure:: images/ConeSide.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆锥侧面 :raw-html:`<br />` ConeSide
      - .. figure:: images/Rotator.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			旋转体 Rotator
    * - .. figure:: images/CircleFace.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆面 CircleFace
      - .. figure:: images/PyramidTrustumSide.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			棱台侧面 :raw-html:`<br />` PyramidTrustumSide
      - .. figure:: images/ConeTrustumSide.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆台侧面 :raw-html:`<br />` ConeTrustumSide
      - .. figure:: images/Extruder.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			拉伸体 Extruder
    * - .. figure:: images/TorusFace.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			圆环面 TorusFace
      - .. figure:: images/Tetrahedron.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			正四面体 :raw-html:`<br />` Tetrahedron
      - .. figure:: images/SphericalCap.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			球冠 SphericalCap
      - 
    * - .. figure:: images/EllipseFace.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			椭圆面 EllipseFace
      - .. figure:: images/Hexahedron.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			正六面体 :raw-html:`<br />` Hexahedron
      - .. figure:: images/SphericalCapTop.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			球冠顶面 :raw-html:`<br />` SphericalCapTop
      - 
    * - 
      - .. figure:: images/Octahedron.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			正八面体 :raw-html:`<br />` Octahedron
      - .. figure:: images/Torus.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			球环 Torus
      - 
    * - 
      - .. figure:: images/Dodecahedron.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			正十二面体 :raw-html:`<br />` Dodecahedron
      - .. figure:: images/TrefoilKnot.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			三叶扭结 TrefoilKnot
      - 
    * - 
      - .. figure:: images/Icosahedron.png
 			:align: center
-			:scale: 15%
+			:width: 100px
 
 			正二十面体 :raw-html:`<br />` Icosahedron
      - 
