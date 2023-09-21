@@ -30,22 +30,22 @@
 		   :align: center
 		   :width: 80px
 
-		   Unlit
+		   :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` Unlit :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
      - .. figure:: images/Flat.png
 		   :align: center
 		   :width: 80px
 
-		   Flat
+		   :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` Flat :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
      - .. figure:: images/Gouraud.png
 		   :align: center
 		   :width: 80px
 
-		   Gouraud
+		   :raw-html:`&nbsp;&nbsp;` Gouraud :raw-html:`&nbsp;&nbsp;`
      - .. figure:: images/Phong.png
 		   :align: center
 		   :width: 80px
 
-		   Phong
+		   :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;` Phong :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
      - .. figure:: images/PhongBlinn.png
 		   :align: center
 		   :width: 80px
@@ -216,22 +216,22 @@
 		   :align: center
 		   :width: 80px
 
-		   Minnaert
+		   :raw-html:`&nbsp;&nbsp;` Minnaert :raw-html:`&nbsp;`
      - .. figure:: images/Toon.png
 		   :align: center
 		   :width: 80px
 
-		   Toon
+		   :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` Toon :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
      - .. figure:: images/Fresnel.png
 		   :align: center
-		   :width: 80px
+		   :width: 80px 
 
-		   Fresnel
+		   :raw-html:`&nbsp;&nbsp;&nbsp;` Fresnel :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;`
      - .. figure:: images/PBR.png
 		   :align: center
 		   :width: 80px
 
-		   PBR
+		   :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;` PBR :raw-html:`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`
    * - ambient : glm.vec3 :raw-html:`<br />` 环境光颜色
      - :raw-html:`&check;`
      - :raw-html:`&check;`
