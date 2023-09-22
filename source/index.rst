@@ -5,7 +5,7 @@
 
 - Github 项目主页：https://github.com/Time-Coder/Glass-Engine
 - Gitee 项目主页：https://gitee.com/time-coder/Glass-Engine
-- PyPI 索引：
+- PyPI 索引：https://pypi.org/project/glass-engine/0.0.1/
 
 .. figure:: index/images/glass_engine_logo411.png
    :align: center
