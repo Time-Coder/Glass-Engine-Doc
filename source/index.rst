@@ -5,13 +5,11 @@
 
 - Github 项目主页：https://github.com/Time-Coder/Glass-Engine
 - Gitee 项目主页：https://gitee.com/time-coder/Glass-Engine
-- PyPI 索引：https://pypi.org/project/glass-engine/0.0.1/
+- PyPI 索引：https://pypi.org/project/glass-engine
 
 .. figure:: index/images/glass_engine_logo411.png
    :align: center
    :width: 250px
-   
-   图 1. Glass Engine Logo
 
 一条命令 ``pip install glass_engine`` 即可完成对 **Glass Engine** 的安装，接下来，让我们通过一个简单例子来直观感受一下 **Glass Engine** 的使用过程：
 
@@ -34,14 +32,14 @@
 
 可以看出，使用 **Glass Engine** 创建 3D 场景无需自定义任何类和任何函数，仅通过对象创建、方法调用的顺序程序结构就可完成场景的构建和显示，由此体现出 **Glass Engine** 高度的易用性，这也是 **Glass Engine** 相比于其他同类 3D 引擎的优势所在。
 
-运行上述程序，你将得到下图所示结果：
+运行上述程序，你将得到图 1 所示结果：
 
 .. figure:: index/images/start.png
    :alt: 简单场景
    :align: center
    :width: 400px
 
-   图 2. 第一个简单场景
+   图 1. 第一个简单场景
 
 你可以通过鼠标右键拖动以旋转视角，还可通过键盘按键 :kbd:`W` :kbd:`A` :kbd:`S` :kbd:`D` :kbd:`E` :kbd:`C` 来在场景中漫游：
 
