@@ -11,7 +11,7 @@
    :align: center
    :width: 250px
 
-一条命令 ``pip install glass_engine`` 即可完成对 **Glass Engine** 的安装，接下来，让我们通过一个简单例子来直观感受一下 **Glass Engine** 的使用过程：
+一条命令 ``pip install glass-engine`` 即可完成对 **Glass Engine** 的安装，接下来，让我们通过一个简单例子来直观感受一下 **Glass Engine** 的使用过程：
 
 .. highlight:: python3
 
