@@ -79,11 +79,11 @@
 			:width: 100px
 
 			球坐标函数曲面 :raw-html:`<br />` SphericalFSurf
-   * - .. figure:: images/RectangleFace.png
+   * - .. figure:: images/Circle.png
 			:align: center
 			:width: 100px
 
-			矩形面 :raw-html:`<br />` RectangleFace
+			圆 :raw-html:`<br />` Circle
      - .. figure:: images/PyramidTrustum.png
 			:align: center
 			:width: 100px
@@ -99,11 +99,11 @@
 			:width: 100px
 
 			坐标系 CoordSys
-   * - .. figure:: images/RPolygonFace.png
+   * - .. figure:: images/RectFace.png
 			:align: center
 			:width: 100px
 
-			正多边形面 :raw-html:`<br />` RPolygonFace
+			矩形面 :raw-html:`<br />` RectFace
      - .. figure:: images/PrismSide.png
 			:align: center
 			:width: 100px
@@ -119,12 +119,11 @@
 			:width: 100px
 
 			地板 Floor
-   * - .. figure:: images/HollowRPolygonFace.png
+   * - .. figure:: images/RPolygonFace.png
 			:align: center
 			:width: 100px
 
-			空心正多边形面 :raw-html:`<br />` 
-			HollowRPolygonFace
+			正多边形面 :raw-html:`<br />` RPolygonFace
      - .. figure:: images/PyramidSide.png
 			:align: center
 			:width: 100px
@@ -140,11 +139,12 @@
 			:width: 100px
 
 			旋转体 Rotator
-   * - .. figure:: images/CircleFace.png
+   * - .. figure:: images/HollowRPolygonFace.png
 			:align: center
 			:width: 100px
 
-			圆面 CircleFace
+			空心正多边形面 :raw-html:`<br />` 
+			HollowRPolygonFace
      - .. figure:: images/PyramidTrustumSide.png
 			:align: center
 			:width: 100px
@@ -160,11 +160,11 @@
 			:width: 100px
 
 			拉伸体 Extruder
-   * - .. figure:: images/TorusFace.png
+   * - .. figure:: images/CircleFace.png
 			:align: center
 			:width: 100px
 
-			圆环面 TorusFace
+			圆面 CircleFace
      - .. figure:: images/Tetrahedron.png
 			:align: center
 			:width: 100px
@@ -176,11 +176,11 @@
 
 			球冠 SphericalCap
      - 
-   * - .. figure:: images/EllipseFace.png
+   * - .. figure:: images/TorusFace.png
 			:align: center
 			:width: 100px
 
-			椭圆面 EllipseFace
+			圆环面 TorusFace
      - .. figure:: images/Hexahedron.png
 			:align: center
 			:width: 100px
@@ -192,7 +192,11 @@
 
 			球冠顶面 :raw-html:`<br />` SphericalCapTop
      - 
-   * - 
+   * - .. figure:: images/EllipseFace.png
+			:align: center
+			:width: 100px
+
+			椭圆面 EllipseFace
      - .. figure:: images/Octahedron.png
 			:align: center
 			:width: 100px
