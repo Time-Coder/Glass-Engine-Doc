@@ -84,32 +84,30 @@
 	    0.1*glm.normalize(glm.vec3( 0,    0,   1)), # 3
 	]
 
-	# 组装 He 原子核
-	He_nucleus = SceneNode()
+	# 组装 He 原子
+	He_atom = SceneNode()
 
+	# 添加两个质子
 	proton1 = Sphere(radius=0.1, color=10*glm.vec3( 0.77, 0.38, 0 ))
 	proton1.material.shading_model = None
 	proton1.position = nucleon_positions[0]
-	He_nucleus.add_child(proton1)
+	He_atom.add_child(proton1)
 
 	proton2 = Sphere(radius=0.1, color=10*glm.vec3( 0.77, 0.38, 0 ))
 	proton2.material.shading_model = None
 	proton2.position = nucleon_positions[1]
-	He_nucleus.add_child(proton2)
+	He_atom.add_child(proton2)
 
+	# 添加两个中子
 	neutron1 = Sphere(radius=0.1, color=glm.vec3( 0.71, 0.77, 0.89 ))
 	neutron1.position = nucleon_positions[2]
-	He_nucleus.add_child(neutron1)
+	He_atom.add_child(neutron1)
 
 	neutron2 = Sphere(radius=0.1, color=glm.vec3( 0.71, 0.77, 0.89 ))
 	neutron2.position = nucleon_positions[3]
-	He_nucleus.add_child(neutron2)
+	He_atom.add_child(neutron2)
 
-	# 组装 He 原子
-	He_atom = SceneNode()
-	He_atom.add_child(He_nucleus)
-
-	# 添加两个核外电子
+	# 添加两个电子
 	electron = Sphere(radius=0.05, color=10*glm.vec3(0.4, 0.7, 0.7))
 	electron.material.shading_model = None
 	electron.position.x = 1
