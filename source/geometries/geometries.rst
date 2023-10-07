@@ -396,8 +396,7 @@
             Zernike_surf.pitch = 90
             scene.add(Zernike_surf)
 
-    module_folder = os.path.dirname(glass_engine.__file__)
-    scene.skydome = module_folder + "/Demos/assets/skydomes/puresky.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/industrial_sunset_puresky.jpg"
     camera.screen.show()
 
 上述代码在场景中添加了 :math:`n \leqslant 5` 的所有泽尼克多项式的图像，运行它，你将得到如图 4 所示结果。
@@ -514,8 +513,7 @@
 	        SH_surf.position = glm.vec3(math.sqrt(2) * m, 0, N/1.5-math.sqrt(2) * n)
 	        scene.add(SH_surf)
 
-	module_folder = os.path.dirname(glass_engine.__file__)
-	scene.skydome = module_folder + "/Demos/assets/skydomes/puresky.exr"
+	scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/industrial_sunset_puresky.jpg"
 	camera.screen.show()
 
 上述代码在场景中添加了 :math:`l \leqslant 4` 的所有球谐函数的图像，运行它，你将得到如图 6 所示结果。

@@ -11,7 +11,7 @@
 例子：地月系动画
 >>>>>>>>>>>>>>>>>>>>
 
-我们可以改变 :ref:`label_transform` 参数来实现地球自转，月球绕地球旋转的动画效果（从 `这里 <https://www.solarsystemscope.com/textures/>`_ 下载地球，月球，星空的纹理图片）：
+我们可以改变 :ref:`label_transform` 参数来实现地球自转，月球绕地球旋转的动画效果：
 
 ::
 
@@ -21,15 +21,15 @@
 	from PyQt6.QtCore import QTimer
 
 	scene, camera, _, _ = SceneRoam(add_floor=False)
-	scene.skydome = "stars_milky_way.jpg"
+	scene.skydome = "https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg"
 
 	earth = Sphere()
-	earth.material.diffuse_map = "earth.jpg"
+	earth.material.diffuse_map = "https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg"
 	scene.add(earth)
 
 	moon = Sphere(radius=0.3)
 	moon.position.x = 3
-	moon.material.diffuse_map = "moon.jpg"
+	moon.material.diffuse_map = "https://www.solarsystemscope.com/textures/download/2k_moon.jpg"
 
 	moon_node = SceneNode()
 	moon_node.add_child(moon)
