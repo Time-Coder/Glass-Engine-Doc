@@ -154,7 +154,7 @@
 Qt 系统的额外功能
 >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-如果你使用的是 PyQt 或 PySide 界面系统（当前仅支持 PyQt），还可以在不编写 Manipulator 子类的情况下直接编写一些简单的鼠标键盘响应。每当有键盘鼠标事件发生时，``camera.screen`` 都会有相应的信号发出，这些信号包括：
+如果你使用的是 PyQt 或 PySide 界面系统，还可以在不编写 Manipulator 子类的情况下直接编写一些简单的鼠标键盘响应。每当有键盘鼠标事件发生时，``camera.screen`` 都会有相应的信号发出，这些信号包括：
 
 - ``mouse_pressed(button:Manipulator.MouseButton, screen_pos:glm.vec2, global_pos:glm.vec2)``: 鼠标按钮按下信号
 - ``mouse_released(button:Manipulator.MouseButton, screen_pos:glm.vec2, global_pos:glm.vec2)``: 鼠标按钮松开信号

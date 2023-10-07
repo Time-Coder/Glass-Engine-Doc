@@ -83,16 +83,16 @@
 渲染提示
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-渲染提示同样能一定程度的修改网格的视觉效果，可通过网格对象的 ``render_hint`` 属性访问到该网格的渲染提示，下面是一些常用的渲染提示设置：
+渲染提示同样能一定程度的修改网格的视觉效果，可通过网格对象的 ``render_hints`` 属性访问到该网格的渲染提示，下面是一些常用的渲染提示设置：
 
-- ``render_hint.polygon_mode``：多边形渲染模式，默认为 ``GL.GL_FILL`` 以填充模式渲染，可设置为如下枚举值：
+- ``render_hints.polygon_mode``：多边形渲染模式，默认为 ``GL.GL_FILL`` 以填充模式渲染，可设置为如下枚举值：
 	- ``GL.GL_FILL``：以填充方式渲染
 	- ``GL.GL_LINE``：以线框模式渲染
 	- ``GL.GL_POINT``：以点模式渲染
-- ``render_hint.line_width : int``：以线框模式渲染时，指定线宽，单位为像素，默认为 1；
-- ``render_hint.point_size : int``：以点模式渲染时，指定点大小，单位为像素，默认为 1；
-- ``render_hint.depth_test : bool``：是否进行深度测试，默认为 ``True``，如果想要该网格永远不被遮挡，可将其设置为 ``False``；
-- ``render_hint.cull_face``：面剔除方式，默认为 ``None`` 不剔除，可设置为如下枚举值：
+- ``render_hints.line_width : int``：以线框模式渲染时，指定线宽，单位为像素，默认为 1；
+- ``render_hints.point_size : int``：以点模式渲染时，指定点大小，单位为像素，默认为 1；
+- ``render_hints.depth_test : bool``：是否进行深度测试，默认为 ``True``，如果想要该网格永远不被遮挡，可将其设置为 ``False``；
+- ``render_hints.cull_face``：面剔除方式，默认为 ``None`` 不剔除，可设置为如下枚举值：
 	- ``GL.GL_BACK``：背面剔除
 	- ``GL.GL_FRONT``：正面剔除
 	- ``GL.GL_FRONT_AND_BACK``：双面剔除
@@ -104,9 +104,9 @@
 
 ::
 
-	# sphere.render_hint.polygon_mode = GL.GL_FILL # 以填充模式渲染
-	sphere.render_hint.polygon_mode = GL.GL_LINE # 以线框模式渲染
-	# sphere.render_hint.polygon_mode = GL.GL_POINT # 以点模式渲染
+	# sphere.render_hints.polygon_mode = GL.GL_FILL # 以填充模式渲染
+	sphere.render_hints.polygon_mode = GL.GL_LINE # 以线框模式渲染
+	# sphere.render_hints.polygon_mode = GL.GL_POINT # 以点模式渲染
 
 可以得到图 5 所示的三种渲染效果：
 

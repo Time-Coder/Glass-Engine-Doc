@@ -21,7 +21,14 @@
 基础属性与方法
 ~~~~~~~~~~~~~~~~~
 
-相机对象 ``camera`` 的属性 ``screen`` 就是 3D 视口，其为 GUI 控件。由于目前仅支持 PyQt，因此 ``camera.screen`` 就是一个 ``QWidget``，可布局到 Qt 界面的任何位置。``camera.screen`` 中显示的即为相机看到的内容。除此之外，相机对象还拥有以下可读写属性：
+相机对象 ``camera`` 的属性 ``screen`` 就是 3D 视口，其为 GUI 控件。由于目前仅支持 PyQt/PySide，因此 ``camera.screen`` 就是一个 ``QWidget``，可布局到 Qt 界面的任何位置。``camera.screen`` 中显示的即为相机看到的内容。可在创建相机对象时，通过指定 ``gui_system:str`` 参数来改变 ``camera.screen`` 的 GUI 控件类型。目前支持的 GUI 系统包括 PySide6、PySide2、PyQt6、PyQt5，可分别通过如下代码指定：
+
+- ``camera = Camera(gui_system="PySide6")``
+- ``camera = Camera(gui_system="PySide2")``
+- ``camera = Camera(gui_system="PyQt6")``
+- ``camera = Camera(gui_system="PyQt5")``
+
+除 ``screen`` 之外，相机对象还拥有以下可读写属性：
 
 - ``lens : Camera.Lens``：相机镜头，其中有一些参数供 :ref:`label_DOF` 和 :ref:`label_Explosure` 的 :ref:`label_PPEs` 使用；
 - ``projection_mode : Camera.ProjectionMode``：投影模式，包括下列枚举值：
