@@ -6,9 +6,9 @@
 
 **Glass Engine** 是一个 Python 原生的 3D 实时渲染引擎，免费开源。你可以使用它在你的 Python 程序界面的任何位置嵌入可交互的 3D 画面。与同类产品 Unreal Engine、Unity 3D、OSG、OGRE、Panda3D 等相比，**Glass Engine** 具有如下优势：
 
-- 更加轻量小体积，``pip install glass-engine`` 直接安装；
+- 不引入新的界面系统，可直接在你熟悉的 Python 界面系统中嵌入 3D 视口（目前支持 PySide6/PySide2/PyQt6/PyQt5，计划支持 Tkinter/wxPython/PyGTK/PyGame），能够更方便的与渲染之外的逻辑进行交互；
 - 更加直观易用，开发逻辑和编程接口更加符合人类直觉；
-- Python 原生，并不是对 C++ 程序的 Python 绑定，行为更加 Pythonic；
+- Python 原生，并不是对 C++ 程序的 Python 绑定，行为更加 Pythonic。
 
 在渲染方面，**Glass Engine** 具有以下特色：
 
@@ -39,58 +39,67 @@
 **Glass Engine** 当前为 0.1.* 版本，后续将不断迭代升版，后续 10 个版本的开发计划为：
 
 - 0.1.* 版本：基本渲染架构（已完成）
-	- |checkbox-checked| 渲染基本要素：场景图、光源、相机、网格、简单材质系统、模型加载
+	- |checkbox-checked| 渲染基本要素：场景图、光源、阴影、相机、网格、简单材质系统、模型加载
 	- |checkbox-checked| 场景环境：天空盒、天空穹顶、雾
 	- |checkbox-checked| 后处理效果：SSAO、HDR、LUT、FXAA、景深、泛光、自定义后效
 	- |checkbox-checked| 常见渲染管线：前向渲染、延迟着色法、自定义管线
 	- |checkbox-checked| 键鼠交互模式：场景漫游、模型浏览、自定义模式
 - 0.2.* 版本：完善渲染要素
-	- |checkbox-unchecked| 高级软阴影算法：CSM、VSM、ESM、MSM、VSSM、EVSM
-	- |checkbox-unchecked| 半透明物体阴影、折射体阴影
 	- |checkbox-unchecked| 基于有符号距离场的文字渲染
-	- |checkbox-unchecked| IBL 以及 Specular/Glossiness 工作流的 PBR
-	- |checkbox-unchecked| BVH 树、视锥体剔除以及自动 Lod 等提高渲染效率的算法
+	- |checkbox-unchecked| 任意多边形三角网构建
+	- |checkbox-unchecked| 点云数据三角化
+	- |checkbox-unchecked| 网格布尔运算
+	- |checkbox-unchecked| 鼠标点选拾取功能
 	- |checkbox-unchecked| USD 格式保存
 - 0.3.* 版本：完善渲染要素
+	- |checkbox-unchecked| 高级软阴影算法：CSM、VSM、ESM、MSM、VSSM、EVSM
+	- |checkbox-unchecked| 半透明物体阴影、折射体阴影
+	- |checkbox-unchecked| 平面镜反射效果
+	- |checkbox-unchecked| SSR 屏幕空间反射后处理效果
+	- |checkbox-unchecked| IBL 以及 Specular/Glossiness 工作流的 PBR
+	- |checkbox-unchecked| BVH 树、视锥体剔除以及自动 Lod 等提高渲染效率的算法
+- 0.4.* 版本：完善渲染要素
 	- |checkbox-unchecked| 更多高级着色模型：清漆、次表面、皮肤、毛发、布料等，向 Unreal Engine 看齐
 	- |checkbox-unchecked| 自定义着色模型
 	- |checkbox-unchecked| 面光源
 	- |checkbox-unchecked| 粒子特效
 	- |checkbox-unchecked| 骨骼动画、顶点动画
-- 0.4.* 版本：完善空间环境渲染
+- 0.5.* 版本：完善空间环境渲染
+	- |checkbox-unchecked| 随机地形、tif 地形
 	- |checkbox-unchecked| 体积光/丁达尔效应
 	- |checkbox-unchecked| 体积雾
 	- |checkbox-unchecked| 体积云
 	- |checkbox-unchecked| 雨、雪
 	- |checkbox-unchecked| 大气散射模型
-- 0.5.* 版本：跨 Python 端 GUI 框架
-	- |checkbox-unchecked| 支持 PySide
+- 0.6.* 版本：跨 Python 端 GUI 框架
 	- |checkbox-unchecked| 支持 Tkinter
 	- |checkbox-unchecked| 支持 PyGame
 	- |checkbox-unchecked| 支持 PyGTK
-- 0.6.* 版本：跨图形编程接口
+	- |checkbox-unchecked| 支持 wxPython
+- 0.7.* 版本：跨图形编程接口
 	- |checkbox-unchecked| 支持 Vulkan
 	- |checkbox-unchecked| 支持 Direct 3D
 	- |checkbox-unchecked| 支持 Metal
-- 0.7.* 版本：|checkbox-unchecked| 支持音效
-- 0.8.* 版本：|checkbox-unchecked| 支持物理
-- 0.9.* 版本：|checkbox-unchecked| 支持网络
+- 0.8.* 版本：|checkbox-unchecked| 支持音效
+- 0.9.* 版本：|checkbox-unchecked| 支持物理
+- 0.10.* 版本：|checkbox-unchecked| 支持网络
 - 1.0.* 版本：|checkbox-unchecked| Glass Engine Editor 编辑器
 
 
 第三方库引用情况
 ~~~~~~~~~~~~~~~~~~~~
 
-**Glass Engine** 基本上完全基于 PyOpenGL 开发，在一些细节方面还引用了一些其他第三方库，现在列举如下：
+**Glass Engine** 基本上完全基于 PyOpenGL 开发，在一些细节方面还引用了一些其他第三方库，重要的库包括：
 
-- `PyOpenGL <https://pyopengl.sourceforge.net/>`_: 提供渲染的底层接口；
-- `PyQt6 <https://www.riverbankcomputing.com/software/pyqt/>`_: 用作 OpenGL 的窗口系统。目前仅支持 PyQt6 窗口系统，对其他 GUI 系统的支持则在进一步的开发计划当中；
-- `PyGLM <https://pypi.org/project/PyGLM/>`_: 用于存储向量、四元数；
-- `Numpy <https://numpy.org/>`_: 用于管理连续内存、做矩阵运算等；
-- `OpenCV <https://pypi.org/project/opencv-python/>`_: 用于加载纹理图像、转换图片格式；
-- `Pillow <https://python-pillow.org/>`_: 用于加载一些特殊格式纹理图像；
-- `OpenEXR <https://pypi.org/project/OpenEXR/>`_: 用于加载 exr 格式的 HDR 图像；
-- `Assimp <https://github.com/assimp/assimp>`_: 用于加载模型。
+- `PyOpenGL <https://pyopengl.sourceforge.net/>`_：提供渲染的底层接口；
+- `PySide <https://wiki.qt.io/Qt_for_Python>`_/`PyQt <https://www.riverbankcomputing.com/software/pyqt/>`_：用作 OpenGL 的窗口系统。目前仅支持 PySide2/PySide6/PyQt5/PyQt6 窗口系统，对其他 GUI 系统（Tkinter/wxPython/PyGTK/PyGame）的支持则在进一步的开发计划当中；
+- `qt-material <https://pypi.org/project/qt-material/>`_：用于美化示例程序的界面；
+- `PyGLM <https://pypi.org/project/PyGLM/>`_：用于存储向量、四元数；
+- `Numpy <https://numpy.org/>`_：用于管理连续内存、做矩阵运算等；
+- `OpenCV <https://pypi.org/project/opencv-python/>`_：用于加载纹理图像、转换图片格式；
+- `Pillow <https://python-pillow.org/>`_：用于加载一些特殊格式纹理图像；
+- `pyroexr <https://pypi.org/project/pyroexr/>`_：用于加载 exr 格式的 HDR 图像；
+- `Assimp <https://github.com/assimp/assimp>`_：用于加载模型。
 
 联系方式
 ~~~~~~~~~~~~~~~~
@@ -112,23 +121,11 @@
 
 **Glass Engine** 完全使用 `MIT 开源许可证 <https://mit-license.org/>`_，没有任何附加条款，该许可指出：任何人可在不受限制的情况下处理本软件，包括但不限于使用、复制、修改、合并、发布、分发、分许可和出售。只有一点需要遵守的条件，就是在你使用 **Glass Engine** 开发并发布的软件目录下，必须放置一份 **Glass Engine** 的许可文件，除此之外，别无任何限制。
 
-::
+	| The MIT License (MIT)
+	| Copyright © 2023 王炳辉 (Bing-Hui WANG)
+	| 
+	| Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-	The MIT License (MIT)
-	Copyright © 2023 王炳辉 (Bing-Hui WANG)
+	| The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-	Permission is hereby granted, free of charge, to any person obtaining a copy of this 
-	software and associated documentation files (the "Software"), to deal in the Software 
-	without restriction, including without limitation the rights to use, copy, modify, merge, 
-	publish, distribute, sublicense, and/or sell copies of the Software, and to permit 
-	persons to whom the Software is furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in all copies 
-	or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
-	INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
-	PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE 
-	FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
-	OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-	DEALINGS IN THE SOFTWARE.
+	| THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
