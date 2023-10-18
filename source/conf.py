@@ -9,7 +9,7 @@
 project = 'Glass Engine'
 copyright = '2023, 王炳辉'
 author = '王炳辉'
-release = '0.1.16'
+release = '0.1.23'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
