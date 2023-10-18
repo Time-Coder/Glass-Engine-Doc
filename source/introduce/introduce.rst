@@ -17,7 +17,7 @@
 - 用户透明的顶点共享机制，使得相同参数几何体共用同一组顶点和索引，提高渲染效率；
 - 支持 :ref:`label_self_geo` 的动态构建，无需模型文件也能创建丰富场景；
 - 内置三十多种 :ref:`label_geometries`，对一些简单几何体的创建无需从模型加载也不需要自定义顶点索引；
-- 支持超过四十种模型文件格式的 :ref:`label_model` 加载；
+- 支持超过四十种模型文件格式的 :ref:`label_model`；
 - 支持多种 :ref:`label_shading_models`，包括 :ref:`label_Flat`、:ref:`label_Gouraud`、:ref:`label_Phong`、:ref:`label_PhongBlinn`、:ref:`label_Toon`、:ref:`label_OrenNayar`、:ref:`label_Minnaert`、:ref:`label_Fresnel`、:ref:`label_PBR` 等；
 - 支持 :ref:`label_multi_cameras` 多视口，多视口共享场景资源；
 - 用户透明的 Shader 预编译和增量编译过程，可极大程度提高程序启动速度；

@@ -122,4 +122,15 @@
 
    图 5. 添加了天空穹顶的场景
 
-一般情况下，你下载到的天空穹顶图片大多是 .exr 格式或 .hdr 格式，不用担心，在 **Glass Engine** 中可以直接使用。
+一般情况下，你下载到的天空穹顶图片大多是 .exr 格式或 .hdr 格式，不用担心，在 **Glass Engine** 中可以直接使用。另外，天空穹顶图片还可以直接从网址加载：
+
+::
+
+   from glass_engine import *
+
+   scene, camera, light, floor = SceneRoam()
+   scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
+
+   camera.screen.show()
+
+事实上，在 **Glass Engine** 中，所有接收图片路径字符串的参数或属性，均可传入一个有效的图片网址。

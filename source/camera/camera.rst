@@ -94,7 +94,7 @@
 	app = QApplication([])
 
 	scene = Scene()
-	scene.skydome = "industrial_sunset_puresky_4k.exr"
+	scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/industrial_sunset_puresky.jpg"
 
 	# 添加模型
 	model = Model("sofa_03_4k.gltf")
@@ -169,4 +169,4 @@
 
    图 1. 多相机多视口观察场景
 
-其中的 :ref:`label_skydome` 图片和沙发 :ref:`label_model` 均下载自 https://polyhaven.com
+你可以从这里下载 `沙发模型 <https://polyhaven.com/a/sofa_03>`_。

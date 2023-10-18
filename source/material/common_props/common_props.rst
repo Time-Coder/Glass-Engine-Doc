@@ -114,7 +114,7 @@
     from glass_engine.Geometries import *
 
     scene, camera, light, _ = SceneRoam()
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
 
     sphere = Sphere()
     sphere.position.z = 1
@@ -159,7 +159,7 @@
     from glass_engine.Geometries import *
 
     scene, camera, light, _ = SceneRoam()
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
 
     sphere1 = Sphere()
     sphere1.position.z = 1
@@ -232,7 +232,7 @@
     from glass_engine.Geometries import *
 
     scene, camera, light, _ = SceneRoam()
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
 
     sphere1 = Sphere()
     sphere1.position.z = 1
@@ -299,7 +299,7 @@
 
     scene, camera, dir_light, _ = SceneRoam()
     scene.fog.density = 0.05 # 设置雾密度
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
     scene.background.distance = 20
 
     sphere1 = Sphere()
@@ -335,7 +335,7 @@
     from glass_engine.Geometries import *
 
     scene, camera, dir_light, _ = SceneRoam()
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
 
     sphere1 = Sphere()
     sphere1.position.z = 1
@@ -370,7 +370,7 @@
     from glass_engine.Geometries import *
 
     scene, camera, dir_light, _ = SceneRoam()
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
     dir_light.yaw = 90
 
     sphere1 = Sphere()
@@ -434,7 +434,7 @@
 - ``material.height_map``：凹凸贴图
 - ``material.arm_map``：环境光遮蔽、粗糙度、金属度压缩格式贴图
 
-所有纹理贴图可直接设置为图片的名称。你可以从 https://polyhaven.com/textures 下载到大量的纹理贴图，也可使用 :ref:`label_shadertory`。例如，下述代码将下载到的 `鹅卵石纹理 <https://polyhaven.com/a/ganges_river_pebbles>`_ 贴到一个立方体表面：
+所有纹理贴图可直接设置为图片路径或网址字符串。你可以从 https://polyhaven.com/textures 下载到大量的纹理贴图，也可使用 :ref:`label_shadertory`。例如，下述代码将下载到的 `鹅卵石纹理 <https://polyhaven.com/a/ganges_river_pebbles>`_ 贴到一个立方体表面：
 
 ::
 
@@ -442,7 +442,7 @@
     from glass_engine.Geometries import *
 
     scene, camera, dir_light, _ = SceneRoam()
-    scene.skydome = "sunflowers_puresky_4k.exr"
+    scene.skydome = "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/sunflowers_puresky.jpg"
 
     box = Box()
     box.position.z = 0.5

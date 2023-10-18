@@ -1,7 +1,10 @@
 .. _label_model:
 
-模型
+模型加载
 ====================
+
+模型加载
+~~~~~~~~~~~~~~~~~~~
 
 得益于 `assimp <https://assimp-docs.readthedocs.io/en/latest/about/introduction.html#dependencies>`_，**Glass Engine** 支持以下格式的 3D 模型加载：
 
@@ -145,8 +148,3 @@
 ::
 
 	Model(file_name, extra_flags=(Model.PostProcessSteps.ForceGenNormals | Model.PostProcessSteps.GenSmoothNormals))
-
-模型共享
-~~~~~~~~~~~~~~~
-
-默认情况下，创建出来的模型是共享的，再次使用相同文件路径和相同 flags 创建的模型则会直接使用上一次加载的模型的根节点，并在渲染时使用实例化渲染。然而，共享会导致的一个问题就是修改其中一个模型的任意参数会导致与其共享的所有模型均改变。如果你想取消共享，则在创建模型时传入 ``shared=False`` 参数即可。
