@@ -15,13 +15,13 @@
 
 ::
 
-    pip install glass-engine
+    pip install glass-engine --upgrade
 
 如果你是中国区用户，则可以使用如下命令加速其安装：
 
 ::
 
-    pip install glass-engine -i https://pypi.tuna.tsinghua.edu.cn/simple
+    pip install glass-engine --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 接下来，让我们通过一个简单例子来直观感受一下 **Glass Engine** 的使用过程：
 
@@ -68,6 +68,7 @@
    :caption: 目录:
 
    introduce/introduce
+   installation/installation
    getting_start/getting_start
    scene_graph/scene_graph
    transform/transform

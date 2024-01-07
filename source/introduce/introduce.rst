@@ -93,7 +93,6 @@
 
 - `PyOpenGL <https://pyopengl.sourceforge.net/>`_：提供渲染的底层接口；
 - `PySide <https://wiki.qt.io/Qt_for_Python>`_/`PyQt <https://www.riverbankcomputing.com/software/pyqt/>`_：用作 OpenGL 的窗口系统。目前仅支持 PySide2/PySide6/PyQt5/PyQt6 窗口系统，对其他 GUI 系统（Tkinter/wxPython/PyGTK/PyGame）的支持则在进一步的开发计划当中；
-- `qt-material <https://pypi.org/project/qt-material/>`_：用于美化示例程序的界面；
 - `PyGLM <https://pypi.org/project/PyGLM/>`_：用于存储向量、四元数；
 - `Numpy <https://numpy.org/>`_：用于管理连续内存、做矩阵运算等；
 - `OpenCV <https://pypi.org/project/opencv-python/>`_：用于加载纹理图像、转换图片格式；
