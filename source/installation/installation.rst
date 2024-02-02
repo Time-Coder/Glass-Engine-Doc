@@ -3,13 +3,18 @@
 
 操作系统要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-目前 **Glass Engine** 仅支持 Windows，对支持 Linux 和 Mac OS 的支持在开发计划当中。如果您需要 Linux 和 Mac OS 版，请在 `github <https://github.com/Time-Coder/Glass-Engine>`_ 或 `gitee <https://gitee.com/time-coder/Glass-Engine>`_ 上提交 issue，我看到后会将支持 Linux 和 Mac OS 的工作优先处理。
+目前 **Glass Engine** 支持以下平台：
 
-对操作系统位数而言，**Glass Engine** 对 win32 和 x64 均支持。
+- AMD64 架构的 Windows 64bit 与 32bit
+- x86_64 架构的 Linux 64bit
+- aarch64 架构的 Linux 64bit
+- x86_64 架构的 macOS 14 64bit
+
+如需要支持其他平台，请通过 `Github <https://github.com/Time-Coder/Glass-Engine>`_ 或 `Gitee <https://gitee.com/time-coder/Glass-Engine>` 平台提 issue，或直接通过邮箱 binghui.wang@foxmail.com 联系作者本人进行支持。
 
 Python 版本要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-**Glass Engine** 要求 Python 版本大于等于 3.7，并不打算支持低版本的 Python 。
+**Glass Engine** 要求 Python 版本大于等于 3.7，并不打算支持更低版本的 Python 。
 
 显卡要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,37 +43,14 @@ Python 版本要求
 
     pip install glass-engine --upgrade -i https://pypi.tuna.tsinghua.edu.cn/simple
 
-如果在安装依赖 PyOpenGL-accelerate 时报出如下错误：
+如果你已经安装 0.1.30 及以下版本的 Glass-Engine，并需要往更高版本更新，请先使用如下命令删除老版本的 Glass-Engine
 
 ::
 
-    Building wheel for PyOpenGL-accelerate (pyproject.toml) ... error
-      error: subprocess-exited-with-error
+    pip uninstall glass-engine
 
-      × Building wheel for PyOpenGL-accelerate (pyproject.toml) did not run successfully.
-      │ exit code: 1
-      ╰─> [14 lines of output]
-          running bdist_wheel
-          running build
-          running build_py
-          creating build
-          creating build\lib.win-amd64-cpython-312
-          creating build\lib.win-amd64-cpython-312\OpenGL_accelerate
-          copying OpenGL_accelerate\__init__.py -> build\lib.win-amd64-cpython-312\OpenGL_accelerate
-          running build_ext
-          C:\Users\wenzhan\AppData\Local\Temp\pip-build-env-rbsildcn\overlay\Lib\site-packages\Cython\Compiler\Main.py:381: FutureWarning: Cython directive 'language_level' not set, using '3str' for now (Py3). This has changed from earlier releases! File: C:\Users\wenzhan\AppData\Local\Temp\pip-install-damfrb3k\pyopengl-accelerate_03c836a626714ba48530f392b41f41a5\OpenGL_accelerate\wrapper.pxd
-            tree = Parsing.p_module(s, pxd, full_module_name)
-          Compiling src\wrapper.pyx because it changed.
-          [1/1] Cythonizing src\wrapper.pyx
-          building 'OpenGL_accelerate.wrapper' extension
-          error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
-          [end of output]
+随后再进行新版本的安装。否则将会在导入 glass_engine 时报出如下错误：
 
-      note: This error originates from a subprocess, and is likely not a problem with pip.
-      ERROR: Failed building wheel for PyOpenGL-accelerate
-    Failed to build PyOpenGL-accelerate
-    ERROR: Could not build wheels for PyOpenGL-accelerate, which is required to install pyproject.toml-based projects
+::
 
-这是因为 PyOpenGL-accelerate 还没有正式支持 Python 3.12，而你恰好在使用 Python 3.12 并且电脑里没有安装 Microsoft Visual Studio，无法通过源码编译 PyOpenGL-accelerate 进行安装。
-
-解决办法为：到 `github <https://github.com/Time-Coder/Glass-Engine/tree/main/PyOpenGL-accelerate>`_ 或 `gitee <https://gitee.com/time-coder/Glass-Engine/tree/main/PyOpenGL-accelerate>`_ 手动下载 PyOpenGL-accelerate for Python 3.12 的 wheel 包并使用 pip install 进行安装。
+    ModuleNotFoundError: No module named 'glass'
