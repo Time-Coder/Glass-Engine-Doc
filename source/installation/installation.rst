@@ -10,7 +10,7 @@
 - aarch64 架构的 Linux 64bit
 - x86_64 架构的 macOS 14 64bit
 
-如需要支持其他平台，请通过 `Github <https://github.com/Time-Coder/Glass-Engine>`_ 或 `Gitee <https://gitee.com/time-coder/Glass-Engine>` 平台提 issue，或直接通过邮箱 binghui.wang@foxmail.com 联系作者本人进行支持。
+如需要支持其他平台，请通过 `Github <https://github.com/Time-Coder/Glass-Engine>`_ 或 `Gitee <https://gitee.com/time-coder/Glass-Engine>`_ 平台提 issue，或直接通过邮箱 binghui.wang@foxmail.com 联系作者本人进行支持。
 
 Python 版本要求
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

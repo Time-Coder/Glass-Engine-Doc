@@ -90,8 +90,8 @@
 
 你可以从这两个网站下载到大量免费的高质量 **天空穹顶** 贴图。
 
-* https://polyhaven.com/hdris
-* https://www.textures.com/browse/hdr-spheres/114552
+* `polyhaven <https://polyhaven.com/hdris>`_
+* `textures <https://www.textures.com/browse/hdr-spheres/114552>`_
 
 例如，我下载了一张天空穹顶图片 `sunflowers_puresky_4k.exr <https://polyhaven.com/a/sunflowers_puresky>`_  如图 4 所示：
 

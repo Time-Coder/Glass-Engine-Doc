@@ -117,7 +117,7 @@ HDR 色调映射
 
    图 4. 开启与不开启色调映射的对比
 
-在上述场景中添加了两个光源，因此如果不开启色调映射，图像将产生过曝，如上图左边所示。开启色调映射之后，过亮处细节也可以得到保留。（场景中模型均下载自 https://polyhaven.com）
+在上述场景中添加了两个光源，因此如果不开启色调映射，图像将产生过曝，如上图左边所示。开启色调映射之后，过亮处细节也可以得到保留。（场景中模型均下载自 `polyhaven <https://polyhaven.com>`_）
 
 LUT 滤镜
 ~~~~~~~~~~~~~~~~
@@ -137,7 +137,7 @@ LUT 滤镜
     from glass_engine.PostProcessEffects import *
     camera.screen.post_process_effects["lut"] = LUTEffect("test.cube")
 
-即可让画面达到相同的调色效果。如果你不想自己调色，可以从 https://freshluts.com/ 下载大量免费的 cube 文件以供直接使用。创建的 LUT 后效 ``lut_effect = LUTEffect("test.cube")`` 含有两个可控属性：
+即可让画面达到相同的调色效果。如果你不想自己调色，可以从 `freshluts <https://freshluts.com/>`_ 下载大量免费的 cube 文件以供直接使用。创建的 LUT 后效 ``lut_effect = LUTEffect("test.cube")`` 含有两个可控属性：
 
 - ``lut_effect.contribute:float``：贡献度，默认为 1，表示 LUT 作用后的图像与原图的混合比例；
 - ``lut_effect.LUT:str``：LUT 的 cube 文件名称，可运行中途切换，也可为 LUT 图像文件名称；

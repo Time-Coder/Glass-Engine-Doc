@@ -55,8 +55,8 @@
 
 在 **Glass Engine** 中加载 3D 模型十分简单，只需使用 ``Model(file_name)`` 创建对象即可。你可以从下列网站下载到大量免费的 3D 模型：
 
-- https://polyhaven.com/models
-- https://free3d.com/
+- `polyhaven <https://polyhaven.com/models>`_
+- `free3d <https://free3d.com/>`_
 
 例如，我下载了一个 `帆船 <https://polyhaven.com/a/ship_pinnace>`_ 的模型，然后用下述代码将其加载到 **Glass Engine** 中显示：
 

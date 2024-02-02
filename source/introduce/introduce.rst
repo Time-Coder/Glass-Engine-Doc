@@ -105,13 +105,13 @@
 
 **Glass Engine** 目前仅有一人维护，如果有任何 bug、新需求或想要参与开发，可在以下项目主页提交 issue 或 pull request：
 
-- Github 项目主页：https://github.com/Time-Coder/Glass-Engine
-- Gitee 项目主页：https://gitee.com/time-coder/Glass-Engine
+- `Github 项目主页 <https://github.com/Time-Coder/Glass-Engine>`_
+- `Gitee 项目主页 <https://gitee.com/time-coder/Glass-Engine>`_
 
 如有任何关于本文档的问题，可在以下文档项目主页提交 issue 或 pull request：
 
-- Github 项目主页：https://github.com/Time-Coder/Glass-Engine-Doc
-- Gitee 项目主页：https://gitee.com/time-coder/Glass-Engine-Doc
+- `Github 项目主页 <https://github.com/Time-Coder/Glass-Engine-Doc>`_
+- `Gitee 项目主页 <https://gitee.com/time-coder/Glass-Engine-Doc>`_
 
 或者，你还可以通过邮箱 binghui.wang@foxmail.com 直接联系到作者本人。
 
